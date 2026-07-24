@@ -1,0 +1,663 @@
+openapi: 3.0.1
+info:
+  title: Rocketlane Comments API
+  description: Rocketlane API
+  version: '1.0'
+servers:
+- url: https://api.rocketlane.com/api
+  description: Production
+- url: https://api.nitro.run/api
+  description: Staging
+- url: https://project.api.orbits.run/api
+  description: Orbits
+security:
+- api-key:
+  - 'read : write'
+tags:
+- name: Comments
+  description: Endpoints for comments resource
+paths:
+  /1.0/comments/{commentId}:
+    get:
+      tags:
+      - Comments
+      summary: Get comment
+      description: The Get Comment API allows users to retrieve the details of a specific comment using its unique commentId. This endpoint provides structured data on the comment, including its content, author details, timestamps, and associated project or conversation. This API is particularly useful for applications that need to fetch and display specific comments within a project or conversation thread.
+      operationId: get-comment
+      parameters:
+      - name: commentId
+        in: path
+        description: The ID of the comment object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      - name: includeFields
+        in: query
+        description: This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - attachments
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    put:
+      tags:
+      - Comments
+      summary: Update comment
+      description: The Update Comment API allows users to modify an existing comment within a conversation using its unique commentId. This endpoint enables updates to the comment content, status, or metadata while preserving its original context within the conversation. This API is particularly useful for making corrections, appending additional information, or updating comment visibility.
+      operationId: update-comment
+      parameters:
+      - name: commentId
+        in: path
+        description: The ID of the comment object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      - name: includeFields
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentPublicUpdateRequestAPIEntity'
+        required: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    delete:
+      tags:
+      - Comments
+      summary: Delete comment
+      description: The Delete Comment API allows users to permanently remove a comment from a conversation using its unique commentId. This endpoint is useful for maintaining conversation hygiene, removing outdated or inappropriate comments, and managing project discussions effectively. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the comment has been successfully removed with no response body.
+      operationId: delete-comment
+      parameters:
+      - name: commentId
+        in: path
+        description: The ID of the message object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      responses:
+        '204':
+          description: The resource was successfully removed from the database.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+  /1.0/comments:
+    get:
+      tags:
+      - Comments
+      summary: Get all comments
+      description: The Get All Comments API allows users to retrieve all comments within a specific conversation in a project using its unique conversationId. This endpoint returns a paginated response containing all comments associated with the conversation, along with metadata such as timestamps, author details, and status. This API is useful for applications that need to display conversation threads, track discussions, or analyze collaboration trends within a project.
+      operationId: get-comments
+      parameters:
+      - name: sourceType
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: string
+          enum:
+          - TASK
+          - PROJECT_CONVERSATIONS
+      - name: pageSize
+        in: query
+        description: This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.
+        schema:
+          minimum: 0
+          type: number
+          format: int32
+          example: 100
+      - name: pageToken
+        in: query
+        description: Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.
+        schema:
+          type: string
+          example: 59c12a42-dd10-11ed-afa1-0242ac120002
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        schema:
+          type: boolean
+          example: true
+      - name: sortOrder
+        in: query
+        description: The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+      - name: match
+        in: query
+        description: You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.
+        schema:
+          type: string
+          enum:
+          - all
+          - any
+      - name: createdBy.eq
+        in: query
+        description: You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.
+        schema:
+          type: number
+          example: 5
+      - name: createdAt.gt
+        in: query
+        description: You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.
+        schema:
+          type: integer
+          format: int64
+          example: 1625164800000
+      - name: createdAt.eq
+        in: query
+        description: You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.
+        schema:
+          type: integer
+          format: int64
+          example: 1625164800000
+      - name: createdAt.lt
+        in: query
+        description: You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.
+        schema:
+          type: integer
+          format: int64
+          example: 1625164800000
+      - name: createdAt.ge
+        in: query
+        description: You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.
+        schema:
+          type: integer
+          format: int64
+          example: 1625164800000
+      - name: createdAt.le
+        in: query
+        description: You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.
+        schema:
+          type: integer
+          format: int64
+          example: 1625164800000
+      - name: includeFields
+        in: query
+        description: Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - attachments
+      - name: isPrivate.eq
+        in: query
+        description: Filter by private conversations
+        schema:
+          type: boolean
+          example: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExampleAPIResponseComments'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    post:
+      tags:
+      - Comments
+      summary: Create a comment
+      description: The Create Comment API allows users to add a comment to a specific conversation within a project. This endpoint enables seamless collaboration by allowing team members to contribute to discussions, provide updates, or share feedback. Upon a successful request, the API returns the newly created comment along with metadata such as timestamps, author details, and status.
+      operationId: create-comment
+      parameters:
+      - name: includeFields
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentPublicAPIRequestEntity'
+      responses:
+        '201':
+          description: The resource was successfully created in the database.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '500':
+          description: This error denotes that there is an error that occured within our servers. The response body could help narrow down the cause for the error by our support team.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serverErrorErrorlist'
+components:
+  schemas:
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
+    CommentPublicAPIRequestEntity:
+      required:
+      - content
+      - source
+      type: object
+      properties:
+        content:
+          type: string
+          description: Content of the comment
+          example: This is a comment
+        source:
+          $ref: '#/components/schemas/CommentSourcePublicAPIRequestEntity'
+        attachments:
+          type: array
+          description: List of attachments associated with the comment
+          items:
+            $ref: '#/components/schemas/CommentAttachmentPublicAPIRequestEntity'
+        private:
+          type: boolean
+    notFoundErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example404'
+    CommentSourcePublicAPIResponseEntity:
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the comment
+          format: int64
+          example: 201
+        sourceType:
+          minimum: 1
+          type: string
+          description: Source Type attached to the comment
+          example: PROJECT_CONVERSATIONS
+          enum:
+          - TASK
+          - PROJECT_CONVERSATIONS
+      description: Source associated with the comment
+    ExamplePaginationConversations:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/projects/1/conversations?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    CommentCreatedByResponsePublicAPIEntity:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: Details of the user who created the comment
+    badRequestErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example400'
+    CommentSourcePublicAPIRequestEntity:
+      required:
+      - sourceId
+      - sourceType
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the comment
+          format: int64
+          example: 201
+        sourceType:
+          type: string
+          description: Source Type attached to the comment
+          example: PROJECT_CONVERSATIONS
+          enum:
+          - TASK
+          - PROJECT_CONVERSATIONS
+      description: Source associated with the comment
+    CommentPublicUpdateRequestAPIEntity:
+      type: object
+      properties:
+        commentId:
+          minimum: 1
+          type: integer
+          description: Comment ID
+          format: int64
+          readOnly: true
+          example: 201
+        content:
+          type: string
+          description: Updated comment content
+          example: This is an updated comment
+        private:
+          type: boolean
+    serverErrorErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example500'
+    Example400:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: BAD_REQUEST
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
+    CommentAttachmentPublicAPIRequestEntity:
+      required:
+      - file
+      type: object
+      properties:
+        attachmentId:
+          type: integer
+          description: Attachment ID
+          format: int64
+          example: 201
+        file:
+          type: string
+          format: binary
+      description: List of attachments associated with the comment
+    Example500:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: SERVER_ERROR
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Server Error: Something went wrong on our end. Could not perform the requested action.'
+    CommentPublicResponseAPIEntity:
+      required:
+      - source
+      type: object
+      properties:
+        commentId:
+          minimum: 1
+          type: integer
+          description: Unique identifier for the comment
+          format: int64
+          readOnly: true
+          example: 201
+        content:
+          type: string
+          description: Content of the comment
+          example: This is a sample comment
+        createdAt:
+          type: integer
+          description: Timestamp representing the creation time of the comment
+          format: int64
+          readOnly: true
+          example: 1681319726000
+        createdBy:
+          $ref: '#/components/schemas/CommentCreatedByResponsePublicAPIEntity'
+        source:
+          $ref: '#/components/schemas/CommentSourcePublicAPIResponseEntity'
+        attachments:
+          type: array
+          description: List of attachments associated with the comment
+          items:
+            $ref: '#/components/schemas/CommentAttachmentPublicAPIResponseEntity'
+        private:
+          type: boolean
+          description: Indicates whether the comment is private or public
+          example: true
+      description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+    CommentAttachmentPublicAPIResponseEntity:
+      type: object
+      properties:
+        attachmentId:
+          type: integer
+          description: Attachment ID
+          format: int64
+          example: 201
+        attachmentName:
+          type: string
+          description: Attachment Name
+          example: test_upload.png
+        createdAt:
+          type: integer
+          description: Attachment Created timestamp
+          format: int64
+          example: 1680616174929
+        location:
+          type: string
+          description: Attachment Location
+          example: https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png
+        thumbLocation:
+          type: string
+          description: Attachment Thumb location
+          example: https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png
+        visibility:
+          type: boolean
+          description: Attachment Visibility
+          example: false
+      description: List of attachments associated with the comment
+    ExampleAPIResponseComments:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationConversations'
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
+    Example401:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: api-key
+      in: header
+x-readme:
+  proxy-enabled: false
+  explorer-enabled: true
+  samples-enabled: true

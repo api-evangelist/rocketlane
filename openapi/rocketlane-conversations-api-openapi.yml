@@ -1,0 +1,780 @@
+openapi: 3.0.1
+info:
+  title: Rocketlane Comments Conversations API
+  description: Rocketlane API
+  version: '1.0'
+servers:
+- url: https://api.rocketlane.com/api
+  description: Production
+- url: https://api.nitro.run/api
+  description: Staging
+- url: https://project.api.orbits.run/api
+  description: Orbits
+security:
+- api-key:
+  - 'read : write'
+tags:
+- name: Conversations
+  description: Endpoints for conversations resource
+paths:
+  /1.0/conversations/{conversationId}:
+    get:
+      tags:
+      - Conversations
+      summary: Get conversation
+      description: The Get Conversation API allows users to retrieve the conversation history of a specific project using its unique project ID. This endpoint provides a structured and paginated response containing all messages exchanged within the project's conversation thread. This API is designed to facilitate seamless access to project discussions, enabling teams to track conversations, review past messages, and maintain contextual awareness of discussions related to their projects. It is particularly useful for integrations that need to display or analyze communication history.
+      operationId: get-conversation
+      parameters:
+      - name: conversationId
+        in: path
+        description: The ID of the conversation object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      - name: includeFields
+        in: query
+        description: This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - members
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    put:
+      tags:
+      - Conversations
+      summary: Update conversation
+      description: The Update Conversation API allows users to modify an existing conversation within a specified project using its unique project ID. This endpoint enables updates to message content, metadata, or status, ensuring that project discussions remain accurate and up to date. This API is designed for use cases where message edits, status updates, or other modifications need to be applied to an ongoing project conversation. It is particularly useful for integrations that require real-time collaboration updates, correction of message errors, or status adjustments for read/unread tracking.
+      operationId: update-conversation
+      parameters:
+      - name: conversationId
+        in: path
+        description: The ID of the conversation object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      - name: includeFields
+        in: query
+        description: Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - members
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationPublicUpdateRequestAPI'
+        required: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    delete:
+      tags:
+      - Conversations
+      summary: Delete conversation
+      description: The Delete Conversation API allows users to remove a conversation from a specific project using its unique project ID. This endpoint permanently deletes the conversation and its associated messages, ensuring that project discussions can be managed and maintained according to organizational policies. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the conversation has been successfully removed without returning a response body.
+      operationId: delete-conversation
+      parameters:
+      - name: conversationId
+        in: path
+        description: The ID of the conversation object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      responses:
+        '204':
+          description: The resource was successfully removed from the database.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+  /1.0/conversations/{conversationId}/remove-members:
+    post:
+      tags:
+      - Conversations
+      summary: Remove members to the conversation
+      description: This endpoint can be used to remove members to the conversation in a project using its ID. This API returns the project conversation along with the members for the project specified.
+      operationId: remove-members-from-conversation
+      parameters:
+      - name: conversationId
+        in: path
+        description: The ID of the conversation object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserPublicAPI'
+        required: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationMembersAPI'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+  /1.0/conversations/{conversationId}/add-members:
+    post:
+      tags:
+      - Conversations
+      summary: Add members to the conversation
+      description: This endpoint can be used to add members to the conversation in a project using its ID. This API returns the project conversation along with the members for the project specified.
+      operationId: add-members-to-conversation
+      parameters:
+      - name: conversationId
+        in: path
+        description: The ID of the conversation object
+        required: true
+        schema:
+          minimum: 0
+          type: integer
+          format: int64
+          default: 1
+        example: 200
+      - name: includeFields
+        in: query
+        description: Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - members
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserPublicAPI'
+        required: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationMembersAPI'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+  /1.0/conversations:
+    get:
+      tags:
+      - Conversations
+      summary: Get all conversations
+      description: The Get All Conversations API allows users to retrieve all conversations within a specified project using its unique project ID. This endpoint returns a paginated response containing all available conversation threads for the specified project, along with metadata such as timestamps, sender details, and message status. This API is designed to facilitate seamless access to project discussions, enabling teams to track, review, and analyze past conversations for better collaboration and project management.
+      operationId: get-all-conversations
+      parameters:
+      - name: pageSize
+        in: query
+        description: This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.
+        schema:
+          minimum: 0
+          type: number
+          format: int32
+          example: 100
+      - name: pageToken
+        in: query
+        description: Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.
+        schema:
+          type: string
+          example: 59c12a42-dd10-11ed-afa1-0242ac120002
+      - name: includeFields
+        in: query
+        description: Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - members
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        schema:
+          type: boolean
+          example: true
+      - name: sourceId.eq
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        schema:
+          type: number
+          example: 123
+      - name: conversationName.eq
+        in: query
+        description: Filter by conversation name
+        schema:
+          type: string
+          example: New channel
+      - name: conversationName.cn
+        in: query
+        description: You can use this param to specify some Conversation name and the responses will contain matches of conversation that match the given name.
+        schema:
+          type: string
+          example: New channel
+      - name: conversationName.nc
+        in: query
+        description: You can use this param to specify some Conversation name and the responses will not contain matches of conversation that match the given name.
+        schema:
+          type: string
+          example: New channel
+      - name: isPrivate.eq
+        in: query
+        description: Filter by private conversations
+        schema:
+          type: boolean
+          example: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExampleAPIResponseConversations'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+    post:
+      tags:
+      - Conversations
+      summary: Creates conversation
+      description: The Create Conversation API allows users to initiate a new conversation within a specified project using its unique project ID. This endpoint facilitates seamless communication by enabling teams to start discussions, share updates, and collaborate effectively within the project workspace. Upon a successful request, the API returns the newly created conversation details, including metadata such as participants, timestamps, and initial message content.
+      operationId: create-conversation
+      parameters:
+      - name: includeFields
+        in: query
+        description: Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - members
+      - name: includeAllFields
+        in: query
+        description: This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.
+        required: false
+        schema:
+          type: boolean
+          example: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationPublicRequestAPIEntity'
+        required: true
+      responses:
+        '200':
+          description: The requested action was successfully executed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
+        '400':
+          description: This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/badRequestErrorlist'
+        '401':
+          description: You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorizedErrorlist'
+        '404':
+          description: If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFoundErrorlist'
+components:
+  schemas:
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
+    ConversationSourcePublicAPIRequestEntity:
+      required:
+      - sourceId
+      - sourceType
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the conversation
+          format: int64
+          example: 201
+        sourceType:
+          type: string
+          description: Source Type attached to the conversation
+          example: PROJECT_CONVERSATION
+          enum:
+          - PROJECT_CONVERSATION
+      description: Source associated with the conversation
+    UserPublicAPI:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: Email ID
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: User ID
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: First name
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: Last name
+          readOnly: true
+          example: Doe
+      description: Conversation Members
+    notFoundErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example404'
+    ExamplePaginationConversations:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/projects/1/conversations?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    badRequestErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example400'
+    ConversationMembersAPI:
+      type: object
+      properties:
+        conversationId:
+          minimum: 1
+          type: integer
+          description: Conversation ID
+          format: int64
+          readOnly: true
+          example: 201
+        members:
+          type: array
+          description: Conversation Members
+          items:
+            $ref: '#/components/schemas/UserPublicAPI'
+    ConverationSourcePublicAPIResponseEntity:
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the conversation
+          format: int64
+          example: 201
+        sourceType:
+          minimum: 1
+          type: string
+          description: Source Type attached to the conversation
+          example: PROJECT_CONVERSATION
+          enum:
+          - PROJECT_CONVERSATION
+      description: Source associated with the conversation
+    ConversationMemberPublicAPIEntity:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: Email ID
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: User ID
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: First name
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: Last name
+          readOnly: true
+          example: Doe
+      description: Conversation members
+    ConversationPublicRequestAPIEntity:
+      required:
+      - name
+      - source
+      type: object
+      properties:
+        name:
+          type: string
+          description: Conversation name
+          example: General chat
+        description:
+          type: string
+          description: Conversation description
+          example: This is the starting of the General chat
+        source:
+          $ref: '#/components/schemas/ConversationSourcePublicAPIRequestEntity'
+        allMembers:
+          type: boolean
+          description: Conversation all members inclusion
+          example: true
+        members:
+          type: array
+          description: Conversation members
+          items:
+            $ref: '#/components/schemas/ConversationMemberPublicAPIRequestEntity'
+        private:
+          type: boolean
+          description: Conversation privacy
+          example: true
+    ExampleAPIResponseConversations:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationConversations'
+    Example400:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: BAD_REQUEST
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
+    ConversationMemberPublicAPIRequestEntity:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The team members email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: Conversation members
+    ConversationPublicUpdateRequestAPI:
+      type: object
+      properties:
+        conversationId:
+          minimum: 1
+          type: integer
+          description: Conversation ID
+          format: int64
+          readOnly: true
+          example: 201
+        name:
+          type: string
+          description: Conversation name
+          example: General chat
+        description:
+          type: string
+          description: Conversation description
+          example: This is the starting of the General chat
+        allMembers:
+          type: boolean
+          description: Conversation all members inclusion
+          example: true
+    ConversationPublicResponseAPIEntity:
+      type: object
+      properties:
+        conversationName:
+          type: string
+          description: Conversation name
+          example: General chat
+        description:
+          type: string
+          description: Conversation description
+          example: This is the starting of the General chat
+        allMembers:
+          type: boolean
+          description: Conversation all members inclusion
+          example: true
+        members:
+          type: array
+          description: Conversation members
+          items:
+            $ref: '#/components/schemas/ConversationMemberPublicAPIEntity'
+        source:
+          $ref: '#/components/schemas/ConverationSourcePublicAPIResponseEntity'
+        conversationId:
+          minimum: 1
+          type: integer
+          description: Conversation ID
+          format: int64
+          readOnly: true
+          example: 201
+        createdAt:
+          type: integer
+          description: Conversation Created timestamp
+          format: int64
+          readOnly: true
+          example: 1681319726000
+        private:
+          type: boolean
+          description: Conversation privacy
+          example: true
+      description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
+    Example401:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: api-key
+      in: header
+x-readme:
+  proxy-enabled: false
+  explorer-enabled: true
+  samples-enabled: true
