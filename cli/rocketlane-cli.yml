@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/package/@rocketlane/rli + https://github.com/Rocketlane/rli
+cli:
+  name: RLI (Rocketlane CLI)
+  binary: rli
+  package: "@rocketlane/rli"
+  registry: npm
+  official: true
+  purpose: Scaffold, run, and deploy apps for the Rocketlane Marketplace.
+  install:
+  - method: npm
+    command: npm install -g @rocketlane/rli
+  companion:
+    repo: https://github.com/Rocketlane/rli.bolt
+    description: rli.bolt — prompt, run, edit, and deploy Rocketlane marketplace
+      applications using an LLM of your choice.
+notes: The first-party CLI is focused on Rocketlane Marketplace app development
+  rather than a general API command surface. The command/resource groups are not
+  enumerated in public npm metadata; captured at the tool level to avoid fabricating
+  a command tree.

@@ -1,0 +1,38 @@
+{
+  "provider": "rocketlane",
+  "sources": [
+    "rocketlane-comments-api-openapi.yml",
+    "rocketlane-conversations-api-openapi.yml",
+    "rocketlane-fields-api-openapi.yml",
+    "rocketlane-invoices-api-openapi.yml",
+    "rocketlane-phases-api-openapi.yml",
+    "rocketlane-projects-api-openapi.yml",
+    "rocketlane-resource-allocations-api-openapi.yml",
+    "rocketlane-space-documents-api-openapi.yml",
+    "rocketlane-spaces-api-openapi.yml",
+    "rocketlane-tasks-api-openapi.yml",
+    "rocketlane-time-offs-api-openapi.yml",
+    "rocketlane-time-tracking-api-openapi.yml",
+    "rocketlane-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "rocketlane-comments-api-openapi.yml",
+    "rocketlane-conversations-api-openapi.yml",
+    "rocketlane-fields-api-openapi.yml",
+    "rocketlane-invoices-api-openapi.yml",
+    "rocketlane-phases-api-openapi.yml",
+    "rocketlane-projects-api-openapi.yml",
+    "rocketlane-resource-allocations-api-openapi.yml",
+    "rocketlane-space-documents-api-openapi.yml",
+    "rocketlane-spaces-api-openapi.yml",
+    "rocketlane-tasks-api-openapi.yml",
+    "rocketlane-time-offs-api-openapi.yml",
+    "rocketlane-time-tracking-api-openapi.yml",
+    "rocketlane-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

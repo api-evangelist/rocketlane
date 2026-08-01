@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: derived from documented operations at https://developer.rocketlane.com/reference
+server:
+  name: rocketlane
+  transport: http
+  note: No official hosted/remote Rocketlane MCP server was found (docs, npm
+    @modelcontextprotocol, MCP registries). This is a candidate tool list derived
+    from the published REST operations; not an endorsed server.
+tools:
+- name: list_tasks
+  description: Search/list tasks with filtering and pagination.
+  source_operation: reference/get-all-tasks
+- name: get_task
+  description: Get a task by id.
+  source_operation: reference/get-task
+- name: create_task
+  description: Create a task.
+  source_operation: reference/create-task
+- name: update_task
+  description: Update a task by id.
+  source_operation: reference/update-task
+- name: list_projects
+  description: List/search projects.
+  source_operation: reference/get-all-projects
+- name: create_project
+  description: Create a project.
+  source_operation: reference/create-project
+- name: import_template
+  description: Create a project from a template.
+  source_operation: reference/import-template
+- name: list_phases
+  description: List project phases.
+  source_operation: reference/get-all-phases
+- name: list_time_entries
+  description: List/search time entries.
+  source_operation: reference/get-all-time-entries
+- name: create_time_entry
+  description: Log a time entry.
+  source_operation: reference/create-time-entry
+- name: list_resource_allocations
+  description: List resource allocations.
+  source_operation: reference/get-all-resource-allocations
+- name: list_timeoffs
+  description: List employee time-off records.
+  source_operation: reference/get-all-timeoffs
+- name: list_users
+  description: List users.
+  source_operation: reference/get-all-users
+- name: list_spaces
+  description: List spaces.
+  source_operation: reference/get-all-spaces
+- name: search_invoices
+  description: Search invoices.
+  source_operation: reference/search-invoices
+- name: list_fields
+  description: List custom fields.
+  source_operation: reference/get-all-fields

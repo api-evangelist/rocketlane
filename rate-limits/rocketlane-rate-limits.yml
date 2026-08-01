@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs/rate-limiting
+docs: https://developer.rocketlane.com/docs/rate-limiting
+scope: per-workspace
+window: minute
+exceeded_status: 429
+exceeded_message: Rate limit exceeded
+response_headers:
+- name: X-Retry-After
+  description: Timestamp in epoch milliseconds indicating when the API can be requested again.
+rate_limits:
+- name: Get-all (list) endpoints
+  applies_to: GET (only the "Get all" list APIs)
+  limit_count: 60
+  window: minute
+- name: All requests
+  applies_to: GET, POST, PUT, DELETE
+  limit_count: 200
+  window: minute
+notes: Rocketlane documents two per-minute limits — 60 requests/min for the "Get all"
+  list endpoints and 200 requests/min across all methods. Exceeding either returns
+  HTTP 429 ("Rate limit exceeded") with an X-Retry-After header carrying the epoch-millisecond
+  timestamp from which requests may resume. No X-RateLimit-Limit/Remaining/Reset headers
+  are documented.

@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: derived
+source: derived from documented resources/operations at https://developer.rocketlane.com/reference
+notes: Entity graph derived from the published REST resource structure and nested
+  operations (e.g. move-task-to-given-phase, add-members to a project). Relationships
+  reflect documented nesting; not read from an OpenAPI $ref graph (no downloadable
+  spec is published).
+entities:
+- name: project
+  operations: [get-all-projects, get-project, create-project, update-project,
+    delete-project, archiveproject, import-template]
+- name: task
+  operations: [get-all-tasks, get-task, create-task, update-task, delete-task]
+- name: phase
+  operations: [get-all-phases, get-phase, create-phase, update-phase, delete-phase]
+- name: field
+  operations: [get-all-fields, get-field, create-field, update-field, delete-field]
+- name: space
+  operations: [get-all-spaces, get-space, create-space, update-space, delete-space]
+- name: space_document
+  operations: [get-all-space-documents, get-space-document, create-space-document,
+    update-space-document, delete-space-document]
+- name: time_entry
+  operations: [get-all-time-entries, get-time-entry, create-time-entry,
+    update-time-entry, delete-time-entry, search-time-entries]
+- name: timeoff
+  operations: [get-all-timeoffs, get-timeoff, create-timeoff, delete-timeoff]
+- name: resource_allocation
+  operations: [get-all-resource-allocations]
+- name: user
+  operations: [get-all-users, get-user]
+- name: invoice
+  operations: [search-invoices, get-invoice, get-invoice-line-items, get-invoice-payments]
+relationships:
+- from: task
+  to: project
+  kind: belongs_to
+  via: project
+- from: task
+  to: phase
+  kind: belongs_to
+  via: phase
+  evidence: move-task-to-given-phase
+- from: phase
+  to: project
+  kind: belongs_to
+  via: project
+- from: project
+  to: user
+  kind: has_many
+  via: members
+  evidence: add-members / remove-members
+- from: project
+  to: resource_allocation
+  kind: has_many
+  via: allocations
+- from: time_entry
+  to: task
+  kind: belongs_to
+  via: task
+- from: time_entry
+  to: user
+  kind: belongs_to
+  via: user
+- from: invoice
+  to: project
+  kind: belongs_to
+  via: project
+- from: invoice
+  to: invoice_line_item
+  kind: has_many
+  via: lineItems
+- from: space_document
+  to: space
+  kind: belongs_to
+  via: space

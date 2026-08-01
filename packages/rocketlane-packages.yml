@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: npm registry search + https://github.com/Rocketlane
+packages:
+- language: javascript
+  registry: npm
+  name: "@rocketlane/rli"
+  url: https://www.npmjs.com/package/@rocketlane/rli
+  install: npm install -g @rocketlane/rli
+  description: RLI - the Rocketlane CLI for building apps for the Rocketlane Marketplace.
+  repository: https://github.com/Rocketlane/rli
+  official: true
+  kind: cli
+- language: javascript
+  registry: npm
+  name: "@rocketlane/rli-core"
+  url: https://www.npmjs.com/package/@rocketlane/rli-core
+  install: npm install @rocketlane/rli-core
+  description: RLI Core - shared core library for the Rocketlane CLI.
+  repository: https://github.com/Rocketlane/rli
+  official: true
+  kind: library
+- language: javascript
+  registry: npm
+  name: rocketlane-sdk
+  url: https://www.npmjs.com/package/rocketlane-sdk
+  install: npm install rocketlane-sdk
+  description: Community/third-party client for the Rocketlane API.
+  repository: https://github.com/ajones55555/rocketlane-sdk
+  official: false
+notes: Rocketlane publishes a first-party CLI (@rocketlane/rli) and its core library
+  under the github.com/Rocketlane org, oriented at building Marketplace apps. No
+  first-party language SDK client library was found on npm, PyPI, Maven Central,
+  NuGet, RubyGems, or crates.io; the only API client SDK is community-maintained.

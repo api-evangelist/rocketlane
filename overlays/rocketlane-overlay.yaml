@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rocketlane API
+  version: 1.0.0
+extends: openapi/rocketlane-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-21'
+    x-api-base-url: https://api.rocketlane.com/api/1.0/
+    x-authentication: api-key header
+    x-pagination: cursor (pageSize/pageToken; envelope {data, pagination})
+    x-request-id-header: X-Request-Id
+    x-webhooks: TASK/PROJECT/PHASE created/updated/deleted events
+    x-status-page: https://status.rocketlane.com
+- target: $.info
+  update:
+    x-compliance:
+    - SOC 2
+    - ISO 27001
+    - ISO 27701
+    - ISO 42001
+    - HIPAA
+    - GDPR
+    - CSA STAR

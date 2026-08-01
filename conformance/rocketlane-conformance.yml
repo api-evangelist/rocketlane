@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs + https://www.rocketlane.com/trust
+standards:
+- id: rest
+  conforms: true
+  evidence: RESTful resource model over HTTPS documented in the API overview.
+- id: cursor-pagination
+  conforms: true
+  evidence: Cursor pagination via pageSize/pageToken with a pagination envelope.
+- id: oauth2
+  conforms: false
+  evidence: API auth is a static api-key header; no OAuth2 flow documented.
+- id: openid-connect
+  conforms: false
+  evidence: No /.well-known/openid-configuration published.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use HTTP status codes with JSON bodies; no application/problem+json.
+- id: webhooks
+  conforms: true
+  evidence: Documented outbound webhooks for TASK/PROJECT/PHASE events.
+compliance:
+  source: https://www.rocketlane.com/trust
+  trust_center: https://app.sprinto.com/trust-center/view/78e9adf1-54d8-42bf-8de2-d496b2750ef6
+  certifications:
+  - SOC 2
+  - ISO 27001
+  - ISO 27701
+  - ISO 42001
+  - HIPAA
+  - GDPR
+  - CSA STAR
+  - Cyber Essentials Plus
+  - CPRA/CCPA
+  - CASA

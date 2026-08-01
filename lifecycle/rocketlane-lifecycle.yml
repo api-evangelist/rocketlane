@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs/overview + https://status.rocketlane.com
+versioning:
+  scheme: uri-path
+  current: '1.0'
+  base_path: /api/1.0/
+  docs: https://developer.rocketlane.com/docs/overview
+compatibility:
+  policy_url: https://developer.rocketlane.com/docs/overview
+  breaking_changes:
+  - Removal of a URL or header (renamed header or different URL).
+  - Adding a new mandatory HTTP header on an existing URL.
+  notes: Rocketlane publishes a backward-compatibility policy defining what counts
+    as a breaking change; no explicit Sunset/Deprecation (RFC 8594) header contract
+    is documented.
+status_page: https://status.rocketlane.com
+sla:
+  url: null
+  notes: No public API SLA / uptime target document was found.

@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs/webhooks-overview + /docs/event-payload + /docs/webhook-delivery
+type: Webhooks
+spec_type: WebhookCatalog
+transport: http-post
+docs:
+  overview: https://developer.rocketlane.com/docs/webhooks-overview
+  setup: https://developer.rocketlane.com/docs/setting-up-webhooks-in-rocketlane
+  payload: https://developer.rocketlane.com/docs/event-payload
+  delivery: https://developer.rocketlane.com/docs/webhook-delivery
+resource_types:
+- TASK
+- PROJECT
+- PHASE
+events:
+- name: TASK_CREATED
+  resource: TASK
+- name: TASK_UPDATED
+  resource: TASK
+- name: TASK_DELETED
+  resource: TASK
+- name: PROJECT_CREATED
+  resource: PROJECT
+- name: PROJECT_UPDATED
+  resource: PROJECT
+- name: PROJECT_ARCHIVED
+  resource: PROJECT
+- name: PROJECT_DELETED
+  resource: PROJECT
+- name: PHASE_CREATED
+  resource: PHASE
+- name: PHASE_UPDATED
+  resource: PHASE
+- name: PHASE_DELETED
+  resource: PHASE
+payload_envelope:
+  fields:
+  - eventId
+  - resourceType
+  - eventType
+  - version
+  - data
+  - changeLog
+  - source
+  - eventOccurredAt
+  - eventTriggeredAt
+  notes: changeLog (changedFields/from/to) is present only on *_UPDATED events;
+    eventOccurredAt/eventTriggeredAt are epoch-millisecond timestamps; source
+    carries webhook configuration and the acting user.
+notes: Rocketlane documents outbound webhooks but does not publish an AsyncAPI
+  document; captured as a webhook catalog rather than fabricating an AsyncAPI spec.

@@ -1,27 +1,312 @@
 aid: rocketlane
 name: Rocketlane
-description: Rocketlane is a company surfaced as a portfolio company of 8vc, insight-partners and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: Rocketlane is an AI-powered Professional Services Automation (PSA) platform
+  that unifies customer onboarding, project delivery, resource management, time
+  tracking, and professional-services financials in one system. Its public REST API
+  (base https://api.rocketlane.com/api/1.0/) exposes projects, tasks, phases, spaces,
+  space documents, custom fields, time entries, time-offs, resource allocations,
+  users, and invoices, authenticated with a workspace api-key header and paginated
+  with cursors. Outbound webhooks broadcast task, project, and phase lifecycle
+  events, and a first-party CLI (@rocketlane/rli) supports building apps for the
+  Rocketlane Marketplace. Originally added to the API Evangelist network as a
+  portfolio-company lead (8vc, Insight Partners); enriched from its live developer
+  surface.
 url: https://raw.githubusercontent.com/api-evangelist/rocketlane/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 8vc
 - insight-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: active
+x-tier-reason: has-public-api
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6360d3edc696260ba2aecbc7/64e613d0f901abbf2430f1f8_banner.webp
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Professional Services Automation
+- Project Management
+- Customer Onboarding
+- Resource Management
+- Time Tracking
+- PSA
+- SaaS
+apis:
+- aid: rocketlane:rocketlane-comments-api
+  name: Rocketlane Comments API
+  description: Endpoints for comments resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-comments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-conversations-api
+  name: Rocketlane Conversations API
+  description: Endpoints for conversations resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-fields-api
+  name: Rocketlane Fields API
+  description: Endpoints for fields resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-fields-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-invoices-api
+  name: Rocketlane Invoices API
+  description: Endpoints for invoices resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-phases-api
+  name: Rocketlane Phases API
+  description: Endpoints for phases resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Phases
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-phases-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-projects-api
+  name: Rocketlane Projects API
+  description: Endpoints for projects resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-projects-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-resource-allocations-api
+  name: Rocketlane Resource Allocations API
+  description: Endpoints for resource allocation resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Resource Allocations
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-resource-allocations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-space-documents-api
+  name: Rocketlane Space Documents API
+  description: Endpoints for space tabs resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Space Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-space-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-spaces-api
+  name: Rocketlane Spaces API
+  description: Endpoints for space resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-tasks-api
+  name: Rocketlane Tasks API
+  description: Endpoints for tasks resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-time-offs-api
+  name: Rocketlane Time-Offs API
+  description: Endpoints for time-offs resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Time-Offs
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-time-offs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-time-tracking-api
+  name: Rocketlane Time Tracking API
+  description: Endpoints for time entries and timesheets
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Time Tracking
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-time-tracking-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
+- aid: rocketlane:rocketlane-users-api
+  name: Rocketlane Users API
+  description: Endpoints for users resource
+  humanURL: https://developer.rocketlane.com
+  baseURL: https://api.rocketlane.com/api/1.0/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/rocketlane-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlane.com/docs/overview
+  - type: APIReference
+    url: https://developer.rocketlane.com/reference/tasks
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/rocketlane-agentic-access.yml
+- type: DeveloperPortal
+  url: https://developer.rocketlane.com
+- type: Documentation
+  url: https://developer.rocketlane.com/docs/overview
+- type: APIReference
+  url: https://developer.rocketlane.com/reference/tasks
+- type: GettingStarted
+  url: https://developer.rocketlane.com/docs/overview
+- type: Support
+  url: https://help.rocketlane.com/support/home
+- type: Blog
+  url: https://www.rocketlane.com/blogs
+- type: Pricing
+  url: https://www.rocketlane.com/pricing
+- type: SignUp
+  url: https://www.rocketlane.com/signup
+- type: Login
+  url: https://www.rocketlane.com/login
+- type: TermsOfService
+  url: https://www.rocketlane.com/legal/terms
+- type: PrivacyPolicy
+  url: https://www.rocketlane.com/legal/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/Rocketlane
+- type: StatusPage
+  url: https://status.rocketlane.com
+- type: Compliance
+  url: https://www.rocketlane.com/trust
+- type: Security
+  url: https://www.rocketlane.com/responsible-disclosure
+- type: LLMsTxt
+  url: llms/rocketlane-llms.txt
+- type: WellKnown
+  url: well-known/rocketlane-well-known.yml
+- type: Packages
+  url: packages/rocketlane-packages.yml
+- type: CLI
+  url: cli/rocketlane-cli.yml
+- type: MCPServer
+  url: mcp/rocketlane-mcp.yml
+- type: Authentication
+  url: authentication/rocketlane-authentication.yml
+- type: Conventions
+  url: conventions/rocketlane-conventions.yml
+- type: Webhooks
+  url: asyncapi/rocketlane-webhooks.yml
+- type: Lifecycle
+  url: lifecycle/rocketlane-lifecycle.yml
+- type: Conformance
+  url: conformance/rocketlane-conformance.yml
+- type: DataModel
+  url: data-model/rocketlane-data-model.yml
+- type: OpenAPI
+  url: openapi/rocketlane-openapi-original.json
+- type: Overlay
+  url: overlays/rocketlane-overlay.yaml
+- type: ErrorCatalog
+  url: errors/rocketlane-problem-types.yml
+- type: RateLimits
+  url: rate-limits/rocketlane-rate-limits.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: TrustCenter
+  url: security/rocketlane-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/rocketlane-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/rocketlane-domain-security.yml
 - type: Website
   url: https://rocketlane.com
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 19
+  pass: local-v1

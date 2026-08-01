@@ -1,0 +1,62 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs/overview + /docs/pagination + /docs/api-explorer
+base_url: https://api.rocketlane.com/api/1.0/
+authentication:
+  style: api-key-header
+  header: api-key
+  ref: authentication/rocketlane-authentication.yml
+pagination:
+  style: cursor
+  request_params:
+    page_size: pageSize
+    page_token: pageToken
+  defaults:
+    page_size_default: 100
+    page_size_max: 100
+  response_envelope:
+    data_field: data
+    pagination_object: pagination
+    fields:
+    - pageSize
+    - hasMore
+    - totalRecordCount
+    - nextPageToken
+    - nextPage
+  notes: nextPageToken is valid for 15 minutes; nextPage is a fully constructed
+    URL to the next page.
+request_tracing:
+  request_id_header: X-Request-Id
+  direction: response
+  notes: Every API response carries an X-Request-Id header for support/debugging.
+idempotency:
+  supported: false
+  notes: No idempotency-key header or idempotent-retry contract is documented in
+    the public API reference.
+versioning:
+  scheme: uri-path
+  current: '1.0'
+  base_path: /api/1.0/
+  compatibility_policy: https://developer.rocketlane.com/docs/overview
+  breaking_change_definition:
+  - Removal of a URL or header (e.g. a renamed header or a different URL).
+  - Addition of a new mandatory HTTP header on an existing URL.
+error_envelope:
+  format: json
+  notes: Errors return standard HTTP status codes with a JSON body; no RFC 9457
+    application/problem+json media type is documented.
+rate_limits:
+  documented: true
+  docs: https://developer.rocketlane.com/docs/rate-limiting
+  ref: rate-limits/rocketlane-rate-limits.yml
+  limits:
+    get_all_endpoints_per_minute: 60
+    all_requests_per_minute: 200
+  exceeded_status: 429
+  response_header: X-Retry-After
+  notes: 60 req/min on the "Get all" list endpoints and 200 req/min across all methods;
+    429 on exceed with an X-Retry-After epoch-millisecond header. No X-RateLimit-* headers.
+cross_links:
+  authentication: authentication/rocketlane-authentication.yml
+  lifecycle: lifecycle/rocketlane-lifecycle.yml
+  webhooks: asyncapi/rocketlane-webhooks.yml

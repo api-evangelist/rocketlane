@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.rocketlane.com/docs/overview + https://developer.rocketlane.com/docs/api-explorer
+docs: https://developer.rocketlane.com/docs/overview
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter_name: api-key
+  description: Requests authenticate with a per-workspace API key passed in the
+    'api-key' request header. Keys are generated from Rocketlane workspace settings.
+notes: Rocketlane uses a static API-key header ('api-key') for all API access; no
+  OAuth 2.0 / OpenID Connect flow is documented, so scopes/ is intentionally not
+  produced (key auth has no scope surface).

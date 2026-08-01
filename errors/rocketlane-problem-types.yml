@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rocketlane-openapi-original.json
+format: http-status
+notes: Derived from OpenAPI 4xx/5xx responses; Rocketlane does not use application/problem+json
+  (RFC 9457).
+problems:
+- status: 400
+  title: This error typically happens when the request payload contains an error.
+    If you want to make sure that the request's parameters are named correctly and
+    are the right data types, you can examine the request's syntax.
+  operation_count: 76
+  example_operations:
+  - add-assignee-to-task
+  - add-dependencies-to-task
+  - add-field-option
+  - add-followers-to-task
+  - add-members
+  - add-members-to-conversation
+- status: 401
+  title: You see this error when trying to access this resource without being authenticated.
+    Check the API request header to make sure it is not empty and has a valid api-key
+    that you acquired from the Rocketlane API Settings tab.
+  operation_count: 76
+  example_operations:
+  - add-assignee-to-task
+  - add-dependencies-to-task
+  - add-field-option
+  - add-followers-to-task
+  - add-members
+  - add-members-to-conversation
+- status: 404
+  title: If we were unable to locate the resource you were looking for or the proper
+    API endpoint you were looking for, this error would show up.
+  operation_count: 54
+  example_operations:
+  - add-assignee-to-task
+  - add-dependencies-to-task
+  - add-field-option
+  - add-followers-to-task
+  - add-members
+  - add-members-to-conversation
+- status: 500
+  title: This error denotes that there is an error that occured within our servers.
+    The response body could help narrow down the cause for the error by our support
+    team.
+  operation_count: 8
+  example_operations:
+  - create-comment
+  - create-project
+  - create-task
+  - create-time-entry
+  - create-timeoff
+  - update-project

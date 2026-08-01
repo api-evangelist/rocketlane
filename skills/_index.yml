@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: grounded in documented operations at https://developer.rocketlane.com/reference
+skills:
+- file: rocketlane-create-project-from-template.md
+  name: Create a project from a template and add members
+  api: https://developer.rocketlane.com
+  operations: [import-template, get-all-projects, add-members]
+- file: rocketlane-task-and-time-tracking.md
+  name: Create a task and log time against it
+  api: https://developer.rocketlane.com
+  operations: [create-task, add-assignee-to-task, create-time-entry, get-all-time-entries]
