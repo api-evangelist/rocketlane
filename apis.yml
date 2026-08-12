@@ -288,7 +288,7 @@ common:
 - type: DataModel
   url: data-model/rocketlane-data-model.yml
 - type: OpenAPI
-  url: openapi/rocketlane-openapi-original.json
+  url: openapi/_original/rocketlane-openapi-original.json
 - type: Overlay
   url: overlays/rocketlane-overlay.yaml
 - type: ErrorCatalog
