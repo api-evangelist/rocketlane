@@ -32,7 +32,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://cdn.prod.website-files.com/6360d3edc696260ba2aecbc7/64e613d0f901abbf2430f1f8_banner.webp
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-21'
 tags:
