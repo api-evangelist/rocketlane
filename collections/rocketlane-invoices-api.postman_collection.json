@@ -1,0 +1,2055 @@
+{
+  "item": [
+    {
+      "id": "31442359-a42f-4271-92ec-70c2591bf927",
+      "name": "Invoices",
+      "description": {
+        "content": "Endpoints for invoices resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "44c746df-0ff7-47de-8ed9-b16c430dd77f",
+          "name": "Get invoice payments by invoice Id",
+          "request": {
+            "name": "Get invoice payments by invoice Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "invoices",
+                ":invoiceId",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "invoiceId",
+                  "description": "(Required) Unique identifier of the invoice"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c06db12-5485-4303-b693-0ddf0e9b71bf",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"paymentId\": 201,\n      \"paymentRecordType\": \"PAID\",\n      \"currency\": \"USD\",\n      \"paymentDate\": \"2023-03-28\",\n      \"amount\": 1000,\n      \"notes\": \"string\"\n    },\n    {\n      \"paymentId\": 201,\n      \"paymentRecordType\": \"PAID\",\n      \"currency\": \"USD\",\n      \"paymentDate\": \"2023-03-28\",\n      \"amount\": 1000,\n      \"notes\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/invoices/123/payments?pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "703456e0-f365-40e9-9b8d-d1ca368f0255",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4737dc6-610c-4e8b-98fb-0bbd317e4f79",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "816e74a3-7519-416e-ad98-ecc8a8e0776a",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c31f9804-ed35-4278-ac5f-1068776d0881",
+          "name": "Get invoice line items by invoice Id",
+          "request": {
+            "name": "Get invoice line items by invoice Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "invoices",
+                ":invoiceId",
+                "lines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "invoiceId",
+                  "description": "(Required) Unique identifier of the invoice"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b059bc3-ad6e-405d-8c92-999ab1b3671d",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"invoiceLineItemId\": 123,\n      \"description\": \"Development services for Q1\",\n      \"quantity\": 10,\n      \"unitPrice\": 100,\n      \"amount\": 1000,\n      \"sourceId\": 456,\n      \"sourceType\": \"PROJECT\",\n      \"taxCode\": {\n        \"taxCodeId\": 456,\n        \"taxCodeName\": \"GST 18%\",\n        \"taxCodeRate\": 18,\n        \"taxCodeAmount\": 180\n      },\n      \"taxComponents\": [\n        {\n          \"taxComponentId\": 123,\n          \"taxComponentName\": \"GST\",\n          \"taxComponentRate\": 18,\n          \"taxComponentAmount\": 180,\n          \"taxComponentType\": \"GST\"\n        },\n        {\n          \"taxComponentId\": 123,\n          \"taxComponentName\": \"GST\",\n          \"taxComponentRate\": 18,\n          \"taxComponentAmount\": 180,\n          \"taxComponentType\": \"GST\"\n        }\n      ]\n    },\n    {\n      \"invoiceLineItemId\": 123,\n      \"description\": \"Development services for Q1\",\n      \"quantity\": 10,\n      \"unitPrice\": 100,\n      \"amount\": 1000,\n      \"sourceId\": 456,\n      \"sourceType\": \"PROJECT\",\n      \"taxCode\": {\n        \"taxCodeId\": 456,\n        \"taxCodeName\": \"GST 18%\",\n        \"taxCodeRate\": 18,\n        \"taxCodeAmount\": 180\n      },\n      \"taxComponents\": [\n        {\n          \"taxComponentId\": 123,\n          \"taxComponentName\": \"GST\",\n          \"taxComponentRate\": 18,\n          \"taxComponentAmount\": 180,\n          \"taxComponentType\": \"GST\"\n        },\n        {\n          \"taxComponentId\": 123,\n          \"taxComponentName\": \"GST\",\n          \"taxComponentRate\": 18,\n          \"taxComponentAmount\": 180,\n          \"taxComponentType\": \"GST\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/invoices/123/lines?pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7005ee5-99bd-4223-aa44-0573edcb7251",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ebaec6a-65e4-490b-95b4-992d6edd9634",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7284b8c-57bc-46b6-b762-356fc4417c19",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId",
+                    "lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d1026e9-47d9-470d-9445-919699016d3e",
+          "name": "Get invoice by Id",
+          "request": {
+            "name": "Get invoice by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "invoices",
+                ":invoiceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "invoiceId",
+                  "description": "(Required) Unique identifier of the invoice"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d82c59e8-76c9-4447-8a2e-e4dc846544e8",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoiceId\": 201,\n  \"invoiceNumber\": \"INV-2024-001\",\n  \"dateOfIssue\": \"2023-03-28\",\n  \"dueDate\": \"2023-03-28\",\n  \"currency\": \"USD\",\n  \"status\": \"DRAFT\",\n  \"amount\": 1000.25,\n  \"tax\": 100.25,\n  \"subTotal\": 1000.25,\n  \"amountOutstanding\": 500.25,\n  \"amountPaid\": 500.25,\n  \"amountWrittenOff\": 500.25,\n  \"notes\": \"This is the default address\",\n  \"createdAt\": 1681319726000,\n  \"updatedAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"company\": {\n    \"companyId\": 201,\n    \"companyName\": \"Acme Inc\",\n    \"companyUrl\": \"https://www.acme.com\"\n  },\n  \"projects\": [\n    {\n      \"projectId\": 201,\n      \"projectName\": \"Acme onboarding\"\n    },\n    {\n      \"projectId\": 201,\n      \"projectName\": \"Acme onboarding\"\n    }\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    }\n  ],\n  \"attachments\": [\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    },\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fe0ce0b-b271-4787-bc7d-3487680b4c3d",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99f69b3a-41a2-4980-b06d-ec04bce8fce5",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53a913a2-a5a7-4652-9583-f6420863d7c9",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "invoiceId",
+                      "description": "(Required) Unique identifier of the invoice"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3124529a-287f-402f-9e26-7e14b028e2fb",
+          "name": "Get all invoices",
+          "request": {
+            "name": "Get all invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dateOfIssue.eq",
+                  "value": "<date>",
+                  "description": "Filter by date of issue (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateOfIssue.gt",
+                  "value": "<date>",
+                  "description": "Filter by date of issue greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateOfIssue.ge",
+                  "value": "<date>",
+                  "description": "Filter by date of issue greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateOfIssue.lt",
+                  "value": "<date>",
+                  "description": "Filter by date of issue less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateOfIssue.le",
+                  "value": "<date>",
+                  "description": "Filter by date of issue less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "dueDate.eq",
+                  "value": "<date>",
+                  "description": "Filter by due date (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "dueDate.gt",
+                  "value": "<date>",
+                  "description": "Filter by due date greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "dueDate.ge",
+                  "value": "<date>",
+                  "description": "Filter by due date greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "dueDate.lt",
+                  "value": "<date>",
+                  "description": "Filter by due date less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "dueDate.le",
+                  "value": "<date>",
+                  "description": "Filter by due date less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount.eq",
+                  "value": "<double>",
+                  "description": "Filter by amount (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount.gt",
+                  "value": "<double>",
+                  "description": "Filter by amount greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount.ge",
+                  "value": "<double>",
+                  "description": "Filter by amount greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount.lt",
+                  "value": "<double>",
+                  "description": "Filter by amount less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount.le",
+                  "value": "<double>",
+                  "description": "Filter by amount less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountOutstanding.eq",
+                  "value": "<double>",
+                  "description": "Filter by amount outstanding (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountOutstanding.gt",
+                  "value": "<double>",
+                  "description": "Filter by amount outstanding greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountOutstanding.ge",
+                  "value": "<double>",
+                  "description": "Filter by amount outstanding greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountOutstanding.lt",
+                  "value": "<double>",
+                  "description": "Filter by amount outstanding less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountOutstanding.le",
+                  "value": "<double>",
+                  "description": "Filter by amount outstanding less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountPaid.eq",
+                  "value": "<double>",
+                  "description": "Filter by amount paid (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountPaid.gt",
+                  "value": "<double>",
+                  "description": "Filter by amount paid greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountPaid.ge",
+                  "value": "<double>",
+                  "description": "Filter by amount paid greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountPaid.lt",
+                  "value": "<double>",
+                  "description": "Filter by amount paid less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountPaid.le",
+                  "value": "<double>",
+                  "description": "Filter by amount paid less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountWrittenOff.eq",
+                  "value": "<double>",
+                  "description": "Filter by amount written off (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountWrittenOff.gt",
+                  "value": "<double>",
+                  "description": "Filter by amount written off greater than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountWrittenOff.ge",
+                  "value": "<double>",
+                  "description": "Filter by amount written off greater than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountWrittenOff.lt",
+                  "value": "<double>",
+                  "description": "Filter by amount written off less than."
+                },
+                {
+                  "disabled": false,
+                  "key": "amountWrittenOff.le",
+                  "value": "<double>",
+                  "description": "Filter by amount written off less than or equal."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are greater than the given invoice created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of invoices that match the given invoice created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are less than the given invoice created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are greater than or equal to the given invoice created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are less than or equal to the given invoice created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "companyId.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide a customer company id and the responses will contain exact matches of invoices that match the given customer company id."
+                },
+                {
+                  "disabled": false,
+                  "key": "companyId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide customer company ids separated by commas and the responses will contain matches of invoices that match any of the given customer company id."
+                },
+                {
+                  "disabled": false,
+                  "key": "companyId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide customer company id separated by commas and the responses will not contain matches of invoices that match the given set of customer company id."
+                },
+                {
+                  "disabled": false,
+                  "key": "invoiceNumber.eq",
+                  "value": "<string>",
+                  "description": "Filter by invoice number (equals)."
+                },
+                {
+                  "disabled": false,
+                  "key": "invoiceNumber.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain invoices that contain the given text in their invoice number"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoiceNumber.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain invoices that _DO NOT_ contain the given text in their invoice number"
+                },
+                {
+                  "disabled": false,
+                  "key": "status.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide status and the responses will contain invoices that are equal to the given status"
+                },
+                {
+                  "disabled": false,
+                  "key": "status.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide statuses and the responses will contain invoices that match one of the given statuses"
+                },
+                {
+                  "disabled": false,
+                  "key": "status.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide statuses and the responses will contain invoices that matches none of the given statuses"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ae0953c-9a9e-4827-b627-78e27bc1984b",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateOfIssue.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "amount.eq",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.gt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.ge",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.lt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.le",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amountOutstanding.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "companyId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "companyId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "companyId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "invoiceNumber.eq",
+                      "value": "INV-2024-001"
+                    },
+                    {
+                      "key": "invoiceNumber.cn",
+                      "value": "INV"
+                    },
+                    {
+                      "key": "invoiceNumber.nc",
+                      "value": "US-21"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "DRAFT"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"invoiceId\": 201,\n      \"invoiceNumber\": \"INV-2024-001\",\n      \"dateOfIssue\": \"2023-03-28\",\n      \"dueDate\": \"2023-03-28\",\n      \"currency\": \"USD\",\n      \"status\": \"DRAFT\",\n      \"amount\": 1000.25,\n      \"tax\": 100.25,\n      \"subTotal\": 1000.25,\n      \"amountOutstanding\": 500.25,\n      \"amountPaid\": 500.25,\n      \"amountWrittenOff\": 500.25,\n      \"notes\": \"This is the default address\",\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"company\": {\n        \"companyId\": 201,\n        \"companyName\": \"Acme Inc\",\n        \"companyUrl\": \"https://www.acme.com\"\n      },\n      \"projects\": [\n        {\n          \"projectId\": 201,\n          \"projectName\": \"Acme onboarding\"\n        },\n        {\n          \"projectId\": 201,\n          \"projectName\": \"Acme onboarding\"\n        }\n      ],\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ],\n      \"attachments\": [\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        },\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        }\n      ]\n    },\n    {\n      \"invoiceId\": 201,\n      \"invoiceNumber\": \"INV-2024-001\",\n      \"dateOfIssue\": \"2023-03-28\",\n      \"dueDate\": \"2023-03-28\",\n      \"currency\": \"USD\",\n      \"status\": \"DRAFT\",\n      \"amount\": 1000.25,\n      \"tax\": 100.25,\n      \"subTotal\": 1000.25,\n      \"amountOutstanding\": 500.25,\n      \"amountPaid\": 500.25,\n      \"amountWrittenOff\": 500.25,\n      \"notes\": \"This is the default address\",\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"company\": {\n        \"companyId\": 201,\n        \"companyName\": \"Acme Inc\",\n        \"companyUrl\": \"https://www.acme.com\"\n      },\n      \"projects\": [\n        {\n          \"projectId\": 201,\n          \"projectName\": \"Acme onboarding\"\n        },\n        {\n          \"projectId\": 201,\n          \"projectName\": \"Acme onboarding\"\n        }\n      ],\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ],\n      \"attachments\": [\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        },\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/invoices?pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c519e58-bc51-434e-aa84-821c6dd6305e",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateOfIssue.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "amount.eq",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.gt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.ge",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.lt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.le",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amountOutstanding.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "companyId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "companyId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "companyId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "invoiceNumber.eq",
+                      "value": "INV-2024-001"
+                    },
+                    {
+                      "key": "invoiceNumber.cn",
+                      "value": "INV"
+                    },
+                    {
+                      "key": "invoiceNumber.nc",
+                      "value": "US-21"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "DRAFT"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d6d350d-e1f7-4f32-ab48-760aacd2782c",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateOfIssue.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dateOfIssue.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "dueDate.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "amount.eq",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.gt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.ge",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.lt",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amount.le",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "amountOutstanding.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountOutstanding.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountPaid.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.eq",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.gt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.ge",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.lt",
+                      "value": "500"
+                    },
+                    {
+                      "key": "amountWrittenOff.le",
+                      "value": "500"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "companyId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "companyId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "companyId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "invoiceNumber.eq",
+                      "value": "INV-2024-001"
+                    },
+                    {
+                      "key": "invoiceNumber.cn",
+                      "value": "INV"
+                    },
+                    {
+                      "key": "invoiceNumber.nc",
+                      "value": "US-21"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "DRAFT"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "DRAFT,PAID"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rocketlane.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "45f5c082-29b8-4479-a728-3d720a253f72",
+    "name": "Rocketlane Comments Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocketlane API",
+      "type": "text/plain"
+    }
+  }
+}

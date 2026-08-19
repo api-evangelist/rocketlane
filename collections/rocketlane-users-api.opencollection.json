@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Users API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "200",
+                "type": "path",
+                "description": "The user's unique, system-generated identifier, which can be used to identify the user globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "Get user by Id"
+        },
+        {
+          "info": {
+            "name": "Get all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/users",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "firstName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user first name and the responses will contain exact matches of users that match the given first name."
+              },
+              {
+                "name": "firstName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user first name and the responses will contain matches of users that match the given first name."
+              },
+              {
+                "name": "firstName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user first name and the responses will not contain matches of users that match the given first name."
+              },
+              {
+                "name": "lastName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user last name and the responses will contain exact matches of users that match the given last ame."
+              },
+              {
+                "name": "lastName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user last name and the responses will contain matches of users that match the given last name."
+              },
+              {
+                "name": "lastName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user last name and the responses will not contain matches of users that match the given last name."
+              },
+              {
+                "name": "email.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user email id and the responses will contain exact matches of users that match the given email id."
+              },
+              {
+                "name": "email.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user email id and the responses will contain matches of users that match the given email id."
+              },
+              {
+                "name": "email.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user email id and the responses will not contain matches of users that match the given email id."
+              },
+              {
+                "name": "status.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a user status  and the responses will contain exact matches of users that match the given status."
+              },
+              {
+                "name": "status.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide user statuses separated by commas and the responses will contain matches of users that match one of the given user status."
+              },
+              {
+                "name": "status.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide user statuses separated by commas and the responses will contain matches of users that match the none of the given set of user statuses."
+              },
+              {
+                "name": "type.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a user type  and the responses will contain exact matches of users that match the given type."
+              },
+              {
+                "name": "type.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide user types separated by commas and the responses will contain matches of users that match the none of the given set of user types."
+              },
+              {
+                "name": "roleId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a role id and the responses will contain exact matches of users that match the given role id."
+              },
+              {
+                "name": "roleId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide role ids separated by commas and the responses will contain matches of users that match one of the given role id."
+              },
+              {
+                "name": "roleId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide role id separated by commas and the responses will contain matches of users that match the none of the given set of role id."
+              },
+              {
+                "name": "permissionId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a permission id and the responses will contain exact matches of users that match the given permission id."
+              },
+              {
+                "name": "permissionId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide permission ids separated by commas and the responses will contain matches of users that match one of the given set of permission id."
+              },
+              {
+                "name": "permissionId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide permission ids separated by commas and the responses will contain matches of users that match the none of the given set of permission id."
+              },
+              {
+                "name": "capacityInMinutes.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of users that match the given value."
+              },
+              {
+                "name": "capacityInMinutes.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity greater than that of the given value."
+              },
+              {
+                "name": "capacityInMinutes.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity greater than or equal to that of the given value."
+              },
+              {
+                "name": "capacityInMinutes.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity lesser than that of the given value."
+              },
+              {
+                "name": "capacityInMinutes.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity lesser than or equal to that of the given value."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than the given users created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of users that match the given users created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than the given users created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than or equal to the given users created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than or equal to the given users created date."
+              },
+              {
+                "name": "updatedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than the given users updated date."
+              },
+              {
+                "name": "updatedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of users that match the given users updated date."
+              },
+              {
+                "name": "updatedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than the given users updated date."
+              },
+              {
+                "name": "updatedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than or equal to the given users updated date."
+              },
+              {
+                "name": "updatedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than or equal to the given users updated date."
+              }
+            ]
+          },
+          "docs": "Get all users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Time-Offs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time-Offs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all time-offs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-offs",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "startDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates greater than the specified date."
+              },
+              {
+                "name": "startDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates equal to the specified date."
+              },
+              {
+                "name": "startDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates lesser than the specified date."
+              },
+              {
+                "name": "startDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates greater than or equal to the specified date."
+              },
+              {
+                "name": "startDate.le",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates lesser than or equal to the specified date."
+              },
+              {
+                "name": "endDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates greater than the specified date."
+              },
+              {
+                "name": "endDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates equal to the specified date."
+              },
+              {
+                "name": "endDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates lesser than the specified date."
+              },
+              {
+                "name": "endDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates greater than or equal to the specified date."
+              },
+              {
+                "name": "endDate.le",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with start dates lesser than or equal to the specified date.e."
+              },
+              {
+                "name": "type.eq",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that exactly match the specified time off type."
+              },
+              {
+                "name": "type.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches one of the specified time off type."
+              },
+              {
+                "name": "type.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches none of the specified time off type."
+              },
+              {
+                "name": "userId.eq",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that exactly match the specified user id."
+              },
+              {
+                "name": "userId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches one of the specified user id."
+              },
+              {
+                "name": "userId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches none of the specified user id."
+              },
+              {
+                "name": "emailId.eq",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that exactly match the specified user's email id."
+              },
+              {
+                "name": "emailId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches one of the specified user's email ids."
+              },
+              {
+                "name": "emailId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "Returns responses with time-offs that matches none of the specified user's email ids."
+              }
+            ]
+          },
+          "docs": "Get all time-offs"
+        },
+        {
+          "info": {
+            "name": "Create a time-off",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/time-offs",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a time-off"
+        },
+        {
+          "info": {
+            "name": "Get time-off by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-offs/:timeOffId",
+            "params": [
+              {
+                "name": "timeOffId",
+                "value": "200",
+                "type": "path",
+                "description": "The unique `identifier` of the time-off is generated by the system and used to identify the time-off globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "Get time-off by Id"
+        },
+        {
+          "info": {
+            "name": "Delete a time-off",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/time-offs/:timeOffId",
+            "params": [
+              {
+                "name": "timeOffId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the time-off object"
+              }
+            ]
+          },
+          "docs": "Delete a time-off"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,650 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Tasks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated identifier, which can be used to identify the task globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "Get task by Id"
+        },
+        {
+          "info": {
+            "name": "Update task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update task by Id"
+        },
+        {
+          "info": {
+            "name": "Delete task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the task object"
+              }
+            ]
+          },
+          "docs": "Delete task by Id"
+        },
+        {
+          "info": {
+            "name": "Remove followers from a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/remove-followers",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove followers from a task by Id"
+        },
+        {
+          "info": {
+            "name": "Remove dependencies from a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/remove-dependencies",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove dependencies from a task by Id"
+        },
+        {
+          "info": {
+            "name": "Remove assignees from a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/remove-assignees",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove assignees from a task by Id"
+        },
+        {
+          "info": {
+            "name": "Move a task to the phase by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/move-phase",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move a task to the phase by Id"
+        },
+        {
+          "info": {
+            "name": "Add followers to a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/add-followers",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add followers to a task by Id"
+        },
+        {
+          "info": {
+            "name": "Add dependencies to a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/add-dependencies",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add dependencies to a task by Id"
+        },
+        {
+          "info": {
+            "name": "Add assignees to a task by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks/:taskId/add-assignees",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "200",
+                "type": "path",
+                "description": "The task's unique, system-generated **identifier**, which can be used to identify the task globally"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add assignees to a task by Id"
+        },
+        {
+          "info": {
+            "name": "Get all tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/tasks",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "startDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than the given date."
+              },
+              {
+                "name": "startDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of tasks that match the given date."
+              },
+              {
+                "name": "startDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than the given date."
+              },
+              {
+                "name": "startDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "startDate.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than or equal to the given date."
+              },
+              {
+                "name": "dueDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than the given date."
+              },
+              {
+                "name": "dueDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of tasks that match the given date."
+              },
+              {
+                "name": "dueDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than the given date."
+              },
+              {
+                "name": "dueDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "dueDate.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than or equal to the given date."
+              },
+              {
+                "name": "startDateActual.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than the given date."
+              },
+              {
+                "name": "startDateActual.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of tasks that match the given date."
+              },
+              {
+                "name": "startDateActual.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than the given date."
+              },
+              {
+                "name": "startDateActual.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "startDateActual.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than or equal to the given date."
+              },
+              {
+                "name": "dueDateActual.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than the given date."
+              },
+              {
+                "name": "dueDateActual.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of tasks that match the given date."
+              },
+              {
+                "name": "dueDateActual.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than the given date."
+              },
+              {
+                "name": "dueDateActual.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "dueDateActual.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain tasks whose date are less than or equal to the given date."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are greater than the given tasks created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of tasks that match the given tasks created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are less than the given tasks created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are greater than or equal to the given tasks created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are less than or equal to the given tasks created date."
+              },
+              {
+                "name": "updatedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are greater than the given tasks updated date."
+              },
+              {
+                "name": "updatedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of tasks that match the given tasks updated date."
+              },
+              {
+                "name": "updatedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are less than the given tasks updated date."
+              },
+              {
+                "name": "updatedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are greater than or equal to the given tasks updated date."
+              },
+              {
+                "name": "updatedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain tasks whose date are less than or equal to the given tasks updated date."
+              },
+              {
+                "name": "projectId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as project id and the responses will contain exact matches of tasks that match the given value."
+              },
+              {
+                "name": "phaseId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as phase id and the responses will contain exact matches of tasks that match the given value."
+              },
+              {
+                "name": "taskName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task name and the responses will contain exact matches of tasks that match the given name."
+              },
+              {
+                "name": "taskName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task name and the responses will contain matches of tasks that match the given name."
+              },
+              {
+                "name": "taskName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task name and the responses will not contain matches of tasks that match the given name."
+              },
+              {
+                "name": "effortInMinutes.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as effort and the responses will contain exact matches of tasks that match the given value."
+              },
+              {
+                "name": "effortInMinutes.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as effort and the responses will contain exact matches of tasks greater than that of the given value."
+              },
+              {
+                "name": "effortInMinutes.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as effort and the responses will contain exact matches of tasks lesser than that of the given value."
+              },
+              {
+                "name": "progress.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as progress and the responses will contain exact matches of tasks that match the given value."
+              },
+              {
+                "name": "progress.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as progress and the responses will contain exact matches of tasks greater than that of the given value."
+              },
+              {
+                "name": "progress.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as progress and the responses will contain exact matches of tasks lesser than that of the given value."
+              },
+              {
+                "name": "includeArchive.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify whether responses will include the archived tasks."
+              },
+              {
+                "name": "task.status.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide status and the responses will contain tasks that are equal to the given status"
+              },
+              {
+                "name": "task.status.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will contain tasks that  contains the given status"
+              },
+              {
+                "name": "task.status.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will not contain tasks that are equal to the given status"
+              },
+              {
+                "name": "project.status.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide status of project and the responses will contain tasks whose project's status are equal to the given status"
+              },
+              {
+                "name": "project.status.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses of project and the responses will contain tasks whose project's statuses that contains the given status"
+              },
+              {
+                "name": "project.status.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses of project and the responses will not contain tasks whose project's statuses are equal to the given status(es)"
+              },
+              {
+                "name": "externalReferenceId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide external reference id and the responses will contain tasks that are equal to the given id"
+              }
+            ]
+          },
+          "docs": "Get all tasks"
+        },
+        {
+          "info": {
+            "name": "Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/tasks",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

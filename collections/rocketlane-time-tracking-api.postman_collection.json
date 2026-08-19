@@ -1,0 +1,3339 @@
+{
+  "item": [
+    {
+      "id": "90005e69-803a-4b09-83f0-b5047a5f16f5",
+      "name": "Time Tracking",
+      "description": {
+        "content": "Endpoints for time entries and timesheets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0542de75-bf23-4e6a-acbd-a9cd11b798b0",
+          "name": "Get a time entry",
+          "request": {
+            "name": "Get a time entry",
+            "description": {
+              "content": "This endpoint can be used to get a time entry using its ID. This API returns the time entry object that matches the ID. The `includeFields` param can be used to customise the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries",
+                ":timeEntryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "timeEntryId",
+                  "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "643f7b5e-b8b1-47c0-acea-d157c8099485",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timeEntryId\": 201,\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectName\": \"Acme Onboarding\",\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskName\": \"Kickoff meeting\",\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201,\n    \"phaseName\": \"Go live\"\n  },\n  \"createdAt\": 1681319726000,\n  \"updatedAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryName\": \"Pre-sales\",\n    \"categoryId\": 8\n  },\n  \"sourceType\": \"PROJECT\",\n  \"status\": \"REJECTED\",\n  \"submittedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"submittedAt\": 1681319726000,\n  \"approvedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"approvedAt\": 1681319726000,\n  \"rejectedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"rejectedAt\": 1681319726000,\n  \"deleted\": true,\n  \"costRate\": {\n    \"rate\": 40,\n    \"currency\": \"USD\"\n  },\n  \"billRate\": {\n    \"rate\": 40,\n    \"currency\": \"EUR\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77850daa-6a94-47be-83b6-e1b60810b0e9",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "572c8565-eaf7-4051-9300-0f020f665e3c",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e978fc0-fde1-411d-bd16-2615e357a688",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0f6503b-de46-4ed0-aea2-5bd56dae6144",
+          "name": "Update a time entry",
+          "request": {
+            "name": "Update a time entry",
+            "description": {
+              "content": "This endpoint can be used to update a time entry using its ID. To ensure that the total time for all the time entries added for that date does not exceed 24 hours, the fields `date` and `minutes` are mandatory. The properties `activityName`, `notes`, `billable` and `minutes` can be updated using this endPoint. This API returns the updated time entry object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries",
+                ":timeEntryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "timeEntryId",
+                  "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"minutes\": \"<integer>\",\n  \"activityName\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"category\": {\n    \"categoryId\": \"<long>\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": \"<long>\",\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<long>\",\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4277f36d-740e-4215-8282-f3cb19ed61c6",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timeEntryId\": 201,\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectName\": \"Acme Onboarding\",\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskName\": \"Kickoff meeting\",\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201,\n    \"phaseName\": \"Go live\"\n  },\n  \"createdAt\": 1681319726000,\n  \"updatedAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryName\": \"Pre-sales\",\n    \"categoryId\": 8\n  },\n  \"sourceType\": \"PHASE\",\n  \"status\": \"SUBMITTED\",\n  \"submittedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"submittedAt\": 1681319726000,\n  \"approvedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"approvedAt\": 1681319726000,\n  \"rejectedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"rejectedAt\": 1681319726000,\n  \"deleted\": true,\n  \"costRate\": {\n    \"rate\": 40,\n    \"currency\": \"USD\"\n  },\n  \"billRate\": {\n    \"rate\": 40,\n    \"currency\": \"EUR\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "684f4fc0-00d0-407a-8c32-c5ae2d748a45",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2a14e0b-43c1-427f-afeb-6f601ed77685",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3644054a-e608-4a12-8275-1c4375f53f82",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc8b7bdb-9101-4479-9052-e602835dff3f",
+              "name": "This error denotes that there is an error that occured within our servers. The response body could help narrow down the cause for the error by our support team.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ],\n  \"billable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    },\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ddad8d5-83b7-4a8f-9c33-d3beb950833b",
+          "name": "Delete a time entry",
+          "request": {
+            "name": "Delete a time entry",
+            "description": {
+              "content": "This endpoint can be used to delete a time entry using its ID. Upon successful deletion, _`HTTP status 204` - no content_ is returned as a response with no response body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries",
+                ":timeEntryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "timeEntryId",
+                  "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7d33bce-ea99-40d0-b935-b58d83d7d910",
+              "name": "The resource was successfully removed from the database.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36682a68-0bb1-4677-8d36-761cb96e430d",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a730cef-c393-4c52-82b9-6c62baed28c1",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ecb7ecf-8b94-48ac-9b5c-55c30616e3bf",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    ":timeEntryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "timeEntryId",
+                      "description": "(Required) The unique, system-generated identifier, which can be used to identify the time entry globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99504440-9c45-41bc-8b83-9a63dc1e4630",
+          "name": "Get all time entries",
+          "request": {
+            "name": "Get all time entries",
+            "description": {
+              "content": "This endpoint can be used to get all time entries. You can refine your search by adding filters. Filters are given as query parameters and have a defined structure: key is `field.operator` and value is `value`. For instance: `date.gt=2023-02-11`, `minutes.eq=250`. Apart from filters, you can add `sortBy` combined with `sortOrder` to sort the time entries. The response body is paginated and you can control the pagination using the `limit` and `pageToken` parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field. Valid fields to perform sortBy are: `MINUTES`, `DATE`, `ID` and `BILLABLE`."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.gt",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain exact matches of time-entries that match the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.lt",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.ge",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than or equal to the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.le",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than or equal to the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "project.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "task.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+                },
+                {
+                  "disabled": false,
+                  "key": "taskId.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+                },
+                {
+                  "disabled": false,
+                  "key": "taskId.oneOf",
+                  "value": "<number>",
+                  "description": "You can use this param to provide ids of task and the responses will contain time entries whose time entries that contains the given task ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "taskId.noneOf",
+                  "value": "<number>",
+                  "description": "You can use this param to provide ids of task and the responses will contain time entries whose time entries that contains the given task ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectPhase.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some project phase Id and the responses will contain exact matches of time-entries that match the given phase."
+                },
+                {
+                  "disabled": false,
+                  "key": "category.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some category Id and the responses will contain exact matches of time-entries that match the given category."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some user Id and the responses will contain exact matches of time-entries that belong to the user with the given user Id."
+                },
+                {
+                  "disabled": false,
+                  "key": "emailId.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some email Id and the responses will contain exact matches of time-entries that belong to the user with the given email Id."
+                },
+                {
+                  "disabled": false,
+                  "key": "emailId.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their email name."
+                },
+                {
+                  "disabled": false,
+                  "key": "emailId.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their email Id."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceType.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify a source type for the time entries and the responses will contain exact matches of time-entries that have the given source type."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some activity name and the responses will contain exact matches of time-entries that match the given activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvalStatus.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify an approval status for the time entries and the responses will contain exact matches of time-entries that have the given approval type."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedBy.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify a submitter for the time entries and the response will contain time-entries submitted by the given user."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at or after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "submittedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at or before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedBy.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify an approver for the time entries and the response will contain time-entries approved by the given user."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at or after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at or before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedBy.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify a rejecter for the time entries and the response will contain time-entries rejected by the given user."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at or after the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "rejectedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at or before the given timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "billable.eq",
+                  "value": "<boolean>",
+                  "description": "You can use this param to specify the billable flag for the time entries and the responses will contain exact matches of time-entries that have the given billable."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeleted.eq",
+                  "value": "<boolean>",
+                  "description": "You can use this parameter to specify whether responses will include the deleted time entries."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than the given time entries created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of time entries that match the given time entries created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than the given time entries created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than or equal to the given time entries created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than or equal to the given time entries created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than the given time entries updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of time entries that match the given time entries updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than the given time entries updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than or equal to the given time entries updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than or equal to the given time entries updated date."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b970bb0-1357-47f1-a73f-305da568a6a3",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.oneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.noneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "emailId.eq",
+                      "value": "john.doe@rocketlane.com"
+                    },
+                    {
+                      "key": "emailId.cn",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "emailId.nc",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "submittedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "submittedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "approvedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "rejectedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "billable.eq",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeDeleted.eq",
+                      "value": "false"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timeEntryId\": 201,\n      \"date\": \"2023-03-28\",\n      \"minutes\": 250,\n      \"activityName\": \"Pre-Sales campaign\",\n      \"project\": {\n        \"projectName\": \"Acme Onboarding\",\n        \"projectId\": 204\n      },\n      \"task\": {\n        \"taskName\": \"Kickoff meeting\",\n        \"taskId\": 201\n      },\n      \"projectPhase\": {\n        \"phaseId\": 201,\n        \"phaseName\": \"Go live\"\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"billable\": true,\n      \"user\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"notes\": \"Working on API integration\",\n      \"category\": {\n        \"categoryName\": \"Pre-sales\",\n        \"categoryId\": 8\n      },\n      \"sourceType\": \"PROJECT\",\n      \"status\": \"REJECTED\",\n      \"submittedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"submittedAt\": 1681319726000,\n      \"approvedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"approvedAt\": 1681319726000,\n      \"rejectedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"rejectedAt\": 1681319726000,\n      \"deleted\": true,\n      \"costRate\": {\n        \"rate\": 40,\n        \"currency\": \"USD\"\n      },\n      \"billRate\": {\n        \"rate\": 40,\n        \"currency\": \"EUR\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ]\n    },\n    {\n      \"timeEntryId\": 201,\n      \"date\": \"2023-03-28\",\n      \"minutes\": 250,\n      \"activityName\": \"Pre-Sales campaign\",\n      \"project\": {\n        \"projectName\": \"Acme Onboarding\",\n        \"projectId\": 204\n      },\n      \"task\": {\n        \"taskName\": \"Kickoff meeting\",\n        \"taskId\": 201\n      },\n      \"projectPhase\": {\n        \"phaseId\": 201,\n        \"phaseName\": \"Go live\"\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"billable\": true,\n      \"user\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"notes\": \"Working on API integration\",\n      \"category\": {\n        \"categoryName\": \"Pre-sales\",\n        \"categoryId\": 8\n      },\n      \"sourceType\": \"PROJECT\",\n      \"status\": \"NOT_SUBMITTED\",\n      \"submittedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"submittedAt\": 1681319726000,\n      \"approvedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"approvedAt\": 1681319726000,\n      \"rejectedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"rejectedAt\": 1681319726000,\n      \"deleted\": true,\n      \"costRate\": {\n        \"rate\": 40,\n        \"currency\": \"USD\"\n      },\n      \"billRate\": {\n        \"rate\": 40,\n        \"currency\": \"EUR\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/time-entries?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cf0a8eb-9382-4221-b6ed-f55747cde197",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.oneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.noneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "emailId.eq",
+                      "value": "john.doe@rocketlane.com"
+                    },
+                    {
+                      "key": "emailId.cn",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "emailId.nc",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "submittedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "submittedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "approvedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "rejectedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "billable.eq",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeDeleted.eq",
+                      "value": "false"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44bdcb7f-aca9-4344-b093-0886aed85642",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.oneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "taskId.noneOf",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "emailId.eq",
+                      "value": "john.doe@rocketlane.com"
+                    },
+                    {
+                      "key": "emailId.cn",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "emailId.nc",
+                      "value": "john.doe"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "submittedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "submittedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "submittedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "approvedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "approvedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedBy.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "rejectedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "rejectedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "billable.eq",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeDeleted.eq",
+                      "value": "false"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe15b5f4-972a-40bc-925c-23de99a9f399",
+          "name": "Create a time entry",
+          "request": {
+            "name": "Create a time entry",
+            "description": {
+              "content": "This endpoint can be used to create a time entry. It is mandatory to provide values for these three properties: `date`, `minutes` and the source of the time entry, which can be either one of `activityName`, `task`, `projectPhase` or `project`. The `activityName` param can be used to track time against adhoc activities. Providing multiple sources as input will result in an error. This API returns the created time entry object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<string>\",\n  \"minutes\": \"<integer>\",\n  \"activityName\": \"<string>\",\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"task\": {\n    \"taskId\": \"<long>\"\n  },\n  \"projectPhase\": {\n    \"phaseId\": \"<long>\"\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\"\n  },\n  \"notes\": \"<string>\",\n  \"category\": {\n    \"categoryId\": \"<long>\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": \"<long>\",\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<long>\",\n      \"fieldValue\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3465529c-1125-4c9d-9833-e348885f0f79",
+              "name": "The resource was successfully created in the database.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timeEntryId\": 201,\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectName\": \"Acme Onboarding\",\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskName\": \"Kickoff meeting\",\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201,\n    \"phaseName\": \"Go live\"\n  },\n  \"createdAt\": 1681319726000,\n  \"updatedAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryName\": \"Pre-sales\",\n    \"categoryId\": 8\n  },\n  \"sourceType\": \"ADHOC\",\n  \"status\": \"APPROVED\",\n  \"submittedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"submittedAt\": 1681319726000,\n  \"approvedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"approvedAt\": 1681319726000,\n  \"rejectedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"rejectedAt\": 1681319726000,\n  \"deleted\": true,\n  \"costRate\": {\n    \"rate\": 40,\n    \"currency\": \"USD\"\n  },\n  \"billRate\": {\n    \"rate\": 40,\n    \"currency\": \"EUR\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": {},\n      \"fieldValueLabel\": \"1000\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "760e3e00-09cc-42d0-95b1-8c029d280e67",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cc64a6f-d594-4b26-a20a-436d4b52fbe2",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c09ef51-322a-4f6f-b8b1-6a79f22e2710",
+              "name": "This error denotes that there is an error that occured within our servers. The response body could help narrow down the cause for the error by our support team.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2023-03-28\",\n  \"minutes\": 250,\n  \"activityName\": \"Pre-Sales campaign\",\n  \"project\": {\n    \"projectId\": 204\n  },\n  \"task\": {\n    \"taskId\": 201\n  },\n  \"projectPhase\": {\n    \"phaseId\": 201\n  },\n  \"billable\": true,\n  \"user\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201\n  },\n  \"notes\": \"Working on API integration\",\n  \"category\": {\n    \"categoryId\": 8\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldValue\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    },\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfd74b9e-53ea-40ca-9fe9-8cffcbb318b2",
+          "name": "Search time entries",
+          "request": {
+            "name": "Search time entries",
+            "description": {
+              "content": "This endpoint can be used to search for time entries. You can refine your search by adding filters. Filters are given as query parameters and have a defined structure: key is `field.operator` and value is `value`. For instance: `date.gt=2023-02-11`, `minutes.eq=250`. Apart from filters, you can add `sortBy` combined with `sortOrder` to sort the time entries. The response body is paginated and you can control the pagination using the `limit` and `pageToken` parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field. Valid fields to perform sortBy are: `MINUTES`, `DATE`, `ID` and `BILLABLE`."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.gt",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain exact matches of time-entries that match the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.lt",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.ge",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than or equal to the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date.le",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than or equal to the given date."
+                },
+                {
+                  "disabled": false,
+                  "key": "project.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "task.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectPhase.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some project phase Id and the responses will contain exact matches of time-entries that match the given phase."
+                },
+                {
+                  "disabled": false,
+                  "key": "category.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some category Id and the responses will contain exact matches of time-entries that match the given category."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some user Id and the responses will contain exact matches of time-entries that belong to the user with the given user Id."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceType.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify a source type for the time entries and the responses will contain exact matches of time-entries that have the given source type."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some activity name and the responses will contain exact matches of time-entries that match the given activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "activityName.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their activity name."
+                },
+                {
+                  "disabled": false,
+                  "key": "approvalStatus.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify an approval status for the time entries and the responses will contain exact matches of time-entries that have the given approval type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92e84146-ca36-4fe2-9094-82ef64f349f2",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "notes,user"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"timeEntryId\": 201,\n      \"date\": \"2023-03-28\",\n      \"minutes\": 250,\n      \"activityName\": \"Pre-Sales campaign\",\n      \"project\": {\n        \"projectName\": \"Acme Onboarding\",\n        \"projectId\": 204\n      },\n      \"task\": {\n        \"taskName\": \"Kickoff meeting\",\n        \"taskId\": 201\n      },\n      \"projectPhase\": {\n        \"phaseId\": 201,\n        \"phaseName\": \"Go live\"\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"billable\": true,\n      \"user\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"notes\": \"Working on API integration\",\n      \"category\": {\n        \"categoryName\": \"Pre-sales\",\n        \"categoryId\": 8\n      },\n      \"sourceType\": \"ADHOC\",\n      \"status\": \"NOT_SUBMITTED\",\n      \"submittedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"submittedAt\": 1681319726000,\n      \"approvedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"approvedAt\": 1681319726000,\n      \"rejectedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"rejectedAt\": 1681319726000,\n      \"deleted\": true,\n      \"costRate\": {\n        \"rate\": 40,\n        \"currency\": \"USD\"\n      },\n      \"billRate\": {\n        \"rate\": 40,\n        \"currency\": \"EUR\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ]\n    },\n    {\n      \"timeEntryId\": 201,\n      \"date\": \"2023-03-28\",\n      \"minutes\": 250,\n      \"activityName\": \"Pre-Sales campaign\",\n      \"project\": {\n        \"projectName\": \"Acme Onboarding\",\n        \"projectId\": 204\n      },\n      \"task\": {\n        \"taskName\": \"Kickoff meeting\",\n        \"taskId\": 201\n      },\n      \"projectPhase\": {\n        \"phaseId\": 201,\n        \"phaseName\": \"Go live\"\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"billable\": true,\n      \"user\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"notes\": \"Working on API integration\",\n      \"category\": {\n        \"categoryName\": \"Pre-sales\",\n        \"categoryId\": 8\n      },\n      \"sourceType\": \"ADHOC\",\n      \"status\": \"REJECTED\",\n      \"submittedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"submittedAt\": 1681319726000,\n      \"approvedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"approvedAt\": 1681319726000,\n      \"rejectedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"rejectedAt\": 1681319726000,\n      \"deleted\": true,\n      \"costRate\": {\n        \"rate\": 40,\n        \"currency\": \"USD\"\n      },\n      \"billRate\": {\n        \"rate\": 40,\n        \"currency\": \"EUR\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": {},\n          \"fieldValueLabel\": \"1000\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/time-entries?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "801a60b3-2edd-4a9c-95c6-42442609df4b",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "notes,user"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bda5fc4a-305c-4687-8d7d-31d4d85e93e2",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "notes,user"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date.gt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.eq",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.lt",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.ge",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "date.le",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "project.eq",
+                      "value": "201"
+                    },
+                    {
+                      "key": "task.eq",
+                      "value": "202"
+                    },
+                    {
+                      "key": "projectPhase.eq",
+                      "value": "210"
+                    },
+                    {
+                      "key": "category.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "user.eq",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sourceType.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activityName.eq",
+                      "value": "Pre-Sales Campaign"
+                    },
+                    {
+                      "key": "activityName.cn",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "activityName.nc",
+                      "value": "Sales"
+                    },
+                    {
+                      "key": "approvalStatus.eq",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c1edffd-7f70-4be2-8fd2-f7cc6f877f61",
+          "name": "Get time entry categories",
+          "request": {
+            "name": "Get time entry categories",
+            "description": {
+              "content": "This endpoint can be used to fetch the time entry categories. This API returns a paginated object containing the various time entry categories present.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1.0",
+                "time-entries",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8d54b62-a9c5-434a-81ed-4e3ad6ee20fe",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"categoryName\": \"Pre-sales\",\n      \"categoryId\": 8\n    },\n    {\n      \"categoryName\": \"Pre-sales\",\n      \"categoryId\": 8\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/time-entries/categories?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "733e4302-c8c0-4dbb-9d10-8b16aff762fa",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "596fef2a-0b75-4f9c-89ad-3b742e81c4dc",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "time-entries",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rocketlane.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2afdc35c-c0d7-4029-a7ae-43109a187190",
+    "name": "Rocketlane Comments Time Tracking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocketlane API",
+      "type": "text/plain"
+    }
+  }
+}

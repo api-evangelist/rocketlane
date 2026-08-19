@@ -5,9 +5,9 @@ source: derived from documented operations at https://developer.rocketlane.com/r
 server:
   name: rocketlane
   transport: http
-  note: No official hosted/remote Rocketlane MCP server was found (docs, npm
-    @modelcontextprotocol, MCP registries). This is a candidate tool list derived
-    from the published REST operations; not an endorsed server.
+  note: No official hosted/remote Rocketlane MCP server was found (docs, npm @modelcontextprotocol, MCP
+    registries). This is a candidate tool list derived from the published REST operations; not an endorsed
+    server.
 tools:
 - name: list_tasks
   description: Search/list tasks with filtering and pagination.
@@ -57,3 +57,9 @@ tools:
 - name: list_fields
   description: List custom fields.
   source_operation: reference/get-all-fields
+deployment:
+  mode: none
+  verified: derived
+  tools: 16
+  checked: '2026-08-12'
+  source: catalog MCP census

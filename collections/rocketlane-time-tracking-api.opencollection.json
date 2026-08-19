@@ -1,0 +1,671 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Time Tracking API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Tracking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries/:timeEntryId",
+            "params": [
+              {
+                "name": "timeEntryId",
+                "value": "200",
+                "type": "path",
+                "description": "The unique, system-generated identifier, which can be used to identify the time entry globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to get a time entry using its ID. This API returns the time entry object that matches the ID. The `includeFields` param can be used to customise the response."
+        },
+        {
+          "info": {
+            "name": "Update a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries/:timeEntryId",
+            "params": [
+              {
+                "name": "timeEntryId",
+                "value": "200",
+                "type": "path",
+                "description": "The unique, system-generated identifier, which can be used to identify the time entry globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used to update a time entry using its ID. To ensure that the total time for all the time entries added for that date does not exceed 24 hours, the fields `date` and `minutes` are mandatory. The properties `activityName`, `notes`, `billable` and `minutes` can be updated using this endPoint. This API returns the updated time entry object."
+        },
+        {
+          "info": {
+            "name": "Delete a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries/:timeEntryId",
+            "params": [
+              {
+                "name": "timeEntryId",
+                "value": "200",
+                "type": "path",
+                "description": "The unique, system-generated identifier, which can be used to identify the time entry globally."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to delete a time entry using its ID. Upon successful deletion, _`HTTP status 204` - no content_ is returned as a response with no response body."
+        },
+        {
+          "info": {
+            "name": "Get all time entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field. Valid fields to perform sortBy are: `MINUTES`, `DATE`, `ID` and `BILLABLE`."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "date.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than the given date."
+              },
+              {
+                "name": "date.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of time-entries that match the given date."
+              },
+              {
+                "name": "date.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than the given date."
+              },
+              {
+                "name": "date.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "date.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than or equal to the given date."
+              },
+              {
+                "name": "project.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+              },
+              {
+                "name": "projectId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+              },
+              {
+                "name": "task.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+              },
+              {
+                "name": "taskId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+              },
+              {
+                "name": "taskId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide ids of task and the responses will contain time entries whose time entries that contains the given task ids"
+              },
+              {
+                "name": "taskId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide ids of task and the responses will contain time entries whose time entries that contains the given task ids"
+              },
+              {
+                "name": "projectPhase.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project phase Id and the responses will contain exact matches of time-entries that match the given phase."
+              },
+              {
+                "name": "category.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some category Id and the responses will contain exact matches of time-entries that match the given category."
+              },
+              {
+                "name": "user.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user Id and the responses will contain exact matches of time-entries that belong to the user with the given user Id."
+              },
+              {
+                "name": "emailId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some email Id and the responses will contain exact matches of time-entries that belong to the user with the given email Id."
+              },
+              {
+                "name": "emailId.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their email name."
+              },
+              {
+                "name": "emailId.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their email Id."
+              },
+              {
+                "name": "sourceType.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a source type for the time entries and the responses will contain exact matches of time-entries that have the given source type."
+              },
+              {
+                "name": "activityName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some activity name and the responses will contain exact matches of time-entries that match the given activity name."
+              },
+              {
+                "name": "activityName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their activity name."
+              },
+              {
+                "name": "activityName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their activity name."
+              },
+              {
+                "name": "approvalStatus.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify an approval status for the time entries and the responses will contain exact matches of time-entries that have the given approval type."
+              },
+              {
+                "name": "submittedBy.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a submitter for the time entries and the response will contain time-entries submitted by the given user."
+              },
+              {
+                "name": "submittedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at the given timestamp."
+              },
+              {
+                "name": "submittedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted after the given timestamp."
+              },
+              {
+                "name": "submittedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at or after the given timestamp."
+              },
+              {
+                "name": "submittedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted before the given timestamp."
+              },
+              {
+                "name": "submittedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries submitted at or before the given timestamp."
+              },
+              {
+                "name": "approvedBy.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify an approver for the time entries and the response will contain time-entries approved by the given user."
+              },
+              {
+                "name": "approvedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at the given timestamp."
+              },
+              {
+                "name": "approvedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved after the given timestamp."
+              },
+              {
+                "name": "approvedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at or after the given timestamp."
+              },
+              {
+                "name": "approvedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved before the given timestamp."
+              },
+              {
+                "name": "approvedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries approved at or before the given timestamp."
+              },
+              {
+                "name": "rejectedBy.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a rejecter for the time entries and the response will contain time-entries rejected by the given user."
+              },
+              {
+                "name": "rejectedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at the given timestamp."
+              },
+              {
+                "name": "rejectedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected after the given timestamp."
+              },
+              {
+                "name": "rejectedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at or after the given timestamp."
+              },
+              {
+                "name": "rejectedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected before the given timestamp."
+              },
+              {
+                "name": "rejectedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries rejected at or before the given timestamp."
+              },
+              {
+                "name": "billable.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify the billable flag for the time entries and the responses will contain exact matches of time-entries that have the given billable."
+              },
+              {
+                "name": "includeDeleted.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify whether responses will include the deleted time entries."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than the given time entries created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of time entries that match the given time entries created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than the given time entries created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than or equal to the given time entries created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than or equal to the given time entries created date."
+              },
+              {
+                "name": "updatedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than the given time entries updated date."
+              },
+              {
+                "name": "updatedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of time entries that match the given time entries updated date."
+              },
+              {
+                "name": "updatedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than the given time entries updated date."
+              },
+              {
+                "name": "updatedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are greater than or equal to the given time entries updated date."
+              },
+              {
+                "name": "updatedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain time entries whose date are less than or equal to the given time entries updated date."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to get all time entries. You can refine your search by adding filters. Filters are given as query parameters and have a defined structure: key is `field.operator` and value is `value`. For instance: `date.gt=2023-02-11`, `minutes.eq=250`. Apart from filters, you can add `sortBy` combined with `sortOrder` to sort the time entries. The response body is paginated and you can control the pagination using the `limit` and `pageToken` parameters."
+        },
+        {
+          "info": {
+            "name": "Create a time entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used to create a time entry. It is mandatory to provide values for these three properties: `date`, `minutes` and the source of the time entry, which can be either one of `activityName`, `task`, `projectPhase` or `project`. The `activityName` param can be used to track time against adhoc activities. Providing multiple sources as input will result in an error. This API returns the created time entry object."
+        },
+        {
+          "info": {
+            "name": "Search time entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries/search",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field. Valid fields to perform sortBy are: `MINUTES`, `DATE`, `ID` and `BILLABLE`."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "date.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than the given date."
+              },
+              {
+                "name": "date.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain exact matches of time-entries that match the given date."
+              },
+              {
+                "name": "date.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than the given date."
+              },
+              {
+                "name": "date.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are greater than or equal to the given date."
+              },
+              {
+                "name": "date.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some date and the responses will contain time-entries whose date are less than or equal to the given date."
+              },
+              {
+                "name": "project.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project Id and the responses will contain exact matches of time-entries that match the given project."
+              },
+              {
+                "name": "task.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some task Id and the responses will contain exact matches of time-entries that match the given task."
+              },
+              {
+                "name": "projectPhase.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project phase Id and the responses will contain exact matches of time-entries that match the given phase."
+              },
+              {
+                "name": "category.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some category Id and the responses will contain exact matches of time-entries that match the given category."
+              },
+              {
+                "name": "user.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some user Id and the responses will contain exact matches of time-entries that belong to the user with the given user Id."
+              },
+              {
+                "name": "sourceType.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a source type for the time entries and the responses will contain exact matches of time-entries that have the given source type."
+              },
+              {
+                "name": "activityName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some activity name and the responses will contain exact matches of time-entries that match the given activity name."
+              },
+              {
+                "name": "activityName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that contain the given text in their activity name."
+              },
+              {
+                "name": "activityName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain time-entries that _DO NOT_ contain the given text in their activity name."
+              },
+              {
+                "name": "approvalStatus.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify an approval status for the time entries and the responses will contain exact matches of time-entries that have the given approval type."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to search for time entries. You can refine your search by adding filters. Filters are given as query parameters and have a defined structure: key is `field.operator` and value is `value`. For instance: `date.gt=2023-02-11`, `minutes.eq=250`. Apart from filters, you can add `sortBy` combined with `sortOrder` to sort the time entries. The response body is paginated and you can control the pagination using the `limit` and `pageToken` parameters."
+        },
+        {
+          "info": {
+            "name": "Get time entry categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/time-entries/categories",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to fetch the time entry categories. This API returns a paginated object containing the various time entry categories present."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

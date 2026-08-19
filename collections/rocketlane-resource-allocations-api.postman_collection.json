@@ -1,0 +1,542 @@
+{
+  "item": [
+    {
+      "id": "da5ad350-aad6-411d-8498-23dce19afa60",
+      "name": "Resource Allocations",
+      "description": {
+        "content": "Endpoints for resource allocation resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c865052-acf2-4602-b677-2f4c010ec3e3",
+          "name": "Get all Resource allocations",
+          "request": {
+            "name": "Get all Resource allocations",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "resource-allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "(Required) You can use this parameter to define the start date, and the API response will return all resource allocations that start on or after the specified date."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "(Required) You can use this parameter to define an end date, and the API will return allocations that end on or before the specified date."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "memberId.eq",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify a member id, and the API will return allocations that exactly match the given member id. This allows for precise filtering of allocations based on the specified user."
+                },
+                {
+                  "disabled": false,
+                  "key": "memberId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple member ids, separated by commas, and the API will return allocations that match any of the provided member ids. "
+                },
+                {
+                  "disabled": false,
+                  "key": "memberId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple member ids, separated by commas, and the API will return allocations that exclude any of the provided member ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId.eq",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify a project id, and the API will return allocations that exactly match the given project id."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple project ids, separated by commas, and the API will return allocations that match any of the provided project ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple project ids, separated by commas, and the API will return allocations that exclude any of the provided project ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "placeholderId.eq",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify a placeholder id, and the API will return allocations that exactly match the given placeholder id."
+                },
+                {
+                  "disabled": false,
+                  "key": "placeholderId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple placeholder ids, separated by commas, and the API will return allocations that match any of the provided placeholder ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "placeholderId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this parameter to specify multiple placeholder ids, separated by commas, and the API will return allocations that exclude any matching placeholder ids."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cf95a09-eb67-4b66-a8cb-0b0cb1d10309",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "resource-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "memberId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projectId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "placeholderId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.noneOf",
+                      "value": "1,2,3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"startDate\": \"2023-03-28\",\n      \"endDate\": \"2023-03-28\",\n      \"secondsPerDay\": 45000,\n      \"minutesPerDay\": 750,\n      \"hoursPerDay\": 12,\n      \"duration\": {\n        \"daysConsider\": 1,\n        \"seconds\": 45000,\n        \"minutes\": 750,\n        \"hours\": 12\n      },\n      \"allocationType\": \"HARD\",\n      \"allocationFor\": \"TEAM_MEMBER\",\n      \"project\": {\n        \"projectId\": 201,\n        \"projectName\": \"Acme onboarding\"\n      },\n      \"tasks\": [\n        {\n          \"taskName\": \"Kickoff meeting\",\n          \"taskId\": 201\n        },\n        {\n          \"taskName\": \"Kickoff meeting\",\n          \"taskId\": 201\n        }\n      ],\n      \"member\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": {\n          \"roleId\": 101,\n          \"roleName\": \"Designer\"\n        }\n      },\n      \"placeholder\": {\n        \"placeholderId\": 201,\n        \"placeholderName\": \"Customer Success\",\n        \"role\": {\n          \"roleId\": 101,\n          \"roleName\": \"Designer\"\n        }\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      }\n    },\n    {\n      \"startDate\": \"2023-03-28\",\n      \"endDate\": \"2023-03-28\",\n      \"secondsPerDay\": 45000,\n      \"minutesPerDay\": 750,\n      \"hoursPerDay\": 12,\n      \"duration\": {\n        \"daysConsider\": 1,\n        \"seconds\": 45000,\n        \"minutes\": 750,\n        \"hours\": 12\n      },\n      \"allocationType\": \"HARD\",\n      \"allocationFor\": \"TEAM_MEMBER\",\n      \"project\": {\n        \"projectId\": 201,\n        \"projectName\": \"Acme onboarding\"\n      },\n      \"tasks\": [\n        {\n          \"taskName\": \"Kickoff meeting\",\n          \"taskId\": 201\n        },\n        {\n          \"taskName\": \"Kickoff meeting\",\n          \"taskId\": 201\n        }\n      ],\n      \"member\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": {\n          \"roleId\": 101,\n          \"roleName\": \"Designer\"\n        }\n      },\n      \"placeholder\": {\n        \"placeholderId\": 201,\n        \"placeholderName\": \"Customer Success\",\n        \"role\": {\n          \"roleId\": 101,\n          \"roleName\": \"Designer\"\n        }\n      },\n      \"createdAt\": 1681319726000,\n      \"updatedAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/resource-allocations?includeFields=role&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e9561c1-bbb1-4f0c-a882-e806bfb38ef6",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "resource-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "memberId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projectId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "placeholderId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.noneOf",
+                      "value": "1,2,3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2e2b797-ab0a-47be-b845-9cab41dac038",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "resource-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-03-28"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memberId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "memberId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projectId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "projectId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "placeholderId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "placeholderId.noneOf",
+                      "value": "1,2,3"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rocketlane.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f2c116fe-d71c-4aed-a43c-b38d301895a2",
+    "name": "Rocketlane Comments Resource Allocations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocketlane API",
+      "type": "text/plain"
+    }
+  }
+}

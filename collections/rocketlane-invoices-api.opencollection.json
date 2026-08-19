@@ -1,0 +1,438 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Invoices API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get invoice payments by invoice Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/invoices/:invoiceId/payments",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "200",
+                "type": "path",
+                "description": "Unique identifier of the invoice"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              }
+            ]
+          },
+          "docs": "Get invoice payments by invoice Id"
+        },
+        {
+          "info": {
+            "name": "Get invoice line items by invoice Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/invoices/:invoiceId/lines",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "200",
+                "type": "path",
+                "description": "Unique identifier of the invoice"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              }
+            ]
+          },
+          "docs": "Get invoice line items by invoice Id"
+        },
+        {
+          "info": {
+            "name": "Get invoice by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/invoices/:invoiceId",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "200",
+                "type": "path",
+                "description": "Unique identifier of the invoice"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "Get invoice by Id"
+        },
+        {
+          "info": {
+            "name": "Get all invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/invoices",
+            "params": [
+              {
+                "name": "dateOfIssue.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by date of issue (equals)."
+              },
+              {
+                "name": "dateOfIssue.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by date of issue greater than."
+              },
+              {
+                "name": "dateOfIssue.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by date of issue greater than or equal."
+              },
+              {
+                "name": "dateOfIssue.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by date of issue less than."
+              },
+              {
+                "name": "dateOfIssue.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by date of issue less than or equal."
+              },
+              {
+                "name": "dueDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by due date (equals)."
+              },
+              {
+                "name": "dueDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by due date greater than."
+              },
+              {
+                "name": "dueDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by due date greater than or equal."
+              },
+              {
+                "name": "dueDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by due date less than."
+              },
+              {
+                "name": "dueDate.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by due date less than or equal."
+              },
+              {
+                "name": "amount.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount (equals)."
+              },
+              {
+                "name": "amount.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount greater than."
+              },
+              {
+                "name": "amount.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount greater than or equal."
+              },
+              {
+                "name": "amount.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount less than."
+              },
+              {
+                "name": "amount.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount less than or equal."
+              },
+              {
+                "name": "amountOutstanding.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount outstanding (equals)."
+              },
+              {
+                "name": "amountOutstanding.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount outstanding greater than."
+              },
+              {
+                "name": "amountOutstanding.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount outstanding greater than or equal."
+              },
+              {
+                "name": "amountOutstanding.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount outstanding less than."
+              },
+              {
+                "name": "amountOutstanding.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount outstanding less than or equal."
+              },
+              {
+                "name": "amountPaid.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount paid (equals)."
+              },
+              {
+                "name": "amountPaid.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount paid greater than."
+              },
+              {
+                "name": "amountPaid.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount paid greater than or equal."
+              },
+              {
+                "name": "amountPaid.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount paid less than."
+              },
+              {
+                "name": "amountPaid.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount paid less than or equal."
+              },
+              {
+                "name": "amountWrittenOff.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount written off (equals)."
+              },
+              {
+                "name": "amountWrittenOff.gt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount written off greater than."
+              },
+              {
+                "name": "amountWrittenOff.ge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount written off greater than or equal."
+              },
+              {
+                "name": "amountWrittenOff.lt",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount written off less than."
+              },
+              {
+                "name": "amountWrittenOff.le",
+                "value": "",
+                "type": "query",
+                "description": "Filter by amount written off less than or equal."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are greater than the given invoice created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of invoices that match the given invoice created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are less than the given invoice created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are greater than or equal to the given invoice created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain invoices whose date are less than or equal to the given invoice created date."
+              },
+              {
+                "name": "companyId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a customer company id and the responses will contain exact matches of invoices that match the given customer company id."
+              },
+              {
+                "name": "companyId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company ids separated by commas and the responses will contain matches of invoices that match any of the given customer company id."
+              },
+              {
+                "name": "companyId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company id separated by commas and the responses will not contain matches of invoices that match the given set of customer company id."
+              },
+              {
+                "name": "invoiceNumber.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by invoice number (equals)."
+              },
+              {
+                "name": "invoiceNumber.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain invoices that contain the given text in their invoice number"
+              },
+              {
+                "name": "invoiceNumber.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some text and the responses will contain invoices that _DO NOT_ contain the given text in their invoice number"
+              },
+              {
+                "name": "status.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide status and the responses will contain invoices that are equal to the given status"
+              },
+              {
+                "name": "status.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will contain invoices that match one of the given statuses"
+              },
+              {
+                "name": "status.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will contain invoices that matches none of the given statuses"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              }
+            ]
+          },
+          "docs": "Get all invoices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

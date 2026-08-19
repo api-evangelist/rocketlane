@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Resource Allocations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Allocations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all Resource allocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/resource-allocations",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to define the start date, and the API response will return all resource allocations that start on or after the specified date."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to define an end date, and the API will return allocations that end on or before the specified date."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "memberId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify a member id, and the API will return allocations that exactly match the given member id. This allows for precise filtering of allocations based on the specified user."
+              },
+              {
+                "name": "memberId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple member ids, separated by commas, and the API will return allocations that match any of the provided member ids. "
+              },
+              {
+                "name": "memberId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple member ids, separated by commas, and the API will return allocations that exclude any of the provided member ids."
+              },
+              {
+                "name": "projectId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify a project id, and the API will return allocations that exactly match the given project id."
+              },
+              {
+                "name": "projectId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple project ids, separated by commas, and the API will return allocations that match any of the provided project ids."
+              },
+              {
+                "name": "projectId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple project ids, separated by commas, and the API will return allocations that exclude any of the provided project ids."
+              },
+              {
+                "name": "placeholderId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify a placeholder id, and the API will return allocations that exactly match the given placeholder id."
+              },
+              {
+                "name": "placeholderId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple placeholder ids, separated by commas, and the API will return allocations that match any of the provided placeholder ids."
+              },
+              {
+                "name": "placeholderId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify multiple placeholder ids, separated by commas, and the API will return allocations that exclude any matching placeholder ids."
+              }
+            ]
+          },
+          "docs": "Get all Resource allocations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

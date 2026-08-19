@@ -1,0 +1,1277 @@
+{
+  "item": [
+    {
+      "id": "4c691b4d-f99e-4c52-abd4-f8df1b00c0c8",
+      "name": "Users",
+      "description": {
+        "content": "Endpoints for users resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adafbf78-2a96-4718-9e8f-c7a4efc9b1f7",
+          "name": "Get user by Id",
+          "request": {
+            "name": "Get user by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "userId",
+                  "description": "(Required) The user's unique, system-generated identifier, which can be used to identify the user globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb5e816c-36f0-4932-ad86-6ab7b0617ef1",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "userId",
+                      "description": "(Required) The user's unique, system-generated identifier, which can be used to identify the user globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": 201,\n  \"email\": \"johndoe@rocketlane.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"type\": \"TEAM_MEMBER\",\n  \"status\": \"ACTIVE\",\n  \"role\": {\n    \"roleId\": 136,\n    \"roleName\": \"Customer Success\"\n  },\n  \"company\": {\n    \"companyId\": 116,\n    \"companyName\": \"Modert\"\n  },\n  \"permission\": {\n    \"permissionId\": 933,\n    \"permissionName\": \"Account Admin\"\n  },\n  \"fields\": [\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": \"1000\",\n      \"fieldValueLabel\": \"1000\"\n    },\n    {\n      \"fieldId\": 201,\n      \"fieldLabel\": \"MRR\",\n      \"fieldValue\": \"1000\",\n      \"fieldValueLabel\": \"1000\"\n    }\n  ],\n  \"capacityInMinutes\": 2400,\n  \"holidayCalendar\": {\n    \"calenderId\": 93,\n    \"calenderName\": \"India Holiday Calendar\"\n  },\n  \"profilePictureUrl\": \"https://s3.amazonaws.com/rocketlane-profile-pic-public/_default/ftue/John.jpg\",\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1681319726000,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a4676d5-4bdc-491e-a03c-dc02db46b3b2",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "userId",
+                      "description": "(Required) The user's unique, system-generated identifier, which can be used to identify the user globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1588e437-142d-4287-998d-eaa29002587a",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "userId",
+                      "description": "(Required) The user's unique, system-generated identifier, which can be used to identify the user globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "041be65e-aba7-4c43-99d3-b0cef38594c3",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "userId",
+                      "description": "(Required) The user's unique, system-generated identifier, which can be used to identify the user globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e3b950b-1629-4dad-9f8a-7e1891fad3ac",
+          "name": "Get all users",
+          "request": {
+            "name": "Get all users",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFields",
+                  "value": "<string>,<string>",
+                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeAllFields",
+                  "value": "<boolean>",
+                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user first name and the responses will contain exact matches of users that match the given first name."
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user first name and the responses will contain matches of users that match the given first name."
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user first name and the responses will not contain matches of users that match the given first name."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user last name and the responses will contain exact matches of users that match the given last ame."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user last name and the responses will contain matches of users that match the given last name."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user last name and the responses will not contain matches of users that match the given last name."
+                },
+                {
+                  "disabled": false,
+                  "key": "email.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user email id and the responses will contain exact matches of users that match the given email id."
+                },
+                {
+                  "disabled": false,
+                  "key": "email.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user email id and the responses will contain matches of users that match the given email id."
+                },
+                {
+                  "disabled": false,
+                  "key": "email.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some user email id and the responses will not contain matches of users that match the given email id."
+                },
+                {
+                  "disabled": false,
+                  "key": "status.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide a user status  and the responses will contain exact matches of users that match the given status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status.oneOf",
+                  "value": "<string>,<string>",
+                  "description": "You can use this param to provide user statuses separated by commas and the responses will contain matches of users that match one of the given user status."
+                },
+                {
+                  "disabled": false,
+                  "key": "status.noneOf",
+                  "value": "<string>,<string>",
+                  "description": "You can use this param to provide user statuses separated by commas and the responses will contain matches of users that match the none of the given set of user statuses."
+                },
+                {
+                  "disabled": false,
+                  "key": "type.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide a user type  and the responses will contain exact matches of users that match the given type."
+                },
+                {
+                  "disabled": false,
+                  "key": "type.oneOf",
+                  "value": "<string>,<string>",
+                  "description": "You can use this param to provide user types separated by commas and the responses will contain matches of users that match the none of the given set of user types."
+                },
+                {
+                  "disabled": false,
+                  "key": "roleId.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide a role id and the responses will contain exact matches of users that match the given role id."
+                },
+                {
+                  "disabled": false,
+                  "key": "roleId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide role ids separated by commas and the responses will contain matches of users that match one of the given role id."
+                },
+                {
+                  "disabled": false,
+                  "key": "roleId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide role id separated by commas and the responses will contain matches of users that match the none of the given set of role id."
+                },
+                {
+                  "disabled": false,
+                  "key": "permissionId.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to provide a permission id and the responses will contain exact matches of users that match the given permission id."
+                },
+                {
+                  "disabled": false,
+                  "key": "permissionId.oneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide permission ids separated by commas and the responses will contain matches of users that match one of the given set of permission id."
+                },
+                {
+                  "disabled": false,
+                  "key": "permissionId.noneOf",
+                  "value": "<string>",
+                  "description": "You can use this param to provide permission ids separated by commas and the responses will contain matches of users that match the none of the given set of permission id."
+                },
+                {
+                  "disabled": false,
+                  "key": "capacityInMinutes.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of users that match the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "capacityInMinutes.gt",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity greater than that of the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "capacityInMinutes.ge",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity greater than or equal to that of the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "capacityInMinutes.lt",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity lesser than that of the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "capacityInMinutes.le",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as capacity and the responses will contain exact matches of capacity lesser than or equal to that of the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than the given users created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of users that match the given users created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than the given users created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than or equal to the given users created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than or equal to the given users created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than the given users updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of users that match the given users updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than the given users updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are greater than or equal to the given users updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain users whose date are less than or equal to the given users updated date."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f2fcbcf-7d91-46a1-8c01-ba8c4cbbfb5b",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName.eq",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.cn",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.nc",
+                      "value": "John"
+                    },
+                    {
+                      "key": "lastName.eq",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.cn",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.nc",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "email.eq",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.cn",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.nc",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "type.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "roleId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roleId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "roleId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "permissionId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "capacityInMinutes.eq",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.gt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.ge",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.lt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.le",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"userId\": 201,\n      \"email\": \"johndoe@rocketlane.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"type\": \"TEAM_MEMBER\",\n      \"status\": \"ACTIVE\",\n      \"role\": {\n        \"roleId\": 136,\n        \"roleName\": \"Customer Success\"\n      },\n      \"company\": {\n        \"companyId\": 116,\n        \"companyName\": \"Modert\"\n      },\n      \"permission\": {\n        \"permissionId\": 933,\n        \"permissionName\": \"Account Admin\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": \"1000\",\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": \"1000\",\n          \"fieldValueLabel\": \"1000\"\n        }\n      ],\n      \"capacityInMinutes\": 2400,\n      \"holidayCalendar\": {\n        \"calenderId\": 93,\n        \"calenderName\": \"India Holiday Calendar\"\n      },\n      \"profilePictureUrl\": \"https://s3.amazonaws.com/rocketlane-profile-pic-public/_default/ftue/John.jpg\",\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1681319726000,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      }\n    },\n    {\n      \"userId\": 201,\n      \"email\": \"johndoe@rocketlane.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"type\": \"TEAM_MEMBER\",\n      \"status\": \"ACTIVE\",\n      \"role\": {\n        \"roleId\": 136,\n        \"roleName\": \"Customer Success\"\n      },\n      \"company\": {\n        \"companyId\": 116,\n        \"companyName\": \"Modert\"\n      },\n      \"permission\": {\n        \"permissionId\": 933,\n        \"permissionName\": \"Account Admin\"\n      },\n      \"fields\": [\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": \"1000\",\n          \"fieldValueLabel\": \"1000\"\n        },\n        {\n          \"fieldId\": 201,\n          \"fieldLabel\": \"MRR\",\n          \"fieldValue\": \"1000\",\n          \"fieldValueLabel\": \"1000\"\n        }\n      ],\n      \"capacityInMinutes\": 2400,\n      \"holidayCalendar\": {\n        \"calenderId\": 93,\n        \"calenderName\": \"India Holiday Calendar\"\n      },\n      \"profilePictureUrl\": \"https://s3.amazonaws.com/rocketlane-profile-pic-public/_default/ftue/John.jpg\",\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1681319726000,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/users?includeFields=capacityInMinutes&status.eq=ACTIVE&sortBy=status&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c2f2a5f-ca8e-4705-8d6d-4e98a4a5d0e6",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName.eq",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.cn",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.nc",
+                      "value": "John"
+                    },
+                    {
+                      "key": "lastName.eq",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.cn",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.nc",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "email.eq",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.cn",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.nc",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "type.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "roleId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roleId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "roleId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "permissionId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "capacityInMinutes.eq",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.gt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.ge",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.lt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.le",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9d8f201-d354-48e7-94fd-e769fbab2773",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "includeFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "includeAllFields",
+                      "value": "true"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName.eq",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.cn",
+                      "value": "John"
+                    },
+                    {
+                      "key": "firstName.nc",
+                      "value": "John"
+                    },
+                    {
+                      "key": "lastName.eq",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.cn",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "lastName.nc",
+                      "value": "Doe"
+                    },
+                    {
+                      "key": "email.eq",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.cn",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "email.nc",
+                      "value": "johndoe@rocketlane.com"
+                    },
+                    {
+                      "key": "status.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "status.noneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "type.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type.oneOf",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "roleId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roleId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "roleId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.eq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "permissionId.oneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "permissionId.noneOf",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "capacityInMinutes.eq",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.gt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.ge",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.lt",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "capacityInMinutes.le",
+                      "value": "2400"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rocketlane.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "47036e0e-001e-44ee-a1f5-c0d4b09f9c7b",
+    "name": "Rocketlane Comments Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocketlane API",
+      "type": "text/plain"
+    }
+  }
+}

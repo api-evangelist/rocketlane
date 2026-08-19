@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/comments/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the comment object"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "The Get Comment API allows users to retrieve the details of a specific comment using its unique commentId. This endpoint provides structured data on the comment, including its content, author details, timestamps, and associated project or conversation. This API is particularly useful for applications that need to fetch and display specific comments within a project or conversation thread."
+        },
+        {
+          "info": {
+            "name": "Update comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/comments/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the comment object"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Update Comment API allows users to modify an existing comment within a conversation using its unique commentId. This endpoint enables updates to the comment content, status, or metadata while preserving its original context within the conversation. This API is particularly useful for making corrections, appending additional information, or updating comment visibility."
+        },
+        {
+          "info": {
+            "name": "Delete comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/comments/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the message object"
+              }
+            ]
+          },
+          "docs": "The Delete Comment API allows users to permanently remove a comment from a conversation using its unique commentId. This endpoint is useful for maintaining conversation hygiene, removing outdated or inappropriate comments, and managing project discussions effectively. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the comment has been successfully removed with no response body."
+        },
+        {
+          "info": {
+            "name": "Get all comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/comments",
+            "params": [
+              {
+                "name": "sourceType",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "createdBy.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "isPrivate.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by private conversations"
+              }
+            ]
+          },
+          "docs": "The Get All Comments API allows users to retrieve all comments within a specific conversation in a project using its unique conversationId. This endpoint returns a paginated response containing all comments associated with the conversation, along with metadata such as timestamps, author details, and status. This API is useful for applications that need to display conversation threads, track discussions, or analyze collaboration trends within a project."
+        },
+        {
+          "info": {
+            "name": "Create a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/comments",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Create Comment API allows users to add a comment to a specific conversation within a project. This endpoint enables seamless collaboration by allowing team members to contribute to discussions, provide updates, or share feedback. Upon a successful request, the API returns the newly created comment along with metadata such as timestamps, author details, and status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

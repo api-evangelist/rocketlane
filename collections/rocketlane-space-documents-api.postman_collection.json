@@ -1,0 +1,1587 @@
+{
+  "item": [
+    {
+      "id": "b851bb14-c580-4d5a-8c73-b8cb8ef7db8d",
+      "name": "Space Documents",
+      "description": {
+        "content": "Endpoints for space tabs resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08fb9ccc-d9d6-4069-9d43-1557db7ef1d6",
+          "name": "Get space document by Id",
+          "request": {
+            "name": "Get space document by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "space-documents",
+                ":spaceDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "spaceDocumentId",
+                  "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc30303f-5296-49c7-b48f-bab3f1248e1e",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"spaceDocumentId\": 201,\n  \"spaceDocumentName\": \"Sample file\",\n  \"space\": {\n    \"spaceId\": 201,\n    \"spaceName\": \"General space\"\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201,\n    \"templateName\": \"Meeting Notes\"\n  },\n  \"createdAt\": 1680616174929,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1680616174929,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbfb5832-0db8-4f56-91f3-458ea1ba60d5",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac0c4b4a-f971-4e20-89ae-161b26d61a1b",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26014fce-4b92-4058-aafc-4e6d3041f346",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f10499d5-47a5-44ef-91f9-6d9177c1d1e6",
+          "name": "Update space document by Id",
+          "request": {
+            "name": "Update space document by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "space-documents",
+                ":spaceDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "spaceDocumentId",
+                  "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spaceDocumentName\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9596e0b2-1ec4-47ed-a19e-5e04e2154adf",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"spaceDocumentId\": 201,\n  \"spaceDocumentName\": \"Sample file\",\n  \"space\": {\n    \"spaceId\": 201,\n    \"spaceName\": \"General space\"\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201,\n    \"templateName\": \"Meeting Notes\"\n  },\n  \"createdAt\": 1680616174929,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1680616174929,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5784e8c-8bdb-4cb9-949b-34a388e4cc5f",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b03b64e-1306-4a91-a014-5ca19a8dfb6c",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "117bf4e0-2512-4289-ac96-59e7b4509c0a",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ffdf53f-ecac-4a32-aae5-9b9d18892ca7",
+          "name": "Delete space document by Id",
+          "request": {
+            "name": "Delete space document by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "space-documents",
+                ":spaceDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "1",
+                  "key": "spaceDocumentId",
+                  "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ae8e5bb-7cef-4c67-929f-cc962986285e",
+              "name": "The resource was successfully removed from the database.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5694054-4171-458f-8d29-bffac7d0bb8d",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15ed7e45-74ef-4683-bf6f-85fa1bc0daac",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bb8f196-288d-4f7e-8d5c-7d384c854616",
+              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents",
+                    ":spaceDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "1",
+                      "key": "spaceDocumentId",
+                      "description": "(Required) The space document's unique, system-generated identifier, which can be used to identify the space document globally."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32dc61a6-cf30-47e0-8613-415a26195173",
+          "name": "Get all space documents",
+          "request": {
+            "name": "Get all space documents",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "space-documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "1",
+                  "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of space documents that match the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<int32>",
+                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "You can use the sortBy param to sort the responses by the given field."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>",
+                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+                },
+                {
+                  "disabled": false,
+                  "key": "spaceDocumentName.eq",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some space document name and the responses will contain exact matches of space documents that match the given name."
+                },
+                {
+                  "disabled": false,
+                  "key": "spaceDocumentName.cn",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some space document name and the responses will contain matches of space documents that match the given name."
+                },
+                {
+                  "disabled": false,
+                  "key": "spaceDocumentName.nc",
+                  "value": "<string>",
+                  "description": "You can use this param to specify some space document name and the responses will not contain matches of space documents that match the given name."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are greater than the given space documents created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of space documents that match the given space documents created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are less than the given space documents created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are greater than or equal to the given space documents created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are less than or equal to the given space documents created date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.gt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are greater than the given space documents updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.eq",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of space documents that match the given space documents updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.lt",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are less than the given space documents updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.ge",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are greater than or equal to the given space documents updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt.le",
+                  "value": "<long>",
+                  "description": "You can use this param to provide an epoch milli value and the responses will contain space documents whose date are less than or equal to the given space documents updated date."
+                },
+                {
+                  "disabled": false,
+                  "key": "spaceId.eq",
+                  "value": "<number>",
+                  "description": "You can use this param to specify some value as space id and the responses will contain exact matches of space documents that match the given value."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2d75aed-69b6-44b9-8382-b33a205fbe9e",
+              "name": "The requested action was successfully executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "200"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spaceDocumentName.eq",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.cn",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.nc",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "spaceId.eq",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"spaceDocumentId\": 201,\n      \"spaceDocumentName\": \"Sample file\",\n      \"space\": {\n        \"spaceId\": 201,\n        \"spaceName\": \"General space\"\n      },\n      \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n      \"url\": \"https://www.google.com\",\n      \"source\": {\n        \"templateId\": 201,\n        \"templateName\": \"Meeting Notes\"\n      },\n      \"createdAt\": 1680616174929,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1680616174929,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"private\": true\n    },\n    {\n      \"spaceDocumentId\": 201,\n      \"spaceDocumentName\": \"Sample file\",\n      \"space\": {\n        \"spaceId\": 201,\n        \"spaceName\": \"General space\"\n      },\n      \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n      \"url\": \"https://www.google.com\",\n      \"source\": {\n        \"templateId\": 201,\n        \"templateName\": \"Meeting Notes\"\n      },\n      \"createdAt\": 1680616174929,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1680616174929,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"private\": true\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/space-documents?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f485c09e-77ca-4646-b280-ca04af821cff",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "200"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spaceDocumentName.eq",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.cn",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.nc",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "spaceId.eq",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72eea90c-f2da-4a42-8437-bf90db8bf351",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "200"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spaceDocumentName.eq",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.cn",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "spaceDocumentName.nc",
+                      "value": "Stark Onboarding"
+                    },
+                    {
+                      "key": "createdAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "createdAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.gt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.eq",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.lt",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.ge",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "updatedAt.le",
+                      "value": "1625164800000"
+                    },
+                    {
+                      "key": "spaceId.eq",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4365b621-a380-4ac8-9eab-3c04832b9621",
+          "name": "Create a space document",
+          "request": {
+            "name": "Create a space document",
+            "description": {},
+            "url": {
+              "path": [
+                "1.0",
+                "space-documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"space\": {\n    \"spaceId\": \"<long>\"\n  },\n  \"spaceDocumentType\": \"<string>\",\n  \"spaceDocumentName\": \"<string>\",\n  \"url\": \"<string>\",\n  \"source\": {\n    \"templateId\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1665b141-9af2-491b-abaf-f68f17878d38",
+              "name": "The resource was successfully created in the database.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"space\": {\n    \"spaceId\": 201\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"spaceDocumentId\": 201,\n  \"spaceDocumentName\": \"Sample file\",\n  \"space\": {\n    \"spaceId\": 201,\n    \"spaceName\": \"General space\"\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201,\n    \"templateName\": \"Meeting Notes\"\n  },\n  \"createdAt\": 1680616174929,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1680616174929,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5e3e243-8fd8-4c40-af8d-f9d86a13f9b9",
+              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"space\": {\n    \"spaceId\": 201\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d60b2d5-9e12-453c-b26e-ac9636d696b8",
+              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1.0",
+                    "space-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"space\": {\n    \"spaceId\": 201\n  },\n  \"spaceDocumentType\": \"ROCKETLANE_DOCUMENT\",\n  \"spaceDocumentName\": \"Sample file\",\n  \"url\": \"https://www.google.com\",\n  \"source\": {\n    \"templateId\": 201\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rocketlane.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "adcdad62-43e5-4358-8c11-a9e4007750d2",
+    "name": "Rocketlane Comments Space Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocketlane API",
+      "type": "text/plain"
+    }
+  }
+}

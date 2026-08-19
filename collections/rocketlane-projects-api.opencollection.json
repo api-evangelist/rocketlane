@@ -1,0 +1,803 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Projects API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get project by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "Get project by Id"
+        },
+        {
+          "info": {
+            "name": "Update project by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update project by Id"
+        },
+        {
+          "info": {
+            "name": "Delete project by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ]
+          },
+          "docs": "Delete project by Id"
+        },
+        {
+          "info": {
+            "name": "Un assign placeholders from an user in a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/unassign-placeholders",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Un assign placeholders from an user in a project"
+        },
+        {
+          "info": {
+            "name": "Remove members from a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/remove-members",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove members from a project"
+        },
+        {
+          "info": {
+            "name": "Import a template to a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/import-template",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import a template to a project"
+        },
+        {
+          "info": {
+            "name": "Get placeholders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/get-placeholders",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to search for placeholders across project. The response body is paginated and you can control the pagination using the `limit` and `pageToken` parameters."
+        },
+        {
+          "info": {
+            "name": "Assign placeholders to an user in a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/assign-placeholders",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign placeholders to an user in a project"
+        },
+        {
+          "info": {
+            "name": "Archive project by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/archive",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ]
+          },
+          "docs": "Archive project by Id"
+        },
+        {
+          "info": {
+            "name": "Add members to a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects/:projectId/add-members",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "200",
+                "type": "path",
+                "description": "The project's unique, system-generated identifier, which can be used to identify the project globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add members to a project"
+        },
+        {
+          "info": {
+            "name": "Get all projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/projects",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "For sorting the responses by the provided field, use the sortBy parameter."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "startDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than the given start date."
+              },
+              {
+                "name": "startDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain exact matches of projects that match the given start date."
+              },
+              {
+                "name": "startDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than the given start date."
+              },
+              {
+                "name": "startDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than or equal to the given start date."
+              },
+              {
+                "name": "startDate.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than or equal to the given start date."
+              },
+              {
+                "name": "dueDate.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than the given due date."
+              },
+              {
+                "name": "dueDate.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain exact matches of projects that match the given due date."
+              },
+              {
+                "name": "dueDate.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than the given due date."
+              },
+              {
+                "name": "dueDate.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than or equal to the given due date."
+              },
+              {
+                "name": "dueDate.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than or equal to the given due date."
+              },
+              {
+                "name": "startDateActual.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than the given actual start date."
+              },
+              {
+                "name": "startDateActual.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain exact matches of projects that match the given actual start date."
+              },
+              {
+                "name": "startDateActual.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than the given actual start date."
+              },
+              {
+                "name": "startDateActual.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than or equal to the given actual start date."
+              },
+              {
+                "name": "startDateActual.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than or equal to the given actual start date."
+              },
+              {
+                "name": "dueDateActual.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than the given actual due date."
+              },
+              {
+                "name": "dueDateActual.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain exact matches of projects that match the given actual due date."
+              },
+              {
+                "name": "dueDateActual.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than the given actual due date."
+              },
+              {
+                "name": "dueDateActual.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are greater than or equal to the given actual due date."
+              },
+              {
+                "name": "dueDateActual.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a date and the responses will contain projects whose date are less than or equal to the given actual due date."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are greater than the given project created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of projects that match the given project created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are less than the given project created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are greater than or equal to the given project created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are less than or equal to the given project created date."
+              },
+              {
+                "name": "updatedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are greater than the given project updated date."
+              },
+              {
+                "name": "updatedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of projects that match the given project updated date."
+              },
+              {
+                "name": "updatedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are less than the given project updated date."
+              },
+              {
+                "name": "updatedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are greater than or equal to the given project updated date."
+              },
+              {
+                "name": "updatedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain projects whose date are less than or equal to the given project updated date."
+              },
+              {
+                "name": "annualizedRecurringRevenue.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as ARR and the responses will contain exact matches of projects that match the given value."
+              },
+              {
+                "name": "annualizedRecurringRevenue.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as ARR and the responses will contain exact matches of projects greater than that of the given value."
+              },
+              {
+                "name": "annualizedRecurringRevenue.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as ARR and the responses will contain exact matches of projects lesser than that of the given value."
+              },
+              {
+                "name": "projectFee.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as project fee and the responses will contain exact matches of projects that match the given value."
+              },
+              {
+                "name": "projectFee.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as project fee and the responses will contain matches of projects greater than that of the given value."
+              },
+              {
+                "name": "projectFee.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some value as project fee and the responses will contain matches of projects lesser than that of the given value."
+              },
+              {
+                "name": "customerId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a customer company id and the responses will contain exact matches of projects that match the given customer company id."
+              },
+              {
+                "name": "customerId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company ids separated by commas and the responses will contain matches of projects that match any of the given customer company id."
+              },
+              {
+                "name": "customerId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company id separated by commas and the responses will not contain matches of projects that match the given set of customer company id."
+              },
+              {
+                "name": "teamMemberId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a team member id and the responses will contain exact matches of projects that match the given team member id."
+              },
+              {
+                "name": "teamMemberId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide team member ids separated by commas and the responses will contain matches of projects that match any of the given team member id."
+              },
+              {
+                "name": "teamMemberId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide team member id separated by commas and the responses will not contain matches of projects that match the given set of team member id."
+              },
+              {
+                "name": "companyId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a customer company id and the responses will contain exact matches of projects that match the given customer company id."
+              },
+              {
+                "name": "companyId.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company ids separated by commas and the responses will contain matches of projects that match any of the given customer company id."
+              },
+              {
+                "name": "companyId.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide customer company id separated by commas and the responses will not contain matches of projects that match the given set of customer company id."
+              },
+              {
+                "name": "projectName.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project name and the responses will contain exact matches of projects that match the given name."
+              },
+              {
+                "name": "projectName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project name and the responses will contain matches of projects that match the given name."
+              },
+              {
+                "name": "projectName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some project name and the responses will not contain matches of projects that match the given name."
+              },
+              {
+                "name": "inferredProgress.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a inferred progress  and the responses will contain exact matches of projects that match the given inferred progress."
+              },
+              {
+                "name": "contractType.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a contract type and the responses will contain exact matches of projects that match the given contract type"
+              },
+              {
+                "name": "contractType.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide contract types separated by commas and the responses will contain matches of projects that match any of the given contract types."
+              },
+              {
+                "name": "contractType.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide contract types separated by commas and the responses will not contain matches of projects that match the given set of contract types."
+              },
+              {
+                "name": "budgetedHours.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a budgeted hour and the responses will contain projects whose budgeted hours are greater than the given budgeted hour."
+              },
+              {
+                "name": "budgetedHours.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a budgeted hour and the responses will contain exact matches of projects that match the given budgeted hour."
+              },
+              {
+                "name": "budgetedHours.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a budgeted hour and the responses will contain projects whose budgeted hours are less than the given budgeted hour."
+              },
+              {
+                "name": "budgetedHours.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a budgeted hour and the responses will contain projects whose budgeted hours are greater than or equal to the given budgeted hour."
+              },
+              {
+                "name": "allocatedHours.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a allocated hour and the responses will contain projects whose allocated hours are less than or equal to the given allocated hour."
+              },
+              {
+                "name": "allocatedHours.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a allocated hour and the responses will contain projects whose allocated hours are greater than the given allocated hour."
+              },
+              {
+                "name": "allocatedHours.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a allocated hour and the responses will contain exact matches of projects that match the given allocated hour."
+              },
+              {
+                "name": "allocatedHours.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a allocated hour and the responses will contain projects whose allocated hours are less than the given allocated hour."
+              },
+              {
+                "name": "allocatedHours.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a allocated hour and the responses will contain projects whose allocated hours are greater than or equal to the given allocated hour."
+              },
+              {
+                "name": "customersInvited.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have more customers invited than given number of customers invited."
+              },
+              {
+                "name": "customersInvited.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain exact matches of projects that exactly have the given number of customers invited."
+              },
+              {
+                "name": "customersInvited.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have less customers invited than given number of customers invited."
+              },
+              {
+                "name": "customersInvited.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have equal or more customers invited than given number of customers invited."
+              },
+              {
+                "name": "customersInvited.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have equal or less customers invited than given number of customers invited."
+              },
+              {
+                "name": "customersJoined.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have more customers joined than given number of customers joined."
+              },
+              {
+                "name": "customersJoined.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain exact matches of projects that exactly have the given number of customers joined."
+              },
+              {
+                "name": "customersJoined.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have less customers joined than given number of customers joined."
+              },
+              {
+                "name": "customersJoined.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have equal or more customers joined than given number of customers joined."
+              },
+              {
+                "name": "customersJoined.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide a number and the responses will contain projects that have equal or less customers joined than given number of customers joined."
+              },
+              {
+                "name": "includeArchive.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify whether responses will include the archived projects."
+              },
+              {
+                "name": "status.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide status and the responses will contain projects that are equal to the given status"
+              },
+              {
+                "name": "status.oneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will contain projects that match one of the given statuses"
+              },
+              {
+                "name": "status.noneOf",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide statuses and the responses will contain projects that matches none of the given statuses"
+              },
+              {
+                "name": "externalReferenceId.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide external reference id and the responses will contain projects that are equal to the given id"
+              }
+            ]
+          },
+          "docs": "Get all projects"
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/projects",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

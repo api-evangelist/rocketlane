@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Fields API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get field by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/fields/:fieldId",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "200",
+                "type": "path",
+                "description": "The field's unique, system-generated identifier, which can be used to identify the field globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which field properties should be returned in the response body by selecting from the drop down. To get the relevant field properties, use comma separated values. If this field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the field properties should be returned in the response body. If the field is left blank, the default field properties are returned."
+              }
+            ]
+          },
+          "docs": "Get field by Id"
+        },
+        {
+          "info": {
+            "name": "Update field by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/fields/:fieldId",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "200",
+                "type": "path",
+                "description": "The field's unique, system-generated identifier, which can be used to identify the field globally."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which field properties should be returned in the response body by selecting from the drop down. To get the relevant field properties, use comma separated values. If this field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the field properties should be returned in the response body. If the field is left blank, the default field properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update field by Id"
+        },
+        {
+          "info": {
+            "name": "Delete field by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/fields/:fieldId",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "200",
+                "type": "path",
+                "description": "The field's unique, system-generated identifier, which can be used to identify the field globally."
+              }
+            ]
+          },
+          "docs": "Delete field by Id"
+        },
+        {
+          "info": {
+            "name": "Update field Option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/fields/:fieldId/update-option",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "200",
+                "type": "path",
+                "description": "The field's unique, system-generated identifier, which can be used to identify the field globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update field Option"
+        },
+        {
+          "info": {
+            "name": "Add field Option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/fields/:fieldId/add-option",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "200",
+                "type": "path",
+                "description": "The field's unique, system-generated identifier, which can be used to identify the field globally."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add field Option"
+        },
+        {
+          "info": {
+            "name": "Get all fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/fields",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which field properties should be returned in the response body by selecting from the drop down. To get the relevant field properties, use comma separated values. If this field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the field properties should be returned in the response body. If the field is left blank, the default field properties are returned."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "You can use the sortBy param to sort the responses by the given field."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query",
+                "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
+              },
+              {
+                "name": "createdAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are greater than the given fields created date."
+              },
+              {
+                "name": "createdAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of fields that match the given fields created date."
+              },
+              {
+                "name": "createdAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are less than the given fields created date."
+              },
+              {
+                "name": "createdAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are greater than or equal to the given fields created date."
+              },
+              {
+                "name": "createdAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are less than or equal to the given fields created date."
+              },
+              {
+                "name": "updatedAt.gt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are greater than the given fields updated date."
+              },
+              {
+                "name": "updatedAt.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of fields that match the given fields updated date."
+              },
+              {
+                "name": "updatedAt.lt",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are less than the given fields updated date."
+              },
+              {
+                "name": "updatedAt.ge",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are greater than or equal to the given fields updated date."
+              },
+              {
+                "name": "updatedAt.le",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to provide an epoch milli value and the responses will contain fields whose date are less than or equal to the given fields updated date."
+              },
+              {
+                "name": "objectType.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a object type for the fields and the responses will contain exact matches of fields that have the given object type."
+              },
+              {
+                "name": "fieldType.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify a field type for the fields and the responses will contain exact matches of fields that have the given field type."
+              },
+              {
+                "name": "enabled.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify whether responses will contains the enabled or disabled fields."
+              },
+              {
+                "name": "private.eq",
+                "value": "",
+                "type": "query",
+                "description": "You can use this parameter to specify whether responses will contains the private or shared fields."
+              }
+            ]
+          },
+          "docs": "Get all fields"
+        },
+        {
+          "info": {
+            "name": "Create a Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/fields",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which field properties should be returned in the response body by selecting from the drop down. To get the relevant field properties, use comma separated values. If this field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the field properties should be returned in the response body. If the field is left blank, the default field properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Field"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

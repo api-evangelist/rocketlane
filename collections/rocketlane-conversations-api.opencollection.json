@@ -1,0 +1,265 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rocketlane Comments Conversations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the conversation object"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ]
+          },
+          "docs": "The Get Conversation API allows users to retrieve the conversation history of a specific project using its unique project ID. This endpoint provides a structured and paginated response containing all messages exchanged within the project's conversation thread. This API is designed to facilitate seamless access to project discussions, enabling teams to track conversations, review past messages, and maintain contextual awareness of discussions related to their projects. It is particularly useful f"
+        },
+        {
+          "info": {
+            "name": "Update conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rocketlane.com/api/1.0/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the conversation object"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Update Conversation API allows users to modify an existing conversation within a specified project using its unique project ID. This endpoint enables updates to message content, metadata, or status, ensuring that project discussions remain accurate and up to date. This API is designed for use cases where message edits, status updates, or other modifications need to be applied to an ongoing project conversation. It is particularly useful for integrations that require real-time collaboration u"
+        },
+        {
+          "info": {
+            "name": "Delete conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rocketlane.com/api/1.0/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the conversation object"
+              }
+            ]
+          },
+          "docs": "The Delete Conversation API allows users to remove a conversation from a specific project using its unique project ID. This endpoint permanently deletes the conversation and its associated messages, ensuring that project discussions can be managed and maintained according to organizational policies. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the conversation has been successfully removed without returning a response body."
+        },
+        {
+          "info": {
+            "name": "Remove members to the conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/conversations/:conversationId/remove-members",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the conversation object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used to remove members to the conversation in a project using its ID. This API returns the project conversation along with the members for the project specified."
+        },
+        {
+          "info": {
+            "name": "Add members to the conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/conversations/:conversationId/add-members",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "200",
+                "type": "path",
+                "description": "The ID of the conversation object"
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used to add members to the conversation in a project using its ID. This API returns the project conversation along with the members for the project specified."
+        },
+        {
+          "info": {
+            "name": "Get all conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rocketlane.com/api/1.0/conversations",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
+              },
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "sourceId.eq",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              },
+              {
+                "name": "conversationName.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by conversation name"
+              },
+              {
+                "name": "conversationName.cn",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some Conversation name and the responses will contain matches of conversation that match the given name."
+              },
+              {
+                "name": "conversationName.nc",
+                "value": "",
+                "type": "query",
+                "description": "You can use this param to specify some Conversation name and the responses will not contain matches of conversation that match the given name."
+              },
+              {
+                "name": "isPrivate.eq",
+                "value": "",
+                "type": "query",
+                "description": "Filter by private conversations"
+              }
+            ]
+          },
+          "docs": "The Get All Conversations API allows users to retrieve all conversations within a specified project using its unique project ID. This endpoint returns a paginated response containing all available conversation threads for the specified project, along with metadata such as timestamps, sender details, and message status. This API is designed to facilitate seamless access to project discussions, enabling teams to track, review, and analyze past conversations for better collaboration and project man"
+        },
+        {
+          "info": {
+            "name": "Creates conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rocketlane.com/api/1.0/conversations",
+            "params": [
+              {
+                "name": "includeFields",
+                "value": "",
+                "type": "query",
+                "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
+              },
+              {
+                "name": "includeAllFields",
+                "value": "",
+                "type": "query",
+                "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Create Conversation API allows users to initiate a new conversation within a specified project using its unique project ID. This endpoint facilitates seamless communication by enabling teams to start discussions, share updates, and collaborate effectively within the project workspace. Upon a successful request, the API returns the newly created conversation details, including metadata such as participants, timestamps, and initial message content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
