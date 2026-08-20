@@ -43,6 +43,15 @@ tags:
 - Resource Management
 - Time Tracking
 - PSA
+- Software-as-a-Service
+tags_raw:
+- Company
+- Professional Services Automation
+- Project Management
+- Customer Onboarding
+- Resource Management
+- Time Tracking
+- PSA
 - SaaS
 apis:
 - aid: rocketlane:rocketlane-comments-api
@@ -121,6 +130,8 @@ apis:
   humanURL: https://developer.rocketlane.com
   baseURL: https://api.rocketlane.com/api/1.0/
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -177,6 +188,8 @@ apis:
   humanURL: https://developer.rocketlane.com
   baseURL: https://api.rocketlane.com/api/1.0/
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -219,6 +232,8 @@ apis:
   humanURL: https://developer.rocketlane.com
   baseURL: https://api.rocketlane.com/api/1.0/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
