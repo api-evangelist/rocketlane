@@ -1,19 +1,7 @@
 {
   "provider": "rocketlane",
   "sources": [
-    "rocketlane-comments-api-openapi.yml",
-    "rocketlane-conversations-api-openapi.yml",
-    "rocketlane-fields-api-openapi.yml",
-    "rocketlane-invoices-api-openapi.yml",
-    "rocketlane-phases-api-openapi.yml",
-    "rocketlane-projects-api-openapi.yml",
-    "rocketlane-resource-allocations-api-openapi.yml",
-    "rocketlane-space-documents-api-openapi.yml",
-    "rocketlane-spaces-api-openapi.yml",
-    "rocketlane-tasks-api-openapi.yml",
-    "rocketlane-time-offs-api-openapi.yml",
-    "rocketlane-time-tracking-api-openapi.yml",
-    "rocketlane-users-api-openapi.yml"
+    "_original/rocketlane-openapi-original.json"
   ],
   "outputs": [
     "rocketlane-comments-api-openapi.yml",
@@ -26,13 +14,31 @@
     "rocketlane-space-documents-api-openapi.yml",
     "rocketlane-spaces-api-openapi.yml",
     "rocketlane-tasks-api-openapi.yml",
-    "rocketlane-time-offs-api-openapi.yml",
     "rocketlane-time-tracking-api-openapi.yml",
+    "rocketlane-time-offs-api-openapi.yml",
     "rocketlane-users-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rocketlane-openapi-original.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rocketlane-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-conversations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-fields-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-phases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-resource-allocations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-space-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-spaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-time-offs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-time-tracking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rocketlane-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

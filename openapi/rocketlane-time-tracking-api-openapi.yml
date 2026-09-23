@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Rocketlane Comments Time Tracking API
+  title: Rocketlane Time Tracking API
   description: Rocketlane API
   version: '1.0'
 servers:
@@ -945,6 +945,30 @@ paths:
                 $ref: '#/components/schemas/unauthorizedErrorlist'
 components:
   schemas:
+    TimeEntryRejectedByPublicResponse:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: User who rejected the time entry
     TimeEntryPublicAPIResponseEntity:
       type: object
       properties:
@@ -1066,6 +1090,270 @@ components:
           description: Custom fields associated with the time entry
           items:
             $ref: '#/components/schemas/TimeEntryFieldPublicResponseAPIEntity'
+    TimeEntryCreatedByPublicResponse:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: The team member who created the time entry.
+    TimeEntryTaskPublicAPI:
+      type: object
+      properties:
+        taskName:
+          type: string
+          description: The name of the task.
+          readOnly: true
+          example: Kickoff meeting
+        taskId:
+          type: integer
+          description: The task’s unique, system-generated identifier, which can be used to identify the task globally.
+          format: int64
+          example: 201
+      description: Task associated with the time entry
+    TimeEntryFieldPublicResponseAPIEntity:
+      type: object
+      properties:
+        fieldId:
+          minimum: 1
+          type: integer
+          description: The unique identifier for the field.
+          format: int64
+          readOnly: true
+          example: 201
+        fieldLabel:
+          type: string
+          description: The label of the field.
+          readOnly: true
+          example: MRR
+        fieldValue:
+          type: object
+          description: The `fieldValue` is the value provided while creation or updating. The fieldValue can be a string, an integer, or an array and it must match the type of the field.
+          readOnly: true
+          example: 1000
+        fieldValueLabel:
+          type: string
+          description: The `fieldValueLabel` is the value provided while creation or updating in a String format.
+          readOnly: true
+          example: '1000'
+      description: Custom fields associated with the time entry
+    serverErrorErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example500'
+    TimeEntryApprovedByPublicResponse:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: User who approved the time entry
+    TimeEntryCostRatePublicAPI:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: The monetary amount assigned to a specific service or activity.
+          example: 40
+        currency:
+          type: string
+          description: The three-letter ISO currency code representing the currency in which transactions are conducted.
+          example: USD
+      description: ' The hourly rate assigned to employees for the work they perform for your organization'
+    Example401:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+    TimeEntryProjectPublicAPIResponseEntity:
+      type: object
+      properties:
+        projectName:
+          type: string
+          description: The name of the project.
+          readOnly: true
+          example: Acme Onboarding
+        projectId:
+          type: integer
+          description: The project’s unique, system-generated identifier, which can be used to identify the project globally.
+          format: int64
+          readOnly: true
+          example: 204
+      description: Project associated with the time entry
+    TimeEntryPublicAPIRequest:
+      required:
+      - date
+      - minutes
+      type: object
+      properties:
+        timeEntryId:
+          minimum: 1
+          type: integer
+          description: The unique, system-generated identifier, which can be used to identify the time entry globally.
+          format: int64
+          readOnly: true
+          example: 201
+        date:
+          type: string
+          description: Date of the time entry in format YYYY-MM-DD
+          example: '2023-03-28'
+        minutes:
+          maximum: 1440
+          minimum: 1
+          type: integer
+          description: Duration of the time entry in minutes
+          format: int32
+          example: 250
+        activityName:
+          type: string
+          description: Name of the adhoc activity being performed
+          example: Pre-Sales campaign
+        project:
+          $ref: '#/components/schemas/TimeEntryProjectPublicAPIRequestEntity'
+        task:
+          $ref: '#/components/schemas/TimeEntryTaskPublicAPI'
+        projectPhase:
+          $ref: '#/components/schemas/TimeEntryPhasePublicAPIRequestEntity'
+        billable:
+          type: boolean
+          description: Whether the time entry is billable. Defaults to true
+          example: true
+          default: true
+        user:
+          $ref: '#/components/schemas/TimesheetsUserPublicAPI'
+        notes:
+          type: string
+          description: Notes for the time entry
+          example: Working on API integration
+        category:
+          $ref: '#/components/schemas/TimeEntryCategoryPublicAPI'
+        fields:
+          type: array
+          description: The custom fields can be set during the time-entry creation with the help of `fields`. The `fieldValue` can be either a string or a number or an array and it has to comply with the type of the field. Refer [examples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how to assign `fieldValue` based on their `field_type`.
+          items:
+            $ref: '#/components/schemas/FieldPublicRequestAPIEntity'
+    ExampleAPIResponseTimeEntryCategories:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/TimeEntryCategoryPublicForExample'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationTimeEntryCategories'
+    TimesheetsUserPublicAPI:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: Email ID
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: User ID
+          format: int64
+          example: 201
+        firstName:
+          type: string
+          description: First name
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: Last name
+          readOnly: true
+          example: Doe
+      description: User associated with the time entry
+    TimeEntryPhasePublicAPIResponseEntity:
+      type: object
+      properties:
+        phaseId:
+          type: integer
+          description: The unique identifier for the phase.
+          format: int64
+          example: 201
+        phaseName:
+          type: string
+          description: The name of the phase.
+          readOnly: true
+          example: Go live
+      description: Project phase associated with the time entry
+    UserPublicAPIResponseEntity:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          readOnly: true
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: User associated with the time entry
+      readOnly: true
+    notFoundErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example404'
     ExampleAPIResponseTimeEntries:
       type: object
       properties:
@@ -1076,6 +1364,217 @@ components:
             $ref: '#/components/schemas/TimeEntryPublicAPIResponseForExample'
         pagination:
           $ref: '#/components/schemas/ExamplePaginationTimeEntries'
+    TimeEntryProjectPublicAPIRequestEntity:
+      type: object
+      properties:
+        projectName:
+          type: string
+          description: The name of the project.
+          readOnly: true
+          example: Acme Onboarding
+        projectId:
+          type: integer
+          description: The unique identifier for the project.
+          format: int64
+          example: 204
+      description: Project associated with the time entry
+    TimeEntryUpdatedByPublicResponse:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: The team member who updated the ttime entry.
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
+    Example500:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: SERVER_ERROR
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Server Error: Something went wrong on our end. Could not perform the requested action.'
+    TimeEntryCategoryPublicForExample:
+      type: object
+      properties:
+        categoryName:
+          type: string
+          description: The name of the category.
+          readOnly: true
+          example: Pre-sales
+        categoryId:
+          type: integer
+          description: The unique identifier for the category.
+          format: int64
+          example: 8
+      description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+    FieldPublicRequestAPIEntity:
+      type: object
+      properties:
+        fieldId:
+          minimum: 1
+          type: integer
+          description: The unique identifier of the field
+          format: int64
+          example: 201
+        fieldLabel:
+          type: string
+          description: The fieldLabel is the name of the custom field.
+          readOnly: true
+          example: MRR
+        fieldValue:
+          type: object
+          description: The value for the field. It can either be a string or a number or number array.  Refer [example](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know more about assigning value for different fields.
+          example: 1000
+          oneOf:
+          - type: string
+          - type: number
+      description: The custom fields can be set during the time-entry creation with the help of `fields`. The `fieldValue` can be either a string or a number or an array and it has to comply with the type of the field. Refer [examples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how to assign `fieldValue` based on their `field_type`.
+    TimeEntrySubmittedByPublicResponse:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: 'User who submitted the time entry
+
+
+        Note: This field may be null, even when the time entry is in an APPROVED or REJECTED state, as time entries can be approved or rejected without an explicit submission step.'
+    ExamplePaginationTimeEntries:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/time-entries?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    ExamplePaginationTimeEntryCategories:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/time-entries/categories?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    Example400:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: BAD_REQUEST
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
+    TimeEntryCategoryPublicAPI:
+      type: object
+      properties:
+        categoryName:
+          type: string
+          description: The name of the category.
+          readOnly: true
+          example: Pre-sales
+        categoryId:
+          type: integer
+          description: The unique identifier for the category.
+          format: int64
+          example: 8
+      description: Category associated with the time entry
     TimeEntryPublicAPIResponseForExample:
       type: object
       properties:
@@ -1205,186 +1704,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Example400'
-    TimeEntryTaskPublicAPI:
+    TimeEntryPhasePublicAPIRequestEntity:
       type: object
       properties:
-        taskName:
-          type: string
-          description: The name of the task.
-          readOnly: true
-          example: Kickoff meeting
-        taskId:
+        phaseId:
           type: integer
-          description: The task’s unique, system-generated identifier, which can be used to identify the task globally.
+          description: The unique identifier for the phase.
           format: int64
           example: 201
-      description: Task associated with the time entry
-    TimeEntryCategoryPublicForExample:
-      type: object
-      properties:
-        categoryName:
+        phaseName:
           type: string
-          description: The name of the category.
+          description: The name of the phase.
           readOnly: true
-          example: Pre-sales
-        categoryId:
-          type: integer
-          description: The unique identifier for the category.
-          format: int64
-          example: 8
-      description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-    TimeEntryFieldPublicResponseAPIEntity:
-      type: object
-      properties:
-        fieldId:
-          minimum: 1
-          type: integer
-          description: The unique identifier for the field.
-          format: int64
-          readOnly: true
-          example: 201
-        fieldLabel:
-          type: string
-          description: The label of the field.
-          readOnly: true
-          example: MRR
-        fieldValue:
-          type: object
-          description: The `fieldValue` is the value provided while creation or updating. The fieldValue can be a string, an integer, or an array and it must match the type of the field.
-          readOnly: true
-          example: 1000
-        fieldValueLabel:
-          type: string
-          description: The `fieldValueLabel` is the value provided while creation or updating in a String format.
-          readOnly: true
-          example: '1000'
-      description: Custom fields associated with the time entry
-    Example500:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: SERVER_ERROR
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Server Error: Something went wrong on our end. Could not perform the requested action.'
-    TimeEntryProjectPublicAPIResponseEntity:
-      type: object
-      properties:
-        projectName:
-          type: string
-          description: The name of the project.
-          readOnly: true
-          example: Acme Onboarding
-        projectId:
-          type: integer
-          description: The project’s unique, system-generated identifier, which can be used to identify the project globally.
-          format: int64
-          readOnly: true
-          example: 204
-      description: Project associated with the time entry
-    TimeEntryCostRatePublicAPI:
-      type: object
-      properties:
-        rate:
-          type: number
-          description: The monetary amount assigned to a specific service or activity.
-          example: 40
-        currency:
-          type: string
-          description: The three-letter ISO currency code representing the currency in which transactions are conducted.
-          example: USD
-      description: ' The hourly rate assigned to employees for the work they perform for your organization'
-    TimeEntryPublicAPIRequest:
-      required:
-      - date
-      - minutes
-      type: object
-      properties:
-        timeEntryId:
-          minimum: 1
-          type: integer
-          description: The unique, system-generated identifier, which can be used to identify the time entry globally.
-          format: int64
-          readOnly: true
-          example: 201
-        date:
-          type: string
-          description: Date of the time entry in format YYYY-MM-DD
-          example: '2023-03-28'
-        minutes:
-          maximum: 1440
-          minimum: 1
-          type: integer
-          description: Duration of the time entry in minutes
-          format: int32
-          example: 250
-        activityName:
-          type: string
-          description: Name of the adhoc activity being performed
-          example: Pre-Sales campaign
-        project:
-          $ref: '#/components/schemas/TimeEntryProjectPublicAPIRequestEntity'
-        task:
-          $ref: '#/components/schemas/TimeEntryTaskPublicAPI'
-        projectPhase:
-          $ref: '#/components/schemas/TimeEntryPhasePublicAPIRequestEntity'
-        billable:
-          type: boolean
-          description: Whether the time entry is billable. Defaults to true
-          example: true
-          default: true
-        user:
-          $ref: '#/components/schemas/TimesheetsUserPublicAPI'
-        notes:
-          type: string
-          description: Notes for the time entry
-          example: Working on API integration
-        category:
-          $ref: '#/components/schemas/TimeEntryCategoryPublicAPI'
-        fields:
-          type: array
-          description: The custom fields can be set during the time-entry creation with the help of `fields`. The `fieldValue` can be either a string or a number or an array and it has to comply with the type of the field. Refer [examples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how to assign `fieldValue` based on their `field_type`.
-          items:
-            $ref: '#/components/schemas/FieldPublicRequestAPIEntity'
-    unauthorizedErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example401'
-    TimeEntryCategoryPublicAPI:
-      type: object
-      properties:
-        categoryName:
-          type: string
-          description: The name of the category.
-          readOnly: true
-          example: Pre-sales
-        categoryId:
-          type: integer
-          description: The unique identifier for the category.
-          format: int64
-          example: 8
-      description: Category associated with the time entry
-    Example400:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: BAD_REQUEST
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Bad Request: Minutes is negative'
-        field:
-          type: string
-          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
-          example: minutes
+          example: Go live
+      description: Project phase associated with the time entry
     TimeEntryPublicAPIUpdateRequest:
       type: object
       properties:
@@ -1424,278 +1757,6 @@ components:
             $ref: '#/components/schemas/FieldPublicRequestAPIEntity'
         billable:
           type: boolean
-    TimeEntryPhasePublicAPIRequestEntity:
-      type: object
-      properties:
-        phaseId:
-          type: integer
-          description: The unique identifier for the phase.
-          format: int64
-          example: 201
-        phaseName:
-          type: string
-          description: The name of the phase.
-          readOnly: true
-          example: Go live
-      description: Project phase associated with the time entry
-    TimeEntryProjectPublicAPIRequestEntity:
-      type: object
-      properties:
-        projectName:
-          type: string
-          description: The name of the project.
-          readOnly: true
-          example: Acme Onboarding
-        projectId:
-          type: integer
-          description: The unique identifier for the project.
-          format: int64
-          example: 204
-      description: Project associated with the time entry
-    FieldPublicRequestAPIEntity:
-      type: object
-      properties:
-        fieldId:
-          minimum: 1
-          type: integer
-          description: The unique identifier of the field
-          format: int64
-          example: 201
-        fieldLabel:
-          type: string
-          description: The fieldLabel is the name of the custom field.
-          readOnly: true
-          example: MRR
-        fieldValue:
-          type: object
-          description: The value for the field. It can either be a string or a number or number array.  Refer [example](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know more about assigning value for different fields.
-          example: 1000
-          oneOf:
-          - type: string
-          - type: number
-      description: The custom fields can be set during the time-entry creation with the help of `fields`. The `fieldValue` can be either a string or a number or an array and it has to comply with the type of the field. Refer [examples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how to assign `fieldValue` based on their `field_type`.
-    ExamplePaginationTimeEntryCategories:
-      type: object
-      properties:
-        pageSize:
-          type: integer
-          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
-          format: int32
-          example: 100
-        hasMore:
-          type: boolean
-          description: Tells us if there is more content.
-          example: true
-        totalRecordCount:
-          type: integer
-          description: Denotes the total resources matching the filters.
-          format: int64
-          example: 10398
-        nextPage:
-          type: string
-          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
-          example: https://api.rocketlane.com/api/1.0/time-entries/categories?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
-        nextPageToken:
-          type: string
-          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
-          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
-      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
-    TimeEntrySubmittedByPublicResponse:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: 'User who submitted the time entry
-
-
-        Note: This field may be null, even when the time entry is in an APPROVED or REJECTED state, as time entries can be approved or rejected without an explicit submission step.'
-    ExampleAPIResponseTimeEntryCategories:
-      type: object
-      properties:
-        data:
-          type: array
-          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-          items:
-            $ref: '#/components/schemas/TimeEntryCategoryPublicForExample'
-        pagination:
-          $ref: '#/components/schemas/ExamplePaginationTimeEntryCategories'
-    notFoundErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example404'
-    TimeEntryUpdatedByPublicResponse:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: The team member who updated the ttime entry.
-    TimeEntryRejectedByPublicResponse:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: User who rejected the time entry
-    UserPublicAPIResponseEntity:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          readOnly: true
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: User associated with the time entry
-      readOnly: true
-    serverErrorErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example500'
-    Example401:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_AUTHORIZED
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Authorized: User not authorized'
-    TimeEntryCreatedByPublicResponse:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: The team member who created the time entry.
-    TimeEntryPhasePublicAPIResponseEntity:
-      type: object
-      properties:
-        phaseId:
-          type: integer
-          description: The unique identifier for the phase.
-          format: int64
-          example: 201
-        phaseName:
-          type: string
-          description: The name of the phase.
-          readOnly: true
-          example: Go live
-      description: Project phase associated with the time entry
-    TimesheetsUserPublicAPI:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: Email ID
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: User ID
-          format: int64
-          example: 201
-        firstName:
-          type: string
-          description: First name
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: Last name
-          readOnly: true
-          example: Doe
-      description: User associated with the time entry
     TimeEntryBillRatePublicAPI:
       type: object
       properties:
@@ -1708,67 +1769,6 @@ components:
           description: The three-letter ISO currency code representing the currency in which transactions are conducted.
           example: EUR
       description: The hourly rate charged to customers for the projects or services provided.
-    TimeEntryApprovedByPublicResponse:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: User who approved the time entry
-    ExamplePaginationTimeEntries:
-      type: object
-      properties:
-        pageSize:
-          type: integer
-          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
-          format: int32
-          example: 100
-        hasMore:
-          type: boolean
-          description: Tells us if there is more content.
-          example: true
-        totalRecordCount:
-          type: integer
-          description: Denotes the total resources matching the filters.
-          format: int64
-          example: 10398
-        nextPage:
-          type: string
-          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
-          example: https://api.rocketlane.com/api/1.0/time-entries?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
-        nextPageToken:
-          type: string
-          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
-          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
-      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
-    Example404:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_FOUND
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Found: Resource not found for given ID'
   securitySchemes:
     api-key:
       type: apiKey

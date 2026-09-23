@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Rocketlane Comments Resource Allocations API
+  title: Rocketlane Resource Allocations API
   description: Rocketlane API
   version: '1.0'
 servers:
@@ -173,40 +173,21 @@ paths:
                 $ref: '#/components/schemas/unauthorizedErrorlist'
 components:
   schemas:
-    unauthorizedErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example401'
-    RoleResponsePublicAPI:
-      type: object
-      properties:
-        roleId:
-          type: integer
-          description: The role's unique, system-generated identifier, which can be used to identify the role globally.
-          format: int64
-          readOnly: true
-          example: 101
-        roleName:
-          type: string
-          description: The name of the role.
-          readOnly: true
-          example: Designer
-      description: The role of the member or placeholder to whom allocation is made for
-      readOnly: true
-    Example401:
+    Example400:
       type: object
       properties:
         errorCode:
           type: string
           description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_AUTHORIZED
+          example: BAD_REQUEST
         errorMessage:
           type: string
           description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Authorized: User not authorized'
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
     PlaceholderResponsePublicAPI:
       type: object
       properties:
@@ -223,42 +204,6 @@ components:
         role:
           $ref: '#/components/schemas/RoleResponsePublicAPI'
       description: The placeholder associated for the allocation if chosen `allocationFor` is `PLACEHOLDER`.
-      readOnly: true
-    badRequestErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example400'
-    ResourceAllocationTotalDurationPublicResponse:
-      type: object
-      properties:
-        daysConsider:
-          type: integer
-          description: No. of week days considered for computing the `minutes`, `hours`, `seconds`. This is calculated for range between allocation's `startDate` and `endDate`.
-          format: int32
-          readOnly: true
-          example: 1
-        seconds:
-          type: integer
-          description: The total allocation seconds for entire start date and end date.
-          format: int32
-          readOnly: true
-          example: 45000
-        minutes:
-          type: integer
-          description: The total allocation minutes for entire start date and end date.
-          format: int32
-          readOnly: true
-          example: 750
-        hours:
-          type: integer
-          description: The total allocation hours for entire start date and end date.
-          format: int32
-          readOnly: true
-          example: 12
-      description: Total seconds, minutes, hours for the allocation. This is calculated for range between allocation's `startDate` and `endDate`.
       readOnly: true
     ExamplePaginationResourceAllocations:
       type: object
@@ -286,6 +231,86 @@ components:
           description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
           example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
       description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    ExampleAPIResponseResourceAllocations:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/ResourceAllocationPublicAPIResponseForExample'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationResourceAllocations'
+    AllocationCreatedByUserPublicAPI:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The team members email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: The team member who created the allocation.
+    AllocationUpdatedByUserPublicAPI:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: The team members email identifier.
+          example: john.doe@rocketlane.com
+        userId:
+          type: integer
+          description: The unique identifier for the user.
+          format: int64
+          readOnly: true
+          example: 201
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: The team member who updated the allocation
+    ResourceAllocationTaskPublicAPIEntity:
+      type: object
+      properties:
+        taskName:
+          type: string
+          description: The task's unique, system-generated **identifier**, which can be used to identify the task globally.
+          readOnly: true
+          example: Kickoff meeting
+        taskId:
+          type: integer
+          description: The **name** of the task.
+          format: int64
+          example: 201
+      description: The `task(s)` associated with resource allocation.
+      readOnly: true
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
     ResourceAllocationPublicAPIResponseForExample:
       type: object
       properties:
@@ -361,77 +386,13 @@ components:
         updatedBy:
           $ref: '#/components/schemas/AllocationUpdatedByUserPublicAPI'
       description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-    ProjectPublicAPIAllocationResponseEntity:
+    badRequestErrorlist:
       type: object
       properties:
-        projectId:
-          minimum: 1
-          type: integer
-          description: The project's unique, system-generated identifier, which can be used to identify the project globally.
-          format: int64
-          readOnly: true
-          example: 201
-        projectName:
-          type: string
-          description: The name of the project.
-          readOnly: true
-          example: Acme onboarding
-      description: The `project` associated with resource allocation.
-      readOnly: true
-    ResourceAllocationTaskPublicAPIEntity:
-      type: object
-      properties:
-        taskName:
-          type: string
-          description: The task's unique, system-generated **identifier**, which can be used to identify the task globally.
-          readOnly: true
-          example: Kickoff meeting
-        taskId:
-          type: integer
-          description: The **name** of the task.
-          format: int64
-          example: 201
-      description: The `task(s)` associated with resource allocation.
-      readOnly: true
-    Example400:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: BAD_REQUEST
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Bad Request: Minutes is negative'
-        field:
-          type: string
-          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
-          example: minutes
-    AllocationUpdatedByUserPublicAPI:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The team members email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: The team member who updated the allocation
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example400'
     AllocationUserPublicAPIResponseEntity:
       type: object
       properties:
@@ -459,40 +420,79 @@ components:
           $ref: '#/components/schemas/RoleResponsePublicAPI'
       description: The team member associated for the allocation if chosen `allocationFor` is `TEAM_MEMBER`.
       readOnly: true
-    ExampleAPIResponseResourceAllocations:
+    ProjectPublicAPIAllocationResponseEntity:
       type: object
       properties:
-        data:
-          type: array
-          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-          items:
-            $ref: '#/components/schemas/ResourceAllocationPublicAPIResponseForExample'
-        pagination:
-          $ref: '#/components/schemas/ExamplePaginationResourceAllocations'
-    AllocationCreatedByUserPublicAPI:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The team members email identifier.
-          example: john.doe@rocketlane.com
-        userId:
+        projectId:
+          minimum: 1
           type: integer
-          description: The unique identifier for the user.
+          description: The project's unique, system-generated identifier, which can be used to identify the project globally.
           format: int64
           readOnly: true
           example: 201
-        firstName:
+        projectName:
           type: string
-          description: The first name of the user.
+          description: The name of the project.
           readOnly: true
-          example: John
-        lastName:
+          example: Acme onboarding
+      description: The `project` associated with resource allocation.
+      readOnly: true
+    ResourceAllocationTotalDurationPublicResponse:
+      type: object
+      properties:
+        daysConsider:
+          type: integer
+          description: No. of week days considered for computing the `minutes`, `hours`, `seconds`. This is calculated for range between allocation's `startDate` and `endDate`.
+          format: int32
+          readOnly: true
+          example: 1
+        seconds:
+          type: integer
+          description: The total allocation seconds for entire start date and end date.
+          format: int32
+          readOnly: true
+          example: 45000
+        minutes:
+          type: integer
+          description: The total allocation minutes for entire start date and end date.
+          format: int32
+          readOnly: true
+          example: 750
+        hours:
+          type: integer
+          description: The total allocation hours for entire start date and end date.
+          format: int32
+          readOnly: true
+          example: 12
+      description: Total seconds, minutes, hours for the allocation. This is calculated for range between allocation's `startDate` and `endDate`.
+      readOnly: true
+    Example401:
+      type: object
+      properties:
+        errorCode:
           type: string
-          description: The last name of the user.
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+    RoleResponsePublicAPI:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          description: The role's unique, system-generated identifier, which can be used to identify the role globally.
+          format: int64
           readOnly: true
-          example: Doe
-      description: The team member who created the allocation.
+          example: 101
+        roleName:
+          type: string
+          description: The name of the role.
+          readOnly: true
+          example: Designer
+      description: The role of the member or placeholder to whom allocation is made for
+      readOnly: true
   securitySchemes:
     api-key:
       type: apiKey
