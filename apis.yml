@@ -188,9 +188,11 @@ apis:
   humanURL: https://developer.rocketlane.com
   baseURL: https://api.rocketlane.com/api/1.0/
   tags:
+  - Spaces
   - Space
   tags_raw:
   - Spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/rocketlane-spaces-api-openapi.yml
