@@ -266,6 +266,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/rocketlane-capability-edges.yml
+  name: Rocketlane Business Capability Map
 - type: AgenticAccess
   url: agentic-access/rocketlane-agentic-access.yml
 - type: DeveloperPortal

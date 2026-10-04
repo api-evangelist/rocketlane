@@ -1,0 +1,65 @@
+slug: rocketlane
+provider: Rocketlane
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Projects
+  spec_file: rocketlane-projects-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.9
+  evidence: POST /1.0/projects  create-project; POST /1.0/projects/{projectId}/add-members  Add members
+    to a project; POST /1.0/projects/{projectId}/import-template
+  reason: Full project lifecycle CRUD with members, templates, archiving and project financials — plainly
+    project execution management.
+- tag: Tasks
+  spec_file: rocketlane-tasks-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.85
+  evidence: POST /1.0/tasks/{taskId}/add-assignees 'Add assignees to a task'; 'Move a task to the phase
+    by Id'; 'Add dependencies to a task'
+  reason: Task creation, assignment, dependencies and phase movement within projects is textbook project
+    execution planning and tracking.
+- tag: Invoices
+  spec_file: rocketlane-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.8
+  evidence: 'GET /1.0/invoices/{invoiceId}/payments  Get invoice payments by invoice Id; schemas: InvoiceLineItemResponseEntity,
+    PaymentRecordPublicAPIResponseEntity, TaxCodePublicAPIResponseEntity'
+  reason: Customer-facing professional-services invoices with line items, tax codes and payment records
+    — customer invoicing and cash application, i.e. Accounts Receivable Management.
+- tag: Phases
+  spec_file: rocketlane-phases-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.8
+  evidence: 'POST /1.0/phases  create-phase  Create a phase; schemas: ProjectPublicAPIPhaseResponseEntity,
+    PhaseStatusPublicResponse'
+  reason: Phases are project plan stages with status, owned by a project — project planning/tracking structure
+    within the PSA delivery platform.
+- tag: Resource Allocations
+  spec_file: rocketlane-resource-allocations-api-openapi.yml
+  capability_id: BC-900.60
+  capability_id_l1: BC-900
+  capability_name: Demand & Capacity Management
+  confidence: 0.72
+  evidence: 'GET /1.0/resource-allocations  get-all-resource-allocations  Get all Resource allocations;
+    schemas: ResourceAllocationTotalDurationPublicResponse, PlaceholderResponsePublicAPI, RoleResponsePublicAPI'
+  reason: Allocation of users/placeholders by role and duration to projects and tasks is project resource
+    capacity planning; single read-only endpoint keeps confidence moderate.
