@@ -363,17 +363,20 @@ paths:
                 $ref: '#/components/schemas/serverErrorErrorlist'
 components:
   schemas:
-    Example404:
+    CommentAttachmentPublicAPIRequestEntity:
+      required:
+      - file
       type: object
       properties:
-        errorCode:
+        attachmentId:
+          type: integer
+          description: Attachment ID
+          format: int64
+          example: 201
+        file:
           type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_FOUND
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Found: Resource not found for given ID'
+          format: binary
+      description: List of attachments associated with the comment
     badRequestErrorlist:
       type: object
       properties:
@@ -381,79 +384,33 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Example400'
-    CommentSourcePublicAPIResponseEntity:
-      type: object
-      properties:
-        sourceId:
-          minimum: 1
-          type: integer
-          description: Source Id attached to the comment
-          format: int64
-          example: 201
-        sourceType:
-          minimum: 1
-          type: string
-          description: Source Type attached to the comment
-          example: PROJECT_CONVERSATIONS
-          enum:
-          - TASK
-          - PROJECT_CONVERSATIONS
-      description: Source associated with the comment
-    CommentCreatedByResponsePublicAPIEntity:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The user's email identifier.
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: The unique identifier for the user.
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: Details of the user who created the comment
-    CommentSourcePublicAPIRequestEntity:
-      required:
-      - sourceId
-      - sourceType
-      type: object
-      properties:
-        sourceId:
-          minimum: 1
-          type: integer
-          description: Source Id attached to the comment
-          format: int64
-          example: 201
-        sourceType:
-          type: string
-          description: Source Type attached to the comment
-          example: PROJECT_CONVERSATIONS
-          enum:
-          - TASK
-          - PROJECT_CONVERSATIONS
-      description: Source associated with the comment
-    Example500:
+    Example401:
       type: object
       properties:
         errorCode:
           type: string
           description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: SERVER_ERROR
+          example: NOT_AUTHORIZED
         errorMessage:
           type: string
           description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Server Error: Something went wrong on our end. Could not perform the requested action.'
+          example: 'Not Authorized: User not authorized'
+    CommentPublicUpdateRequestAPIEntity:
+      type: object
+      properties:
+        commentId:
+          minimum: 1
+          type: integer
+          description: Comment ID
+          format: int64
+          readOnly: true
+          example: 201
+        content:
+          type: string
+          description: Updated comment content
+          example: This is an updated comment
+        private:
+          type: boolean
     ExamplePaginationConversations:
       type: object
       properties:
@@ -480,35 +437,17 @@ components:
           description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
           example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
       description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
-    Example400:
+    Example500:
       type: object
       properties:
         errorCode:
           type: string
           description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: BAD_REQUEST
+          example: SERVER_ERROR
         errorMessage:
           type: string
           description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Bad Request: Minutes is negative'
-        field:
-          type: string
-          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
-          example: minutes
-    CommentAttachmentPublicAPIRequestEntity:
-      required:
-      - file
-      type: object
-      properties:
-        attachmentId:
-          type: integer
-          description: Attachment ID
-          format: int64
-          example: 201
-        file:
-          type: string
-          format: binary
-      description: List of attachments associated with the comment
+          example: 'Server Error: Something went wrong on our end. Could not perform the requested action.'
     CommentAttachmentPublicAPIResponseEntity:
       type: object
       properties:
@@ -539,31 +478,6 @@ components:
           description: Attachment Visibility
           example: false
       description: List of attachments associated with the comment
-    Example401:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_AUTHORIZED
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Authorized: User not authorized'
-    unauthorizedErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example401'
-    serverErrorErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example500'
     CommentPublicAPIRequestEntity:
       required:
       - content
@@ -583,6 +497,58 @@ components:
             $ref: '#/components/schemas/CommentAttachmentPublicAPIRequestEntity'
         private:
           type: boolean
+    CommentSourcePublicAPIRequestEntity:
+      required:
+      - sourceId
+      - sourceType
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the comment
+          format: int64
+          example: 201
+        sourceType:
+          type: string
+          description: Source Type attached to the comment
+          example: PROJECT_CONVERSATIONS
+          enum:
+          - TASK
+          - PROJECT_CONVERSATIONS
+      description: Source associated with the comment
+    ExampleAPIResponseComments:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationConversations'
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
+    Example400:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: BAD_REQUEST
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
     notFoundErrorlist:
       type: object
       properties:
@@ -590,6 +556,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Example404'
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
     CommentPublicResponseAPIEntity:
       required:
       - source
@@ -626,32 +603,55 @@ components:
           description: Indicates whether the comment is private or public
           example: true
       description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-    CommentPublicUpdateRequestAPIEntity:
+    CommentCreatedByResponsePublicAPIEntity:
       type: object
       properties:
-        commentId:
-          minimum: 1
+        emailId:
+          type: string
+          description: The user's email identifier.
+          example: john.doe@rocketlane.com
+        userId:
           type: integer
-          description: Comment ID
+          description: The unique identifier for the user.
           format: int64
           readOnly: true
           example: 201
-        content:
+        firstName:
           type: string
-          description: Updated comment content
-          example: This is an updated comment
-        private:
-          type: boolean
-    ExampleAPIResponseComments:
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: Details of the user who created the comment
+    CommentSourcePublicAPIResponseEntity:
       type: object
       properties:
-        data:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the comment
+          format: int64
+          example: 201
+        sourceType:
+          minimum: 1
+          type: string
+          description: Source Type attached to the comment
+          example: PROJECT_CONVERSATIONS
+          enum:
+          - TASK
+          - PROJECT_CONVERSATIONS
+      description: Source associated with the comment
+    serverErrorErrorlist:
+      type: object
+      properties:
+        errors:
           type: array
-          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
           items:
-            $ref: '#/components/schemas/CommentPublicResponseAPIEntity'
-        pagination:
-          $ref: '#/components/schemas/ExamplePaginationConversations'
+            $ref: '#/components/schemas/Example500'
   securitySchemes:
     api-key:
       type: apiKey

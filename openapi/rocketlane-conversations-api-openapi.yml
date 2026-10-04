@@ -462,104 +462,30 @@ paths:
                 $ref: '#/components/schemas/notFoundErrorlist'
 components:
   schemas:
-    Example404:
+    ConversationMemberPublicAPIEntity:
       type: object
       properties:
-        errorCode:
+        emailId:
           type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_FOUND
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Found: Resource not found for given ID'
-    ConversationPublicRequestAPIEntity:
-      required:
-      - name
-      - source
-      type: object
-      properties:
-        name:
-          type: string
-          description: Conversation name
-          example: General chat
-        description:
-          type: string
-          description: Conversation description
-          example: This is the starting of the General chat
-        source:
-          $ref: '#/components/schemas/ConversationSourcePublicAPIRequestEntity'
-        allMembers:
-          type: boolean
-          description: Conversation all members inclusion
-          example: true
-        members:
-          type: array
-          description: Conversation members
-          items:
-            $ref: '#/components/schemas/ConversationMemberPublicAPIRequestEntity'
-        private:
-          type: boolean
-          description: Conversation privacy
-          example: true
-    ConversationPublicUpdateRequestAPI:
-      type: object
-      properties:
-        conversationId:
-          minimum: 1
+          description: Email ID
+          example: john.doe@rocketlane.com
+        userId:
           type: integer
-          description: Conversation ID
+          description: User ID
           format: int64
           readOnly: true
           example: 201
-        name:
+        firstName:
           type: string
-          description: Conversation name
-          example: General chat
-        description:
+          description: First name
+          readOnly: true
+          example: John
+        lastName:
           type: string
-          description: Conversation description
-          example: This is the starting of the General chat
-        allMembers:
-          type: boolean
-          description: Conversation all members inclusion
-          example: true
-    ConversationSourcePublicAPIRequestEntity:
-      required:
-      - sourceId
-      - sourceType
-      type: object
-      properties:
-        sourceId:
-          minimum: 1
-          type: integer
-          description: Source Id attached to the conversation
-          format: int64
-          example: 201
-        sourceType:
-          type: string
-          description: Source Type attached to the conversation
-          example: PROJECT_CONVERSATION
-          enum:
-          - PROJECT_CONVERSATION
-      description: Source associated with the conversation
-    ConverationSourcePublicAPIResponseEntity:
-      type: object
-      properties:
-        sourceId:
-          minimum: 1
-          type: integer
-          description: Source Id attached to the conversation
-          format: int64
-          example: 201
-        sourceType:
-          minimum: 1
-          type: string
-          description: Source Type attached to the conversation
-          example: PROJECT_CONVERSATION
-          enum:
-          - PROJECT_CONVERSATION
-      description: Source associated with the conversation
+          description: Last name
+          readOnly: true
+          example: Doe
+      description: Conversation members
     badRequestErrorlist:
       type: object
       properties:
@@ -567,31 +493,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Example400'
-    ExampleAPIResponseConversations:
+    Example401:
       type: object
       properties:
-        data:
-          type: array
-          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-          items:
-            $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
-        pagination:
-          $ref: '#/components/schemas/ExamplePaginationConversations'
-    ConversationMembersAPI:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+    ConversationMemberPublicAPIRequestEntity:
       type: object
       properties:
-        conversationId:
-          minimum: 1
+        emailId:
+          type: string
+          description: The team members email identifier.
+          example: john.doe@rocketlane.com
+        userId:
           type: integer
-          description: Conversation ID
+          description: The unique identifier for the user.
           format: int64
-          readOnly: true
           example: 201
-        members:
-          type: array
-          description: Conversation Members
-          items:
-            $ref: '#/components/schemas/UserPublicAPI'
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+      description: Conversation members
+    ExamplePaginationConversations:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/projects/1/conversations?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
     ConversationPublicResponseAPIEntity:
       type: object
       properties:
@@ -632,32 +593,67 @@ components:
           description: Conversation privacy
           example: true
       description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
-    ExamplePaginationConversations:
+    ConverationSourcePublicAPIResponseEntity:
       type: object
       properties:
-        pageSize:
+        sourceId:
+          minimum: 1
           type: integer
-          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
-          format: int32
-          example: 100
-        hasMore:
-          type: boolean
-          description: Tells us if there is more content.
-          example: true
-        totalRecordCount:
-          type: integer
-          description: Denotes the total resources matching the filters.
+          description: Source Id attached to the conversation
           format: int64
-          example: 10398
-        nextPage:
+          example: 201
+        sourceType:
+          minimum: 1
           type: string
-          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
-          example: https://api.rocketlane.com/api/1.0/projects/1/conversations?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02
-        nextPageToken:
+          description: Source Type attached to the conversation
+          example: PROJECT_CONVERSATION
+          enum:
+          - PROJECT_CONVERSATION
+      description: Source associated with the conversation
+    ConversationMembersAPI:
+      type: object
+      properties:
+        conversationId:
+          minimum: 1
+          type: integer
+          description: Conversation ID
+          format: int64
+          readOnly: true
+          example: 201
+        members:
+          type: array
+          description: Conversation Members
+          items:
+            $ref: '#/components/schemas/UserPublicAPI'
+    ConversationSourcePublicAPIRequestEntity:
+      required:
+      - sourceId
+      - sourceType
+      type: object
+      properties:
+        sourceId:
+          minimum: 1
+          type: integer
+          description: Source Id attached to the conversation
+          format: int64
+          example: 201
+        sourceType:
           type: string
-          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
-          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
-      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+          description: Source Type attached to the conversation
+          example: PROJECT_CONVERSATION
+          enum:
+          - PROJECT_CONVERSATION
+      description: Source associated with the conversation
+    ExampleAPIResponseConversations:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+          items:
+            $ref: '#/components/schemas/ConversationPublicResponseAPIEntity'
+        pagination:
+          $ref: '#/components/schemas/ExamplePaginationConversations'
     Example400:
       type: object
       properties:
@@ -673,41 +669,6 @@ components:
           type: string
           description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
           example: minutes
-    Example401:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_AUTHORIZED
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Authorized: User not authorized'
-    ConversationMemberPublicAPIEntity:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: Email ID
-          example: john.doe@rocketlane.com
-        userId:
-          type: integer
-          description: User ID
-          format: int64
-          readOnly: true
-          example: 201
-        firstName:
-          type: string
-          description: First name
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: Last name
-          readOnly: true
-          example: Doe
-      description: Conversation members
     unauthorizedErrorlist:
       type: object
       properties:
@@ -715,6 +676,53 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Example401'
+    ConversationPublicRequestAPIEntity:
+      required:
+      - name
+      - source
+      type: object
+      properties:
+        name:
+          type: string
+          description: Conversation name
+          example: General chat
+        description:
+          type: string
+          description: Conversation description
+          example: This is the starting of the General chat
+        source:
+          $ref: '#/components/schemas/ConversationSourcePublicAPIRequestEntity'
+        allMembers:
+          type: boolean
+          description: Conversation all members inclusion
+          example: true
+        members:
+          type: array
+          description: Conversation members
+          items:
+            $ref: '#/components/schemas/ConversationMemberPublicAPIRequestEntity'
+        private:
+          type: boolean
+          description: Conversation privacy
+          example: true
+    notFoundErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example404'
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
     UserPublicAPI:
       type: object
       properties:
@@ -739,36 +747,28 @@ components:
           readOnly: true
           example: Doe
       description: Conversation Members
-    notFoundErrorlist:
+    ConversationPublicUpdateRequestAPI:
       type: object
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example404'
-    ConversationMemberPublicAPIRequestEntity:
-      type: object
-      properties:
-        emailId:
-          type: string
-          description: The team members email identifier.
-          example: john.doe@rocketlane.com
-        userId:
+        conversationId:
+          minimum: 1
           type: integer
-          description: The unique identifier for the user.
+          description: Conversation ID
           format: int64
+          readOnly: true
           example: 201
-        firstName:
+        name:
           type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
+          description: Conversation name
+          example: General chat
+        description:
           type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-      description: Conversation members
+          description: Conversation description
+          example: This is the starting of the General chat
+        allMembers:
+          type: boolean
+          description: Conversation all members inclusion
+          example: true
   securitySchemes:
     api-key:
       type: apiKey

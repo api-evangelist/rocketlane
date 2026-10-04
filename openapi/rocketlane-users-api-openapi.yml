@@ -440,70 +440,22 @@ paths:
                 $ref: '#/components/schemas/unauthorizedErrorlist'
 components:
   schemas:
-    UsersCompanyPublicAPIResponse:
+    RoleUsersPublicAPIResponse:
       type: object
       properties:
-        companyId:
-          type: integer
-          description: The company's unique, system-generated identifier, which can be used to identify the company globally.
-          format: int64
-          readOnly: true
-          example: 116
-        companyName:
-          type: string
-          description: The name of the company of the user.
-          readOnly: true
-          example: Modert
-      description: The company of the user.
-    Example404:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_FOUND
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Found: Resource not found for given ID'
-    badRequestErrorlist:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example400'
-    UsersHolidayCalendarPublicAPIResponse:
-      type: object
-      properties:
-        calenderId:
-          type: integer
-          description: The unique system-generated identifier for calendar, which can be used to identify the permission globally.
-          format: int64
-          readOnly: true
-          example: 93
-        calenderName:
-          type: string
-          description: The name of the calendar.
-          readOnly: true
-          example: India Holiday Calendar
-      description: The Holiday calendar of the user.
-    PermissionUsersPublicAPIResponse:
-      type: object
-      properties:
-        permissionId:
+        roleId:
           minimum: 1
           type: integer
-          description: The unique system-generated identifier for permission, which can be used to identify the permission globally.
+          description: The role's unique, system-generated identifier, which can be used to identify the role globally.
           format: int64
           readOnly: true
-          example: 933
-        permissionName:
+          example: 136
+        roleName:
           type: string
-          description: The name of the permission.
+          description: The name of the role.
           readOnly: true
-          example: Account Admin
-      description: The Permission of the user.
+          example: Customer Success
+      description: The role of the user.
     ExampleAPIResponseUsers:
       type: object
       properties:
@@ -514,65 +466,13 @@ components:
             $ref: '#/components/schemas/UsersPublicResponseForExample'
         pagination:
           $ref: '#/components/schemas/ExamplePaginationUsers'
-    Example400:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: BAD_REQUEST
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Bad Request: Minutes is negative'
-        field:
-          type: string
-          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
-          example: minutes
-    ExamplePaginationUsers:
-      type: object
-      properties:
-        pageSize:
-          type: integer
-          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
-          format: int32
-          example: 100
-        hasMore:
-          type: boolean
-          description: Tells us if there is more content.
-          example: true
-        totalRecordCount:
-          type: integer
-          description: Denotes the total resources matching the filters.
-          format: int64
-          example: 10398
-        nextPage:
-          type: string
-          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
-          example: https://api.rocketlane.com/api/1.0/users?includeFields=capacityInMinutes&status.eq=ACTIVE&sortBy=status&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100
-        nextPageToken:
-          type: string
-          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
-          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
-      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
-    Example401:
-      type: object
-      properties:
-        errorCode:
-          type: string
-          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
-          example: NOT_AUTHORIZED
-        errorMessage:
-          type: string
-          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
-          example: 'Not Authorized: User not authorized'
-    unauthorizedErrorlist:
+    badRequestErrorlist:
       type: object
       properties:
         errors:
           type: array
           items:
-            $ref: '#/components/schemas/Example401'
+            $ref: '#/components/schemas/Example400'
     FieldUsersPublicAPIResponse:
       type: object
       properties:
@@ -599,115 +499,33 @@ components:
           readOnly: true
           example: '1000'
       description: Custom user fields can be created and their values set during user creation. These values can also be added or edited later. The field value can be a string, number, or array, and must align with the field type. Refer [e xamples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how each `field_type` is associated with user.
-    notFoundErrorlist:
+    Example401:
       type: object
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example404'
-    UsersPublicAPIResponse:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_AUTHORIZED
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Authorized: User not authorized'
+    PermissionUsersPublicAPIResponse:
       type: object
       properties:
-        userId:
+        permissionId:
           minimum: 1
           type: integer
-          description: The user's unique, system-generated identifier, which can be used to identify the user globally.
+          description: The unique system-generated identifier for permission, which can be used to identify the permission globally.
           format: int64
           readOnly: true
-          example: 201
-        email:
-          minimum: 1
+          example: 933
+        permissionName:
           type: string
-          description: The email identifier of the user.
+          description: The name of the permission.
           readOnly: true
-          example: johndoe@rocketlane.com
-        firstName:
-          type: string
-          description: The first name of the user.
-          readOnly: true
-          example: John
-        lastName:
-          type: string
-          description: The last name of the user.
-          readOnly: true
-          example: Doe
-        type:
-          minimum: 1
-          type: string
-          description: The type of the user.
-          readOnly: true
-          example: TEAM_MEMBER
-          enum:
-          - TEAM_MEMBER
-          - PARTNER
-          - CUSTOMER
-          - EXTERNAL_PARTNER
-        status:
-          type: string
-          description: The status of the user.
-          readOnly: true
-          example: ACTIVE
-          enum:
-          - INACTIVE
-          - INVITED
-          - ACTIVE
-          - PASSIVE
-        role:
-          $ref: '#/components/schemas/RoleUsersPublicAPIResponse'
-        company:
-          $ref: '#/components/schemas/UsersCompanyPublicAPIResponse'
-        permission:
-          $ref: '#/components/schemas/PermissionUsersPublicAPIResponse'
-        fields:
-          type: array
-          description: Custom user fields can be created and their values set during user creation. These values can also be added or edited later. The field value can be a string, number, or array, and must align with the field type. Refer [e xamples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how each `field_type` is associated with user.
-          items:
-            $ref: '#/components/schemas/FieldUsersPublicAPIResponse'
-        capacityInMinutes:
-          minimum: 5
-          type: integer
-          description: The capacity of user, should be multiples of 5, default value is capacity configured in profile.
-          format: int32
-          example: 2400
-        holidayCalendar:
-          $ref: '#/components/schemas/UsersHolidayCalendarPublicAPIResponse'
-        profilePictureUrl:
-          type: string
-          description: The URL of the user's profile picture.
-          example: https://s3.amazonaws.com/rocketlane-profile-pic-public/_default/ftue/John.jpg
-        createdAt:
-          type: integer
-          description: The time when the user was created. The referenced time will be in epoch millis.
-          format: int64
-          readOnly: true
-          example: 1681319726000
-        createdBy:
-          $ref: '#/components/schemas/UsersCreatedByResponse'
-        updatedAt:
-          type: integer
-          description: The time when the user's information was updated. Any changes that's related to the user are captured and specified here in epoch millis.
-          format: int64
-          readOnly: true
-          example: 1681319726000
-        updatedBy:
-          $ref: '#/components/schemas/UsersCreatedByResponse'
-    RoleUsersPublicAPIResponse:
-      type: object
-      properties:
-        roleId:
-          minimum: 1
-          type: integer
-          description: The role's unique, system-generated identifier, which can be used to identify the role globally.
-          format: int64
-          readOnly: true
-          example: 136
-        roleName:
-          type: string
-          description: The name of the role.
-          readOnly: true
-          example: Customer Success
-      description: The role of the user.
+          example: Account Admin
+      description: The Permission of the user.
     UsersPublicResponseForExample:
       type: object
       properties:
@@ -795,6 +613,170 @@ components:
         updatedBy:
           $ref: '#/components/schemas/UsersCreatedByResponse'
       description: Reflects all the default and custom fields and their values for the object searched, in an array format. If the includeFields param is utilised in the request body, it will return a customised response.
+    ExamplePaginationUsers:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          description: Denotes the page size mentioned in the current request (limit). It defaults to 100 if left blank.
+          format: int32
+          example: 100
+        hasMore:
+          type: boolean
+          description: Tells us if there is more content.
+          example: true
+        totalRecordCount:
+          type: integer
+          description: Denotes the total resources matching the filters.
+          format: int64
+          example: 10398
+        nextPage:
+          type: string
+          description: Denotes an API URL, which can be conveniently called to perform the subsequent search call to get to the next page.
+          example: https://api.rocketlane.com/api/1.0/users?includeFields=capacityInMinutes&status.eq=ACTIVE&sortBy=status&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100
+        nextPageToken:
+          type: string
+          description: Denotes a unique token that points to the next page of resources. To get results from subsequent pages, you can use the nextPageToken available in the response under pagination. This token is valid for 15 minutes.
+          example: e4a3dd8e-e338-11ed-b5ea-0242ac120002
+      description: Responses that return multiple objects will be paginated. The pagination params define how pages are structured and how to traverse through pages.
+    UsersCompanyPublicAPIResponse:
+      type: object
+      properties:
+        companyId:
+          type: integer
+          description: The company's unique, system-generated identifier, which can be used to identify the company globally.
+          format: int64
+          readOnly: true
+          example: 116
+        companyName:
+          type: string
+          description: The name of the company of the user.
+          readOnly: true
+          example: Modert
+      description: The company of the user.
+    UsersPublicAPIResponse:
+      type: object
+      properties:
+        userId:
+          minimum: 1
+          type: integer
+          description: The user's unique, system-generated identifier, which can be used to identify the user globally.
+          format: int64
+          readOnly: true
+          example: 201
+        email:
+          minimum: 1
+          type: string
+          description: The email identifier of the user.
+          readOnly: true
+          example: johndoe@rocketlane.com
+        firstName:
+          type: string
+          description: The first name of the user.
+          readOnly: true
+          example: John
+        lastName:
+          type: string
+          description: The last name of the user.
+          readOnly: true
+          example: Doe
+        type:
+          minimum: 1
+          type: string
+          description: The type of the user.
+          readOnly: true
+          example: TEAM_MEMBER
+          enum:
+          - TEAM_MEMBER
+          - PARTNER
+          - CUSTOMER
+          - EXTERNAL_PARTNER
+        status:
+          type: string
+          description: The status of the user.
+          readOnly: true
+          example: ACTIVE
+          enum:
+          - INACTIVE
+          - INVITED
+          - ACTIVE
+          - PASSIVE
+        role:
+          $ref: '#/components/schemas/RoleUsersPublicAPIResponse'
+        company:
+          $ref: '#/components/schemas/UsersCompanyPublicAPIResponse'
+        permission:
+          $ref: '#/components/schemas/PermissionUsersPublicAPIResponse'
+        fields:
+          type: array
+          description: Custom user fields can be created and their values set during user creation. These values can also be added or edited later. The field value can be a string, number, or array, and must align with the field type. Refer [e xamples](https://developer.rocketlane.com/v1.0/docs/custom-fields#examples-of-requests-and-responses-for-assigning-custom-field-values) to know how each `field_type` is associated with user.
+          items:
+            $ref: '#/components/schemas/FieldUsersPublicAPIResponse'
+        capacityInMinutes:
+          minimum: 5
+          type: integer
+          description: The capacity of user, should be multiples of 5, default value is capacity configured in profile.
+          format: int32
+          example: 2400
+        holidayCalendar:
+          $ref: '#/components/schemas/UsersHolidayCalendarPublicAPIResponse'
+        profilePictureUrl:
+          type: string
+          description: The URL of the user's profile picture.
+          example: https://s3.amazonaws.com/rocketlane-profile-pic-public/_default/ftue/John.jpg
+        createdAt:
+          type: integer
+          description: The time when the user was created. The referenced time will be in epoch millis.
+          format: int64
+          readOnly: true
+          example: 1681319726000
+        createdBy:
+          $ref: '#/components/schemas/UsersCreatedByResponse'
+        updatedAt:
+          type: integer
+          description: The time when the user's information was updated. Any changes that's related to the user are captured and specified here in epoch millis.
+          format: int64
+          readOnly: true
+          example: 1681319726000
+        updatedBy:
+          $ref: '#/components/schemas/UsersCreatedByResponse'
+    Example400:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: BAD_REQUEST
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Bad Request: Minutes is negative'
+        field:
+          type: string
+          description: Fields refers to the parameter/field that was invalid in the request (if any). It will point you to the field that needs attention.
+          example: minutes
+    unauthorizedErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example401'
+    UsersHolidayCalendarPublicAPIResponse:
+      type: object
+      properties:
+        calenderId:
+          type: integer
+          description: The unique system-generated identifier for calendar, which can be used to identify the permission globally.
+          format: int64
+          readOnly: true
+          example: 93
+        calenderName:
+          type: string
+          description: The name of the calendar.
+          readOnly: true
+          example: India Holiday Calendar
+      description: The Holiday calendar of the user.
     UsersCreatedByResponse:
       type: object
       properties:
@@ -818,6 +800,24 @@ components:
           readOnly: true
           example: Doe
       description: The team member who updated the information of the user.
+    notFoundErrorlist:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example404'
+    Example404:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          description: 'Error code refers to the type of error that you are facing. Some examples of error codes are: `BAD_REQUEST`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`.'
+          example: NOT_FOUND
+        errorMessage:
+          type: string
+          description: Error message describes in brief about the issue. You can read the error message to get a understanding of where the request went wrong and attempt to fix it.
+          example: 'Not Found: Resource not found for given ID'
   securitySchemes:
     api-key:
       type: apiKey
