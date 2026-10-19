@@ -1,10 +1,17 @@
 generated: '2026-10-14'
 method: searched
 checked:
+- https://api.nuget.org/v3
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://crates.io/api/v1
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/connectors/partner-built-program
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
 - okta/integrations/okta-integration-edges.yml
 - slack/integrations/slack-integration-edges.yml
@@ -150,3 +157,42 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Zoom app
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@rocketlane/rli
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@rocketlane/rli'
+      version: 1.7.0-beta.28
+      released: '2026-08-25'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@rocketlane/rli
+      repo_leg: github-org:rocketlane
+      publisher_leg: email:rocketlane.com
+      matched_by: domain
+    - name: '@rocketlane/rli-core'
+      version: 1.2.0-beta.5
+      released: '2026-05-20'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@rocketlane/rli-core
+      repo_leg: github-org:rocketlane
+      publisher_leg: email:rocketlane.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
