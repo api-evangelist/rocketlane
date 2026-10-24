@@ -1,1744 +1,1805 @@
 {
+  "info": {
+    "_postman_id": "ce9276e0-15a4-40c1-a04b-907f17e5cc6f",
+    "name": "Rocketlane Comments API",
+    "description": "Rocketlane API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:08:36.000Z",
+    "updatedAt": "2026-10-22T02:08:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce9276e0-15a4-40c1-a04b-907f17e5cc6f"
+  },
   "item": [
     {
-      "id": "ee548ddf-3480-4f98-b697-ebeff647357d",
-      "name": "Comments",
-      "description": {
-        "content": "Endpoints for comments resource",
-        "type": "text/plain"
-      },
+      "name": "1.0",
       "item": [
         {
-          "id": "485eeb89-ba96-4763-ba71-4c86bdcb039e",
-          "name": "Get comment",
-          "request": {
-            "name": "Get comment",
-            "description": {
-              "content": "The Get Comment API allows users to retrieve the details of a specific comment using its unique commentId. This endpoint provides structured data on the comment, including its content, author details, timestamps, and associated project or conversation. This API is particularly useful for applications that need to fetch and display specific comments within a project or conversation thread.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1.0",
-                "comments",
-                ":commentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "includeFields",
-                  "value": "<string>,<string>",
-                  "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned."
-                },
-                {
-                  "disabled": false,
-                  "key": "includeAllFields",
-                  "value": "<boolean>",
-                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "commentId",
-                  "description": "(Required) The ID of the comment object"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "comments",
+          "item": [
             {
-              "id": "377f3e17-3078-4d5d-a4a6-da35afaae0e8",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
+              "name": "{commentId}",
+              "item": [
+                {
+                  "name": "Get comment",
+                  "id": "25db409a-890c-4fe3-b099-cca79f8da7bc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=attachments,attachments&includeAllFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments",
+                        ":commentId"
+                      ],
+                      "query": [
+                        {
+                          "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.",
+                          "key": "includeFields",
+                          "value": "attachments,attachments"
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f1fa4b75-1687-4252-8b7c-d93d5fd5cd51",
+                          "key": "commentId",
+                          "value": "1",
+                          "description": "(Required) The ID of the comment object"
+                        }
+                      ]
+                    },
+                    "description": "The Get Comment API allows users to retrieve the details of a specific comment using its unique commentId. This endpoint provides structured data on the comment, including its content, author details, timestamps, and associated project or conversation. This API is particularly useful for applications that need to fetch and display specific comments within a project or conversation thread."
+                  },
+                  "response": [
+                    {
+                      "id": "15624fb0-e011-43e1-a4e0-693935be26a3",
+                      "name": "The requested action was successfully executed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=attachments,attachments&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.",
+                              "key": "includeFields",
+                              "value": "attachments,attachments"
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"TASK\"\n  },\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    },\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-15624fb0-e011-43e1-a4e0-693935be26a3"
+                    },
+                    {
+                      "id": "ac645fc0-39d7-4874-86db-e2acbc7b8396",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=attachments,attachments&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.",
+                              "key": "includeFields",
+                              "value": "attachments,attachments"
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-ac645fc0-39d7-4874-86db-e2acbc7b8396"
+                    },
+                    {
+                      "id": "3ad3355c-8d6c-49cd-914f-4ab0794df859",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=attachments,attachments&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.",
+                              "key": "includeFields",
+                              "value": "attachments,attachments"
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-3ad3355c-8d6c-49cd-914f-4ab0794df859"
+                    },
+                    {
+                      "id": "8b3d22d7-c12e-42b7-9874-933e935b397c",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=attachments,attachments&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "description": "This query parameter allows you to specify which fields should be returned in the response body by selecting from the drop down. To get the relevant fields, use comma separated values. If the field is left blank, the default properties are returned.",
+                              "key": "includeFields",
+                              "value": "attachments,attachments"
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-8b3d22d7-c12e-42b7-9874-933e935b397c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-25db409a-890c-4fe3-b099-cca79f8da7bc"
+                },
+                {
+                  "name": "Update comment",
+                  "id": "6c941eac-8175-40a7-9462-4a25e43fd529",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=&includeAllFields=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments",
+                        ":commentId"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeFields",
+                          "value": ""
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "086f3adb-5b46-438b-84f3-5ec3f4d0d871",
+                          "key": "commentId",
+                          "value": "1",
+                          "description": "(Required) The ID of the comment object"
+                        }
+                      ]
+                    },
+                    "description": "The Update Comment API allows users to modify an existing comment within a conversation using its unique commentId. This endpoint enables updates to the comment content, status, or metadata while preserving its original context within the conversation. This API is particularly useful for making corrections, appending additional information, or updating comment visibility."
+                  },
+                  "response": [
+                    {
+                      "id": "3a383116-9cec-4f84-8d81-6a9da377da95",
+                      "name": "The requested action was successfully executed.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "includeFields",
+                              "value": ""
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"TASK\"\n  },\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    },\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-3a383116-9cec-4f84-8d81-6a9da377da95"
+                    },
+                    {
+                      "id": "e39b6d22-1856-4730-ae1b-c83594756298",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "includeFields",
+                              "value": ""
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-e39b6d22-1856-4730-ae1b-c83594756298"
+                    },
+                    {
+                      "id": "65692330-2fa5-4fc5-9c2e-3f6a7dbe7cf4",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "includeFields",
+                              "value": ""
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-65692330-2fa5-4fc5-9c2e-3f6a7dbe7cf4"
+                    },
+                    {
+                      "id": "8d20be0e-c45d-4365-8175-b13756099699",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId?includeFields=&includeAllFields=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "query": [
+                            {
+                              "key": "includeFields",
+                              "value": ""
+                            },
+                            {
+                              "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                              "key": "includeAllFields",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-8d20be0e-c45d-4365-8175-b13756099699"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-6c941eac-8175-40a7-9462-4a25e43fd529"
+                },
+                {
+                  "name": "Delete comment",
+                  "id": "269ed5d6-4f43-4462-8243-8a28f0ff9a43",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments/:commentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments",
+                        ":commentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "013f8ac5-592c-4ec4-8ef3-20c3bb510e02",
+                          "key": "commentId",
+                          "value": "1",
+                          "description": "(Required) The ID of the message object"
+                        }
+                      ]
+                    },
+                    "description": "The Delete Comment API allows users to permanently remove a comment from a conversation using its unique commentId. This endpoint is useful for maintaining conversation hygiene, removing outdated or inappropriate comments, and managing project discussions effectively. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the comment has been successfully removed with no response body."
+                  },
+                  "response": [
+                    {
+                      "id": "3b49f26c-3c4e-4caf-ab7e-e5ca673ff41c",
+                      "name": "The resource was successfully removed from the database.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-3b49f26c-3c4e-4caf-ab7e-e5ca673ff41c"
+                    },
+                    {
+                      "id": "75a2280e-9179-4028-aafd-6f83e432f13e",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-75a2280e-9179-4028-aafd-6f83e432f13e"
+                    },
+                    {
+                      "id": "82c3b5ba-2176-4cfa-8357-54e75d1a353a",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-82c3b5ba-2176-4cfa-8357-54e75d1a353a"
+                    },
+                    {
+                      "id": "504c547e-c143-4de7-9f01-01e2c3de7d99",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/comments/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "comments",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:08:36.000Z",
+                      "updatedAt": "2026-10-22T02:08:36.000Z",
+                      "uid": "35240-504c547e-c143-4de7-9f01-01e2c3de7d99"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-269ed5d6-4f43-4462-8243-8a28f0ff9a43"
+                }
+              ],
+              "id": "d5bcde18-f332-438b-8f37-d1c2f79b497a",
+              "createdAt": "2026-10-22T02:08:36.000Z",
+              "updatedAt": "2026-10-22T02:08:36.000Z",
+              "uid": "35240-d5bcde18-f332-438b-8f37-d1c2f79b497a"
+            },
+            {
+              "name": "Get all comments",
+              "id": "39e92dde-9d24-45ea-afdd-6b124e59d2fd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"commentId\": 201,\n  \"content\": \"This is a sample comment\",\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    },\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    }\n  ],\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8ab639b2-a612-49bd-8f09-575cd45c6c41",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "695156cc-98a0-445c-8f34-60088eecdab9",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
+                  "raw": "{{baseUrl}}/1.0/comments?sourceType=PROJECT_CONVERSATIONS&pageSize=<number>&pageToken=<string>&includeAllFields=<boolean>&sortOrder=ASC&match=any&createdBy.eq=<number>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&includeFields=attachments,attachments&isPrivate.eq=<boolean>",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "15c51813-ea16-4c8d-94bf-90f7fa363a92",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1820fda7-4ef1-4244-9993-b10a7d7c8df7",
-          "name": "Update comment",
-          "request": {
-            "name": "Update comment",
-            "description": {
-              "content": "The Update Comment API allows users to modify an existing comment within a conversation using its unique commentId. This endpoint enables updates to the comment content, status, or metadata while preserving its original context within the conversation. This API is particularly useful for making corrections, appending additional information, or updating comment visibility.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1.0",
-                "comments",
-                ":commentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "includeFields",
-                  "value": ""
-                },
-                {
-                  "disabled": false,
-                  "key": "includeAllFields",
-                  "value": "<boolean>",
-                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "commentId",
-                  "description": "(Required) The ID of the comment object"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"content\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "2bdb6531-4845-441d-b67c-38662aeaedae",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is an updated comment\",\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"commentId\": 201,\n  \"content\": \"This is a sample comment\",\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    },\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    }\n  ],\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "50e0ad89-6497-4025-9ede-648205f87246",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is an updated comment\",\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "833de0c1-9212-41a3-a6c6-d7a30886da74",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is an updated comment\",\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ac0c8562-e633-46b3-b845-59c8346886ef",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the comment object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is an updated comment\",\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "836a4741-dd1f-489e-90be-c91da6f168d9",
-          "name": "Delete comment",
-          "request": {
-            "name": "Delete comment",
-            "description": {
-              "content": "The Delete Comment API allows users to permanently remove a comment from a conversation using its unique commentId. This endpoint is useful for maintaining conversation hygiene, removing outdated or inappropriate comments, and managing project discussions effectively. Upon successful deletion, the API returns an HTTP 204 No Content response, indicating that the comment has been successfully removed with no response body.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1.0",
-                "comments",
-                ":commentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "commentId",
-                  "description": "(Required) The ID of the message object"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cec37e6b-42fd-4f89-8257-84ee54b57e1a",
-              "name": "The resource was successfully removed from the database.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the message object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"string\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "18a7ebfd-923e-4eec-98a4-6b60d9e3c7fd",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the message object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bd773360-b0f4-45ff-95b7-e92a600f8a2e",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the message object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1660eab9-5347-4e02-a316-4784397777e0",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "commentId",
-                      "description": "(Required) The ID of the message object"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d86f2b66-7151-43e4-9010-bc3f501d8869",
-          "name": "Get all comments",
-          "request": {
-            "name": "Get all comments",
-            "description": {
-              "content": "The Get All Comments API allows users to retrieve all comments within a specific conversation in a project using its unique conversationId. This endpoint returns a paginated response containing all comments associated with the conversation, along with metadata such as timestamps, author details, and status. This API is useful for applications that need to display conversation threads, track discussions, or analyze collaboration trends within a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1.0",
-                "comments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "sourceType",
-                  "value": "<string>",
-                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<int32>",
-                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
-                },
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>",
-                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
-                },
-                {
-                  "disabled": false,
-                  "key": "includeAllFields",
-                  "value": "<boolean>",
-                  "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned."
-                },
-                {
-                  "disabled": false,
-                  "key": "sortOrder",
-                  "value": "<string>",
-                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
-                },
-                {
-                  "disabled": false,
-                  "key": "match",
-                  "value": "<string>",
-                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdBy.eq",
-                  "value": "<number>",
-                  "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.gt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.eq",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.lt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.ge",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.le",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date."
-                },
-                {
-                  "disabled": false,
-                  "key": "includeFields",
-                  "value": "<string>,<string>",
-                  "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned."
-                },
-                {
-                  "disabled": false,
-                  "key": "isPrivate.eq",
-                  "value": "<boolean>",
-                  "description": "Filter by private conversations"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "554fd9a6-ff0a-4485-896d-8698ae5d208e",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "1.0",
                     "comments"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
                       "key": "sourceType",
-                      "value": "<string>"
+                      "value": "PROJECT_CONVERSATIONS"
                     },
                     {
+                      "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
                       "key": "pageSize",
-                      "value": "100"
+                      "value": "<number>"
                     },
                     {
+                      "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
                       "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                      "value": "<string>"
                     },
                     {
+                      "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
                       "key": "includeAllFields",
-                      "value": "true"
+                      "value": "<boolean>"
                     },
                     {
+                      "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
                       "key": "sortOrder",
-                      "value": "<string>"
+                      "value": "ASC"
                     },
                     {
+                      "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
                       "key": "match",
-                      "value": "<string>"
+                      "value": "any"
                     },
                     {
+                      "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.",
                       "key": "createdBy.eq",
-                      "value": "5"
+                      "value": "<number>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.",
                       "key": "createdAt.gt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.",
                       "key": "createdAt.eq",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.",
                       "key": "createdAt.lt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.",
                       "key": "createdAt.ge",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.",
                       "key": "createdAt.le",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.",
                       "key": "includeFields",
-                      "value": "<string>,<string>"
+                      "value": "attachments,attachments"
                     },
                     {
+                      "description": "Filter by private conversations",
                       "key": "isPrivate.eq",
-                      "value": "true"
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "description": "The Get All Comments API allows users to retrieve all comments within a specific conversation in a project using its unique conversationId. This endpoint returns a paginated response containing all comments associated with the conversation, along with metadata such as timestamps, author details, and status. This API is useful for applications that need to display conversation threads, track discussions, or analyze collaboration trends within a project."
+              },
+              "response": [
+                {
+                  "id": "f2aa62a1-0b3c-48b4-af34-5a6420016e1b",
+                  "name": "The requested action was successfully executed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?sourceType=PROJECT_CONVERSATIONS&pageSize=<number>&pageToken=<string>&includeAllFields=<boolean>&sortOrder=ASC&match=any&createdBy.eq=<number>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&includeFields=attachments,attachments&isPrivate.eq=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "sourceType",
+                          "value": "PROJECT_CONVERSATIONS"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "any"
+                        },
+                        {
+                          "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.",
+                          "key": "createdBy.eq",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.",
+                          "key": "includeFields",
+                          "value": "attachments,attachments"
+                        },
+                        {
+                          "description": "Filter by private conversations",
+                          "key": "isPrivate.eq",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"source\": {\n        \"sourceId\": \"<long>\",\n        \"sourceType\": \"PROJECT_CONVERSATIONS\"\n      },\n      \"commentId\": \"<long>\",\n      \"content\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"createdBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"attachments\": [\n        {\n          \"attachmentId\": \"<long>\",\n          \"attachmentName\": \"<string>\",\n          \"createdAt\": \"<long>\",\n          \"location\": \"<string>\",\n          \"thumbLocation\": \"<string>\",\n          \"visibility\": \"<boolean>\"\n        },\n        {\n          \"attachmentId\": \"<long>\",\n          \"attachmentName\": \"<string>\",\n          \"createdAt\": \"<long>\",\n          \"location\": \"<string>\",\n          \"thumbLocation\": \"<string>\",\n          \"visibility\": \"<boolean>\"\n        }\n      ],\n      \"private\": \"<boolean>\"\n    },\n    {\n      \"source\": {\n        \"sourceId\": \"<long>\",\n        \"sourceType\": \"PROJECT_CONVERSATIONS\"\n      },\n      \"commentId\": \"<long>\",\n      \"content\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"createdBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"attachments\": [\n        {\n          \"attachmentId\": \"<long>\",\n          \"attachmentName\": \"<string>\",\n          \"createdAt\": \"<long>\",\n          \"location\": \"<string>\",\n          \"thumbLocation\": \"<string>\",\n          \"visibility\": \"<boolean>\"\n        },\n        {\n          \"attachmentId\": \"<long>\",\n          \"attachmentName\": \"<string>\",\n          \"createdAt\": \"<long>\",\n          \"location\": \"<string>\",\n          \"thumbLocation\": \"<string>\",\n          \"visibility\": \"<boolean>\"\n        }\n      ],\n      \"private\": \"<boolean>\"\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": \"<integer>\",\n    \"hasMore\": \"<boolean>\",\n    \"totalRecordCount\": \"<long>\",\n    \"nextPage\": \"<string>\",\n    \"nextPageToken\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-f2aa62a1-0b3c-48b4-af34-5a6420016e1b"
                 },
+                {
+                  "id": "04bb1639-388a-4e29-8b2c-45cc01aac0e5",
+                  "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?sourceType=PROJECT_CONVERSATIONS&pageSize=<number>&pageToken=<string>&includeAllFields=<boolean>&sortOrder=ASC&match=any&createdBy.eq=<number>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&includeFields=attachments,attachments&isPrivate.eq=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "sourceType",
+                          "value": "PROJECT_CONVERSATIONS"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "any"
+                        },
+                        {
+                          "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.",
+                          "key": "createdBy.eq",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.",
+                          "key": "includeFields",
+                          "value": "attachments,attachments"
+                        },
+                        {
+                          "description": "Filter by private conversations",
+                          "key": "isPrivate.eq",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-04bb1639-388a-4e29-8b2c-45cc01aac0e5"
+                },
+                {
+                  "id": "cae47054-f7fe-48aa-ae41-43405422cd54",
+                  "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?sourceType=PROJECT_CONVERSATIONS&pageSize=<number>&pageToken=<string>&includeAllFields=<boolean>&sortOrder=ASC&match=any&createdBy.eq=<number>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&includeFields=attachments,attachments&isPrivate.eq=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "sourceType",
+                          "value": "PROJECT_CONVERSATIONS"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "any"
+                        },
+                        {
+                          "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.",
+                          "key": "createdBy.eq",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.",
+                          "key": "includeFields",
+                          "value": "attachments,attachments"
+                        },
+                        {
+                          "description": "Filter by private conversations",
+                          "key": "isPrivate.eq",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-cae47054-f7fe-48aa-ae41-43405422cd54"
+                },
+                {
+                  "id": "d7887a05-3b4f-468b-b615-f8ea31b08520",
+                  "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?sourceType=PROJECT_CONVERSATIONS&pageSize=<number>&pageToken=<string>&includeAllFields=<boolean>&sortOrder=ASC&match=any&createdBy.eq=<number>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&includeFields=attachments,attachments&isPrivate.eq=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "sourceType",
+                          "value": "PROJECT_CONVERSATIONS"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This query parameter allows you to specify if all the fields should be returned in the response body. If the field is left blank, the default properties are returned.",
+                          "key": "includeAllFields",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "any"
+                        },
+                        {
+                          "description": "You can use this param to specify the team member who created the comment in the conversation, and the responses will contain comment conversations that match the creator.",
+                          "key": "createdBy.eq",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than the given date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations that match the exact created date of the comment.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than the given date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is greater than or equal to the given date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain comment conversations where the created date of the comment is less than or equal to the given date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Use this query parameter to opt in for fields to be returned in the response body. Use comma separated values to fetch the respective fields. If left blank, default properties are returned.",
+                          "key": "includeFields",
+                          "value": "attachments,attachments"
+                        },
+                        {
+                          "description": "Filter by private conversations",
+                          "key": "isPrivate.eq",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-d7887a05-3b4f-468b-b615-f8ea31b08520"
+                }
+              ],
+              "createdAt": "2026-10-22T02:08:36.000Z",
+              "updatedAt": "2026-10-22T02:08:36.000Z",
+              "uid": "35240-39e92dde-9d24-45ea-afdd-6b124e59d2fd"
+            },
+            {
+              "name": "Create a comment",
+              "id": "137c5c8c-d78d-4655-99cd-b77efe5482de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"source\": {\n        \"sourceId\": 201,\n        \"sourceType\": \"PROJECT_CONVERSATIONS\"\n      },\n      \"commentId\": 201,\n      \"content\": \"This is a sample comment\",\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"attachments\": [\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        },\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        }\n      ],\n      \"private\": true\n    },\n    {\n      \"source\": {\n        \"sourceId\": 201,\n        \"sourceType\": \"PROJECT_CONVERSATIONS\"\n      },\n      \"commentId\": 201,\n      \"content\": \"This is a sample comment\",\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"attachments\": [\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        },\n        {\n          \"attachmentId\": 201,\n          \"attachmentName\": \"test_upload.png\",\n          \"createdAt\": 1680616174929,\n          \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n          \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n          \"visibility\": false\n        }\n      ],\n      \"private\": true\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/projects/1/conversations?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "02b3e20b-28c1-4426-b062-a9296bf96887",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/1.0/comments?includeFields=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1.0",
                     "comments"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
-                      "key": "sourceType",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "100"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    },
-                    {
-                      "key": "sortOrder",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "match",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "createdBy.eq",
-                      "value": "5"
-                    },
-                    {
-                      "key": "createdAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.le",
-                      "value": "1625164800000"
-                    },
-                    {
                       "key": "includeFields",
-                      "value": "<string>,<string>"
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": "The Create Comment API allows users to add a comment to a specific conversation within a project. This endpoint enables seamless collaboration by allowing team members to contribute to discussions, provide updates, or share feedback. Upon a successful request, the API returns the newly created comment along with metadata such as timestamps, author details, and status."
+              },
+              "response": [
+                {
+                  "id": "e5f6a8ac-da68-418e-9c5b-cff6e9bd5089",
+                  "name": "The resource was successfully created in the database.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?includeFields=",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeFields",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "isPrivate.eq",
-                      "value": "true"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"TASK\"\n  },\n  \"commentId\": \"<long>\",\n  \"content\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    },\n    {\n      \"attachmentId\": \"<long>\",\n      \"attachmentName\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"location\": \"<string>\",\n      \"thumbLocation\": \"<string>\",\n      \"visibility\": \"<boolean>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-e5f6a8ac-da68-418e-9c5b-cff6e9bd5089"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4d60cf1b-d969-4c55-8950-f119d46efc51",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "sourceType",
-                      "value": "<string>"
+                  "id": "7d7249dd-2e63-43cb-b118-3231a78644ee",
+                  "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?includeFields=",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeFields",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "100"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    },
-                    {
-                      "key": "sortOrder",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "match",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "createdBy.eq",
-                      "value": "5"
-                    },
-                    {
-                      "key": "createdAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.le",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "isPrivate.eq",
-                      "value": "true"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-7d7249dd-2e63-43cb-b118-3231a78644ee"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d0b46b2e-a343-4f2a-8bfe-ad063f56ec6e",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "sourceType",
-                      "value": "<string>"
+                  "id": "4c8b74bc-3d92-41a7-8324-d9963be87b8a",
+                  "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?includeFields=",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeFields",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "100"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
-                    },
-                    {
-                      "key": "includeAllFields",
-                      "value": "true"
-                    },
-                    {
-                      "key": "sortOrder",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "match",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "createdBy.eq",
-                      "value": "5"
-                    },
-                    {
-                      "key": "createdAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.le",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "includeFields",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "isPrivate.eq",
-                      "value": "true"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-4c8b74bc-3d92-41a7-8324-d9963be87b8a"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "81c65e40-50d1-4d4c-8783-c8edda473864",
+                  "name": "This error denotes that there is an error that occured within our servers. The response body could help narrow down the cause for the error by our support team.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/comments?includeFields=",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "comments"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeFields",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:08:36.000Z",
+                  "updatedAt": "2026-10-22T02:08:36.000Z",
+                  "uid": "35240-81c65e40-50d1-4d4c-8783-c8edda473864"
                 }
               ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:08:36.000Z",
+              "updatedAt": "2026-10-22T02:08:36.000Z",
+              "uid": "35240-137c5c8c-d78d-4655-99cd-b77efe5482de"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a76b65d4-0b60-4a67-b7ef-aa82534efc25",
-          "name": "Create a comment",
-          "request": {
-            "name": "Create a comment",
-            "description": {
-              "content": "The Create Comment API allows users to add a comment to a specific conversation within a project. This endpoint enables seamless collaboration by allowing team members to contribute to discussions, provide updates, or share feedback. Upon a successful request, the API returns the newly created comment along with metadata such as timestamps, author details, and status.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1.0",
-                "comments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "includeFields",
-                  "value": ""
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"content\": \"<string>\",\n  \"source\": {\n    \"sourceId\": \"<long>\",\n    \"sourceType\": \"<string>\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": \"<long>\"\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "c7823663-38c2-4dc9-b206-121f1eccd191",
-              "name": "The resource was successfully created in the database.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is a comment\",\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"commentId\": 201,\n  \"content\": \"This is a sample comment\",\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"attachments\": [\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    },\n    {\n      \"attachmentId\": 201,\n      \"attachmentName\": \"test_upload.png\",\n      \"createdAt\": 1680616174929,\n      \"location\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/test_upload.png\",\n      \"thumbLocation\": \"https://rocketlane.com/attachments/0/db83eb19-0bbf-4a37-b4e2-cd1b96708c73/thumb_test_upload.png\",\n      \"visibility\": false\n    }\n  ],\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0cd5d11b-e192-40d5-ac3b-7eaa6f6bcd92",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is a comment\",\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6c0b4644-7f62-4046-afb7-6fa7c18e6f30",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is a comment\",\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "70fbdc61-f23a-48c2-8d48-771835cc8a96",
-              "name": "This error denotes that there is an error that occured within our servers. The response body could help narrow down the cause for the error by our support team.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeFields",
-                      "value": ""
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"This is a comment\",\n  \"source\": {\n    \"sourceId\": 201,\n    \"sourceType\": \"PROJECT_CONVERSATIONS\"\n  },\n  \"attachments\": [\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    },\n    {\n      \"file\": \"<binary>\",\n      \"attachmentId\": 201\n    }\n  ],\n  \"private\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    },\n    {\n      \"errorCode\": \"SERVER_ERROR\",\n      \"errorMessage\": \"Server Error: Something went wrong on our end. Could not perform the requested action.\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "152809c6-85ef-4e06-b8fa-a6f9196cd01a",
+          "createdAt": "2026-10-22T02:08:36.000Z",
+          "updatedAt": "2026-10-22T02:08:36.000Z",
+          "uid": "35240-152809c6-85ef-4e06-b8fa-a6f9196cd01a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.rocketlane.com/api",
-      "key": "baseUrl"
+      "id": "383e458d-e571-480f-80e0-2c43dca04e00",
+      "createdAt": "2026-10-22T02:08:36.000Z",
+      "updatedAt": "2026-10-22T02:08:36.000Z",
+      "uid": "35240-383e458d-e571-480f-80e0-2c43dca04e00"
     }
   ],
   "auth": {
@@ -1746,25 +1807,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "api-key"
+        "value": "api-key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "084b81bb-f8c9-4e08-b771-904337873ffe",
-    "name": "Rocketlane Comments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Rocketlane API",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.rocketlane.com/api"
     }
-  }
+  ]
 }

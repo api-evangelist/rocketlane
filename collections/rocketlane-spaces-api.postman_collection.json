@@ -1,1543 +1,1583 @@
 {
+  "info": {
+    "_postman_id": "00cdaed9-9cf6-49c8-9149-9657f0759f7f",
+    "name": "Rocketlane Spaces API",
+    "description": "Rocketlane API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:09:25.000Z",
+    "updatedAt": "2026-10-22T02:09:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-00cdaed9-9cf6-49c8-9149-9657f0759f7f"
+  },
   "item": [
     {
-      "id": "8ffc5fb2-550b-476e-b2c8-fd395b89cf60",
-      "name": "Spaces",
-      "description": {
-        "content": "Endpoints for space resource",
-        "type": "text/plain"
-      },
+      "name": "1.0",
       "item": [
         {
-          "id": "d55e0153-da72-4d1f-a8cc-5d0c80d728fe",
-          "name": "Get space by Id",
-          "request": {
-            "name": "Get space by Id",
-            "description": {},
-            "url": {
-              "path": [
-                "1.0",
-                "spaces",
-                ":spaceId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "spaceId",
-                  "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "spaces",
+          "item": [
             {
-              "id": "ff15b5d8-d9ca-429f-bbac-21d4b65fdbe6",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
+              "name": "{spaceId}",
+              "item": [
+                {
+                  "name": "Get space by Id",
+                  "id": "e4b30bf8-3c90-4aab-8361-d86f4c4b6e74",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces",
+                        ":spaceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9555353a-c6bc-46b9-bf44-3726714f007d",
+                          "key": "spaceId",
+                          "value": "1",
+                          "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "55ffb5ba-a135-497b-9485-304851a4be06",
+                      "name": "The requested action was successfully executed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"spaceId\": \"<long>\",\n  \"spaceName\": \"<string>\",\n  \"project\": {\n    \"projectId\": \"<long>\",\n    \"projectName\": \"<string>\"\n  },\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"updatedAt\": \"<long>\",\n  \"updatedBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"private\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-55ffb5ba-a135-497b-9485-304851a4be06"
+                    },
+                    {
+                      "id": "422131ee-3965-428a-9b0a-1991514a84ec",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-422131ee-3965-428a-9b0a-1991514a84ec"
+                    },
+                    {
+                      "id": "c27b1d93-6d63-4f5c-a574-e059cb7b8da2",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-c27b1d93-6d63-4f5c-a574-e059cb7b8da2"
+                    },
+                    {
+                      "id": "6bf146b9-4d24-422d-84f7-91e448d3fe29",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-6bf146b9-4d24-422d-84f7-91e448d3fe29"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-e4b30bf8-3c90-4aab-8361-d86f4c4b6e74"
+                },
+                {
+                  "name": "Update space by Id",
+                  "id": "31d68e56-faa5-40aa-be5a-e4ce7bbf4da3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"spaceName\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces",
+                        ":spaceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fedeb757-9eec-4e8d-9363-b983fc60098e",
+                          "key": "spaceId",
+                          "value": "1",
+                          "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "abf4a274-d65b-43e9-9b25-3e4acc1860a1",
+                      "name": "The requested action was successfully executed.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"spaceName\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"spaceId\": \"<long>\",\n  \"spaceName\": \"<string>\",\n  \"project\": {\n    \"projectId\": \"<long>\",\n    \"projectName\": \"<string>\"\n  },\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"updatedAt\": \"<long>\",\n  \"updatedBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"private\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-abf4a274-d65b-43e9-9b25-3e4acc1860a1"
+                    },
+                    {
+                      "id": "cd91755d-6bc8-4104-8c78-64bb13813201",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"spaceName\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-cd91755d-6bc8-4104-8c78-64bb13813201"
+                    },
+                    {
+                      "id": "e3edd799-f849-499d-9c2a-bb2666a3b0f5",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"spaceName\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-e3edd799-f849-499d-9c2a-bb2666a3b0f5"
+                    },
+                    {
+                      "id": "591030da-02c2-4c26-9d70-770c944c881a",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"spaceName\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-591030da-02c2-4c26-9d70-770c944c881a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-31d68e56-faa5-40aa-be5a-e4ce7bbf4da3"
+                },
+                {
+                  "name": "Delete space by Id",
+                  "id": "7d171afa-da94-4842-8d72-214fa54c3b6f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces",
+                        ":spaceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "52e47f98-0565-453a-8dbc-bde0646026a8",
+                          "key": "spaceId",
+                          "value": "1",
+                          "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ff237448-e6ba-4cb1-9979-4ff3ed4a622b",
+                      "name": "The resource was successfully removed from the database.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-ff237448-e6ba-4cb1-9979-4ff3ed4a622b"
+                    },
+                    {
+                      "id": "761f0713-b774-4564-b64e-26c4eda8465e",
+                      "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-761f0713-b774-4564-b64e-26c4eda8465e"
+                    },
+                    {
+                      "id": "709e918b-7169-4c76-8b2a-6956fe7196ea",
+                      "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-709e918b-7169-4c76-8b2a-6956fe7196ea"
+                    },
+                    {
+                      "id": "bed78978-c509-4f99-a02c-cf675c0ab718",
+                      "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1.0/spaces/:spaceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1.0",
+                            "spaces",
+                            ":spaceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "spaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:09:26.000Z",
+                      "updatedAt": "2026-10-22T02:09:26.000Z",
+                      "uid": "35240-bed78978-c509-4f99-a02c-cf675c0ab718"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-7d171afa-da94-4842-8d72-214fa54c3b6f"
+                }
+              ],
+              "id": "3cfe1104-7536-4ea1-a497-9c53e98328c0",
+              "createdAt": "2026-10-22T02:09:26.000Z",
+              "updatedAt": "2026-10-22T02:09:26.000Z",
+              "uid": "35240-3cfe1104-7536-4ea1-a497-9c53e98328c0"
+            },
+            {
+              "name": "Get all spaces",
+              "id": "f699b6f8-a0c8-4ae2-9503-61f33eaacc65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"spaceId\": 201,\n  \"spaceName\": \"Shared space\",\n  \"project\": {\n    \"projectId\": 201,\n    \"projectName\": \"Acme onboarding\"\n  },\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1681319726000,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "eecd72ec-fee0-4d45-84f8-03497ec56734",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0b4d209f-b5d4-432a-9f33-068c55b12a53",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
+                  "raw": "{{baseUrl}}/1.0/spaces?projectId=1&pageSize=<number>&pageToken=<string>&sortBy=spaceName&sortOrder=ASC&match=all&spaceName.eq=<string>&spaceName.cn=<string>&spaceName.nc=<string>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&updatedAt.gt=<long>&updatedAt.eq=<long>&updatedAt.lt=<long>&updatedAt.ge=<long>&updatedAt.le=<long>",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "31c17cc2-a45f-4527-9601-4113e15f7c99",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f6aa4e75-9ee7-4dde-ae84-5bebc25f02d1",
-          "name": "Update space by Id",
-          "request": {
-            "name": "Update space by Id",
-            "description": {},
-            "url": {
-              "path": [
-                "1.0",
-                "spaces",
-                ":spaceId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "spaceId",
-                  "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"spaceName\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "89bb9dc8-f325-4224-8a68-28a9b3f67592",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"spaceName\": \"Shared space\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"spaceId\": 201,\n  \"spaceName\": \"Shared space\",\n  \"project\": {\n    \"projectId\": 201,\n    \"projectName\": \"Acme onboarding\"\n  },\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1681319726000,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f90c4d91-1066-40db-8601-f48539325547",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"spaceName\": \"Shared space\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f903b9b3-d06b-4424-9413-70f6210167ae",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"spaceName\": \"Shared space\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fa026bc6-d6cd-4008-8b2f-9b345a2d9cb4",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"spaceName\": \"Shared space\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ad7d776c-8eff-4497-afa7-4dbaaea6ee18",
-          "name": "Delete space by Id",
-          "request": {
-            "name": "Delete space by Id",
-            "description": {},
-            "url": {
-              "path": [
-                "1.0",
-                "spaces",
-                ":spaceId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "1",
-                  "key": "spaceId",
-                  "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2e14d206-b228-4d41-9d92-77afb3d19a3c",
-              "name": "The resource was successfully removed from the database.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"string\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8ef1afb3-39ba-4dc1-ba2e-2e3000f8b52e",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "83272371-6e78-4bf9-b0b3-49ace9c3c42f",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a16e7666-38e1-4cdd-98b5-08db9753baf6",
-              "name": "If we were unable to locate the resource you were looking for or the proper API endpoint you were looking for, this error would show up.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces",
-                    ":spaceId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "1",
-                      "key": "spaceId",
-                      "description": "(Required) The space's unique, system-generated identifier, which can be used to identify the space globally."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    },\n    {\n      \"errorCode\": \"NOT_FOUND\",\n      \"errorMessage\": \"Not Found: Resource not found for given ID\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "76b514df-e069-4968-8e98-c7a1e7ef45da",
-          "name": "Get all spaces",
-          "request": {
-            "name": "Get all spaces",
-            "description": {},
-            "url": {
-              "path": [
-                "1.0",
-                "spaces"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "projectId",
-                  "value": "1",
-                  "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of spaces that match the given value."
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<int32>",
-                  "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100."
-                },
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>",
-                  "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created."
-                },
-                {
-                  "disabled": false,
-                  "key": "sortBy",
-                  "value": "<string>",
-                  "description": "You can use the sortBy param to sort the responses by the given field."
-                },
-                {
-                  "disabled": false,
-                  "key": "sortOrder",
-                  "value": "<string>",
-                  "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option."
-                },
-                {
-                  "disabled": false,
-                  "key": "match",
-                  "value": "<string>",
-                  "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND."
-                },
-                {
-                  "disabled": false,
-                  "key": "spaceName.eq",
-                  "value": "<string>",
-                  "description": "You can use this param to specify some space name and the responses will contain exact matches of spaces that match the given name."
-                },
-                {
-                  "disabled": false,
-                  "key": "spaceName.cn",
-                  "value": "<string>",
-                  "description": "You can use this param to specify some space name and the responses will contain matches of spaces that match the given name."
-                },
-                {
-                  "disabled": false,
-                  "key": "spaceName.nc",
-                  "value": "<string>",
-                  "description": "You can use this param to specify some space name and the responses will not contain matches of spaces that match the given name."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.gt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces created date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.eq",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces created date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.lt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces created date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.ge",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces created date."
-                },
-                {
-                  "disabled": false,
-                  "key": "createdAt.le",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces created date."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedAt.gt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces updated date."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedAt.eq",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces updated date."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedAt.lt",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces updated date."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedAt.ge",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces updated date."
-                },
-                {
-                  "disabled": false,
-                  "key": "updatedAt.le",
-                  "value": "<long>",
-                  "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces updated date."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d4662d7a-0bc1-4ca1-857c-30640c4af59d",
-              "name": "The requested action was successfully executed.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "1.0",
                     "spaces"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
+                      "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of spaces that match the given value.",
                       "key": "projectId",
-                      "value": "200"
+                      "value": "1"
                     },
                     {
+                      "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
                       "key": "pageSize",
-                      "value": "100"
+                      "value": "<number>"
                     },
                     {
+                      "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
                       "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
+                      "value": "<string>"
                     },
                     {
+                      "description": "You can use the sortBy param to sort the responses by the given field.",
                       "key": "sortBy",
-                      "value": "<string>"
+                      "value": "spaceName"
                     },
                     {
+                      "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
                       "key": "sortOrder",
-                      "value": "<string>"
+                      "value": "ASC"
                     },
                     {
+                      "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
                       "key": "match",
+                      "value": "all"
+                    },
+                    {
+                      "description": "You can use this param to specify some space name and the responses will contain exact matches of spaces that match the given name.",
+                      "key": "spaceName.eq",
                       "value": "<string>"
                     },
                     {
-                      "key": "spaceName.eq",
-                      "value": "Stark Onboarding"
-                    },
-                    {
+                      "description": "You can use this param to specify some space name and the responses will contain matches of spaces that match the given name.",
                       "key": "spaceName.cn",
-                      "value": "Stark Onboarding"
+                      "value": "<string>"
                     },
                     {
+                      "description": "You can use this param to specify some space name and the responses will not contain matches of spaces that match the given name.",
                       "key": "spaceName.nc",
-                      "value": "Stark Onboarding"
+                      "value": "<string>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces created date.",
                       "key": "createdAt.gt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces created date.",
                       "key": "createdAt.eq",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces created date.",
                       "key": "createdAt.lt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces created date.",
                       "key": "createdAt.ge",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces created date.",
                       "key": "createdAt.le",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces updated date.",
                       "key": "updatedAt.gt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces updated date.",
                       "key": "updatedAt.eq",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces updated date.",
                       "key": "updatedAt.lt",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces updated date.",
                       "key": "updatedAt.ge",
-                      "value": "1625164800000"
+                      "value": "<long>"
                     },
                     {
+                      "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces updated date.",
                       "key": "updatedAt.le",
-                      "value": "1625164800000"
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3dcc497a-5fbf-4c5d-aa8b-95df734d5349",
+                  "name": "The requested action was successfully executed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces?projectId=1&pageSize=<number>&pageToken=<string>&sortBy=spaceName&sortOrder=ASC&match=all&spaceName.eq=<string>&spaceName.cn=<string>&spaceName.nc=<string>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&updatedAt.gt=<long>&updatedAt.eq=<long>&updatedAt.lt=<long>&updatedAt.ge=<long>&updatedAt.le=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of spaces that match the given value.",
+                          "key": "projectId",
+                          "value": "1"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use the sortBy param to sort the responses by the given field.",
+                          "key": "sortBy",
+                          "value": "spaceName"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "all"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain exact matches of spaces that match the given name.",
+                          "key": "spaceName.eq",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain matches of spaces that match the given name.",
+                          "key": "spaceName.cn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will not contain matches of spaces that match the given name.",
+                          "key": "spaceName.nc",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces created date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces created date.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces created date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces created date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces created date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces updated date.",
+                          "key": "updatedAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces updated date.",
+                          "key": "updatedAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces updated date.",
+                          "key": "updatedAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces updated date.",
+                          "key": "updatedAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces updated date.",
+                          "key": "updatedAt.le",
+                          "value": "<long>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"spaceId\": \"<long>\",\n      \"spaceName\": \"<string>\",\n      \"project\": {\n        \"projectId\": \"<long>\",\n        \"projectName\": \"<string>\"\n      },\n      \"createdAt\": \"<long>\",\n      \"createdBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"updatedAt\": \"<long>\",\n      \"updatedBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"private\": \"<boolean>\"\n    },\n    {\n      \"spaceId\": \"<long>\",\n      \"spaceName\": \"<string>\",\n      \"project\": {\n        \"projectId\": \"<long>\",\n        \"projectName\": \"<string>\"\n      },\n      \"createdAt\": \"<long>\",\n      \"createdBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"updatedAt\": \"<long>\",\n      \"updatedBy\": {\n        \"emailId\": \"<string>\",\n        \"userId\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"private\": \"<boolean>\"\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": \"<integer>\",\n    \"hasMore\": \"<boolean>\",\n    \"totalRecordCount\": \"<long>\",\n    \"nextPage\": \"<string>\",\n    \"nextPageToken\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-3dcc497a-5fbf-4c5d-aa8b-95df734d5349"
                 },
+                {
+                  "id": "06032334-3eea-4600-900b-6f2203aba947",
+                  "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces?projectId=1&pageSize=<number>&pageToken=<string>&sortBy=spaceName&sortOrder=ASC&match=all&spaceName.eq=<string>&spaceName.cn=<string>&spaceName.nc=<string>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&updatedAt.gt=<long>&updatedAt.eq=<long>&updatedAt.lt=<long>&updatedAt.ge=<long>&updatedAt.le=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of spaces that match the given value.",
+                          "key": "projectId",
+                          "value": "1"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use the sortBy param to sort the responses by the given field.",
+                          "key": "sortBy",
+                          "value": "spaceName"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "all"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain exact matches of spaces that match the given name.",
+                          "key": "spaceName.eq",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain matches of spaces that match the given name.",
+                          "key": "spaceName.cn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will not contain matches of spaces that match the given name.",
+                          "key": "spaceName.nc",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces created date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces created date.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces created date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces created date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces created date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces updated date.",
+                          "key": "updatedAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces updated date.",
+                          "key": "updatedAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces updated date.",
+                          "key": "updatedAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces updated date.",
+                          "key": "updatedAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces updated date.",
+                          "key": "updatedAt.le",
+                          "value": "<long>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-06032334-3eea-4600-900b-6f2203aba947"
+                },
+                {
+                  "id": "6d0c0857-0e5e-4193-82b3-4502abbc9e0b",
+                  "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces?projectId=1&pageSize=<number>&pageToken=<string>&sortBy=spaceName&sortOrder=ASC&match=all&spaceName.eq=<string>&spaceName.cn=<string>&spaceName.nc=<string>&createdAt.gt=<long>&createdAt.eq=<long>&createdAt.lt=<long>&createdAt.ge=<long>&createdAt.le=<long>&updatedAt.gt=<long>&updatedAt.eq=<long>&updatedAt.lt=<long>&updatedAt.ge=<long>&updatedAt.le=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) You can use this param to specify some value as project id and the responses will contain exact matches of spaces that match the given value.",
+                          "key": "projectId",
+                          "value": "1"
+                        },
+                        {
+                          "description": "This parameter sets the maximum number of responses to be displayed per page. If the page size is insufficient to accommodate the whole number of responses obtained, the pagination object will include a link to the next page as well as the next page token. If left blank, it defaults to 100.",
+                          "key": "pageSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Use this parameter to specify the pageToken of a page to which you want to navigate. This pageToken can be obtained from a previous request which specified a limit and will only be active for 15 minutes after it is created.",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use the sortBy param to sort the responses by the given field.",
+                          "key": "sortBy",
+                          "value": "spaceName"
+                        },
+                        {
+                          "description": "The sortOrder param can be used to specify the sorting order, which can be Ascending (ASC) or Descending (DESC). Descending is the default option.",
+                          "key": "sortOrder",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "You can use the match param to specify if we need to filter the entries using either AND(all) / OR(any). Defaults to AND.",
+                          "key": "match",
+                          "value": "all"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain exact matches of spaces that match the given name.",
+                          "key": "spaceName.eq",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will contain matches of spaces that match the given name.",
+                          "key": "spaceName.cn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to specify some space name and the responses will not contain matches of spaces that match the given name.",
+                          "key": "spaceName.nc",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces created date.",
+                          "key": "createdAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces created date.",
+                          "key": "createdAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces created date.",
+                          "key": "createdAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces created date.",
+                          "key": "createdAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces created date.",
+                          "key": "createdAt.le",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than the given spaces updated date.",
+                          "key": "updatedAt.gt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain exact matches of spaces that match the given spaces updated date.",
+                          "key": "updatedAt.eq",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than the given spaces updated date.",
+                          "key": "updatedAt.lt",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are greater than or equal to the given spaces updated date.",
+                          "key": "updatedAt.ge",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "You can use this param to provide an epoch milli value and the responses will contain spaces whose date are less than or equal to the given spaces updated date.",
+                          "key": "updatedAt.le",
+                          "value": "<long>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-6d0c0857-0e5e-4193-82b3-4502abbc9e0b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:09:26.000Z",
+              "updatedAt": "2026-10-22T02:09:26.000Z",
+              "uid": "35240-f699b6f8-a0c8-4ae2-9503-61f33eaacc65"
+            },
+            {
+              "name": "Create a space",
+              "id": "9c4f4218-3033-4bf8-bcb3-df9626eb518b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"spaceId\": 201,\n      \"spaceName\": \"Shared space\",\n      \"project\": {\n        \"projectId\": 201,\n        \"projectName\": \"Acme onboarding\"\n      },\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1681319726000,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"private\": true\n    },\n    {\n      \"spaceId\": 201,\n      \"spaceName\": \"Shared space\",\n      \"project\": {\n        \"projectId\": 201,\n        \"projectName\": \"Acme onboarding\"\n      },\n      \"createdAt\": 1681319726000,\n      \"createdBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"updatedAt\": 1681319726000,\n      \"updatedBy\": {\n        \"emailId\": \"john.doe@rocketlane.com\",\n        \"userId\": 201,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\"\n      },\n      \"private\": true\n    }\n  ],\n  \"pagination\": {\n    \"pageSize\": 100,\n    \"hasMore\": true,\n    \"totalRecordCount\": 10398,\n    \"nextPage\": \"https://api.rocketlane.com/api/1.0/spaces?includeFields=category,minutes&billable.eq=false&sortBy=startDate&sortOrder=desc&pageToken=e4a3dd8e-e338-11ed-b5ea-0242ac120002&limit=100&assignee.any=1&startDate.gt=2022-01-02\",\n    \"nextPageToken\": \"e4a3dd8e-e338-11ed-b5ea-0242ac120002\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "94339fd6-7d10-4460-b686-496491da5c8b",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"spaceName\": \"<string>\",\n  \"spaceId\": \"<long>\",\n  \"private\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
-                  "path": [
-                    "1.0",
-                    "spaces"
-                  ],
+                  "raw": "{{baseUrl}}/1.0/spaces",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "projectId",
-                      "value": "200"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "100"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
-                    },
-                    {
-                      "key": "sortBy",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sortOrder",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "match",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "spaceName.eq",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "spaceName.cn",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "spaceName.nc",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "createdAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.le",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.le",
-                      "value": "1625164800000"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e4cc5495-fa96-46b9-bbc3-5fb4c07889cb",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "1.0",
                     "spaces"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "projectId",
-                      "value": "200"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6943c93c-a0c4-42d5-a05e-8832fc845a89",
+                  "name": "The resource was successfully created in the database.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"spaceName\": \"<string>\",\n  \"spaceId\": \"<long>\",\n  \"private\": false\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "100"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "59c12a42-dd10-11ed-afa1-0242ac120002"
-                    },
-                    {
-                      "key": "sortBy",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sortOrder",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "match",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "spaceName.eq",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "spaceName.cn",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "spaceName.nc",
-                      "value": "Stark Onboarding"
-                    },
-                    {
-                      "key": "createdAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "createdAt.le",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.gt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.eq",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.lt",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.ge",
-                      "value": "1625164800000"
-                    },
-                    {
-                      "key": "updatedAt.le",
-                      "value": "1625164800000"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"spaceId\": \"<long>\",\n  \"spaceName\": \"<string>\",\n  \"project\": {\n    \"projectId\": \"<long>\",\n    \"projectName\": \"<string>\"\n  },\n  \"createdAt\": \"<long>\",\n  \"createdBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"updatedAt\": \"<long>\",\n  \"updatedBy\": {\n    \"emailId\": \"<string>\",\n    \"userId\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n  },\n  \"private\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-6943c93c-a0c4-42d5-a05e-8832fc845a89"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "b90a625b-98d1-4fa2-b6da-5b7ab4290186",
+                  "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"spaceName\": \"<string>\",\n  \"spaceId\": \"<long>\",\n  \"private\": false\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-b90a625b-98d1-4fa2-b6da-5b7ab4290186"
+                },
+                {
+                  "id": "f0320eb8-105a-41f5-b8e1-9a14680fbf5f",
+                  "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"spaceName\": \"<string>\",\n  \"spaceId\": \"<long>\",\n  \"private\": false\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1.0/spaces",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1.0",
+                        "spaces"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:09:26.000Z",
+                  "updatedAt": "2026-10-22T02:09:26.000Z",
+                  "uid": "35240-f0320eb8-105a-41f5-b8e1-9a14680fbf5f"
                 }
               ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:09:26.000Z",
+              "updatedAt": "2026-10-22T02:09:26.000Z",
+              "uid": "35240-9c4f4218-3033-4bf8-bcb3-df9626eb518b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c03df519-ad41-4ecd-81da-697173d19373",
-          "name": "Create a space",
-          "request": {
-            "name": "Create a space",
-            "description": {},
-            "url": {
-              "path": [
-                "1.0",
-                "spaces"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"project\": {\n    \"projectId\": \"<long>\"\n  },\n  \"spaceName\": \"<string>\",\n  \"private\": false\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "3f2caaf4-029b-4c0b-be87-7ee2e0a01a33",
-              "name": "The resource was successfully created in the database.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"project\": {\n    \"projectId\": 201\n  },\n  \"spaceName\": \"Shared space\",\n  \"private\": true\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"spaceId\": 201,\n  \"spaceName\": \"Shared space\",\n  \"project\": {\n    \"projectId\": 201,\n    \"projectName\": \"Acme onboarding\"\n  },\n  \"createdAt\": 1681319726000,\n  \"createdBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"updatedAt\": 1681319726000,\n  \"updatedBy\": {\n    \"emailId\": \"john.doe@rocketlane.com\",\n    \"userId\": 201,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n  },\n  \"private\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "84a299e4-778f-4443-9df1-3fc042745ce5",
-              "name": "This error typically happens when the request payload contains an error. If you want to make sure that the request's parameters are named correctly and are the right data types, you can examine the request's syntax.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"project\": {\n    \"projectId\": 201\n  },\n  \"spaceName\": \"Shared space\",\n  \"private\": true\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    },\n    {\n      \"errorCode\": \"BAD_REQUEST\",\n      \"errorMessage\": \"Bad Request: Minutes is negative\",\n      \"field\": \"minutes\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e3be36e8-db6a-4ba9-8285-e128e662b5e1",
-              "name": "You see this error when trying to access this resource without being authenticated. Check the API request header to make sure it is not empty and has a valid api-key that you acquired from the Rocketlane API Settings tab.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1.0",
-                    "spaces"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "api-key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"project\": {\n    \"projectId\": 201\n  },\n  \"spaceName\": \"Shared space\",\n  \"private\": true\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    },\n    {\n      \"errorCode\": \"NOT_AUTHORIZED\",\n      \"errorMessage\": \"Not Authorized: User not authorized\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b55c8788-299e-47b7-9a87-d9b0c4ef0cbe",
+          "createdAt": "2026-10-22T02:09:26.000Z",
+          "updatedAt": "2026-10-22T02:09:26.000Z",
+          "uid": "35240-b55c8788-299e-47b7-9a87-d9b0c4ef0cbe"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.rocketlane.com/api",
-      "key": "baseUrl"
+      "id": "d2ac84ab-9710-49be-b3d7-39243aebb567",
+      "createdAt": "2026-10-22T02:09:26.000Z",
+      "updatedAt": "2026-10-22T02:09:26.000Z",
+      "uid": "35240-d2ac84ab-9710-49be-b3d7-39243aebb567"
     }
   ],
   "auth": {
@@ -1545,25 +1585,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "api-key"
+        "value": "api-key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ccbda7b5-1722-4acc-ba65-a116595d2c73",
-    "name": "Rocketlane Comments Spaces API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Rocketlane API",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.rocketlane.com/api"
     }
-  }
+  ]
 }
